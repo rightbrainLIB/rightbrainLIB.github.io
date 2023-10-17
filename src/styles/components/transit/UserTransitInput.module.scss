@@ -31,7 +31,7 @@
         right: 0;
       }
     }
-    [class~="ant-input"] {
+    [class~="ant-input"], &[class~="ant-input"] {
       font-family: 'KBB';
       font-weight: normal;
       font-size: 19px;
