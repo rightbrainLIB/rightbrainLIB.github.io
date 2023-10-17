@@ -1,0 +1,44 @@
+.bottomSheetWrap{
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+    [class~="ant-drawer-header"] {
+        border-bottom:0;
+        padding: 30px 24px 30px 26px;
+    }
+    [class~="ant-drawer-header-title"]{
+        position:relative;
+        border-bottom:0;
+    }
+    [class~="ant-drawer-title"]{
+        font-family: 'KBM';
+        font-size: 20px;
+        color: #26282C;
+        line-height: 28px;
+    }
+    [class~="ant-drawer-close"] {
+        position: absolute;
+        right: 0;
+        top:0;
+        margin:0;
+        padding:0;
+        [class~="anticon"]{
+            svg {
+                display: none;
+            }
+            width: 24px;
+            height: 24px;
+            background-size: 24px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image:url("../../assets/images/icon_close_24.svg");
+        }
+    }
+    &.bottomSheetNoneWrap {
+        [class~="ant-drawer-header"] {
+            padding: 0;
+        }
+        [class~="ant-drawer-header"]{
+            padding: 34px 24px 0 0;
+        }
+    }
+}
