@@ -1,0 +1,14 @@
+.customKeypad {
+	&.hg-layout-default {
+		background-color: #fff;
+	}
+	.hg-button {
+		border-bottom: 0;
+		border-radius: 0;
+		box-shadow: unset;
+		font-weight: 700;
+		&.hg-activeButton {
+			background-color: unset;
+		}
+	}
+}
