@@ -1,5 +1,4 @@
 import Wrapper from "../components/Wrapper.jsx";
-import {useEffect} from "react";
 
 const Test = () => {
   return (

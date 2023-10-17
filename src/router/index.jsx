@@ -1,15 +1,20 @@
 import App from '../App.jsx'
 import {createBrowserRouter} from "react-router-dom";
 import Test from "../pages/Test.jsx";
+import TransitView from "../pages/TransitView.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/kb",
     element: <App />
   },
   {
-    path: "/test",
+    path: "/kb/test",
     element: <Test />
+  },
+  {
+    path: "/kb/transit",
+    element: <TransitView />
   }
 ]);
 
