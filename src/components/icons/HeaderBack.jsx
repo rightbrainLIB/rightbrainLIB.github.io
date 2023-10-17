@@ -1,6 +1,8 @@
+import iconBack from '@imgs/icon_back.svg';
+
 const HeaderBack = () => {
   return (
-    <img src="/src/assets/images/icon_back.svg" alt="뒤로가기" />
+    <img src={iconBack} alt="뒤로가기" />
   )
 }
 
