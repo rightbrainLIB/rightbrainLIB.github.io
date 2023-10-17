@@ -4,7 +4,7 @@ import Test from "../pages/Test.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/kb",
     element: <App />
   },
   {
