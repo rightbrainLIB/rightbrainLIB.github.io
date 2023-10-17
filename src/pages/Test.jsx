@@ -1,4 +1,4 @@
-import Wrapper from "../components/Wrapper.jsx";
+import Wrapper from "@components/Wrapper.jsx";
 
 const Test = () => {
   return (

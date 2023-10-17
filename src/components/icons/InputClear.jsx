@@ -1,6 +1,8 @@
+import iconDelete from '@imgs/icon_delete_20.svg';
+
 const InputClear = () => {
   return (
-    <img src="/src/assets/images/icon_delete_20.svg" alt="지우기" />
+    <img src={iconDelete} alt="지우기" />
   )
 }
 

@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'KBL';
   font-style: normal;
-  font-weight: 200;
+  font-weight: 400;
   src: url("./assets/fonts/KBFGTextL.woff") format("woff");
 }
 @font-face {
@@ -13,13 +13,13 @@
 @font-face {
   font-family: 'KBB';
   font-style: normal;
-  font-weight: 800;
+  font-weight: 400;
   src: url("./assets/fonts/KBFGTextB.woff") format("woff");
 }
 @font-face {
   font-family: 'KBDL';
   font-style: normal;
-  font-weight: 200;
+  font-weight: 400;
   src: url("./assets/fonts/KBFGDisplayL.woff") format("woff");
 }
 @font-face {
@@ -31,14 +31,38 @@
 @font-face {
   font-family: 'KBDMI';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400;
   src: url("./assets/fonts/KBFGDisplayMI.woff") format("woff");
 }
 @font-face {
   font-family: 'KBDB';
   font-style: normal;
-  font-weight: 800;
+  font-weight: 400;
   src: url("./assets/fonts/KBFGDisplayB.woff") format("woff");
+}
+@font-face {
+  font-family: 'robotoL';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/Roboto-Light.woff") format("woff");
+}
+@font-face {
+  font-family: 'robotoR';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/Roboto-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: 'robotoM';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/Roboto-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: 'robotoB';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/Roboto-Bold.woff") format("woff");
 }
 
 body {
@@ -47,6 +71,7 @@ body {
   font-family: 'KBL', sans-serif;
   font-weight: 400;
   color: #26282C;
+  -webkit-tap-highlight-color: transparent;
 }
 body, p, h1, h2, h3, h4, h5, h6, div, ul, li, ol, a {
   margin: 0;
@@ -57,4 +82,14 @@ a {
 }
 li {
   list-style: none;
+}
+:where(.css-dev-only-do-not-override-3mqfnx).ant-btn-text:not(:disabled):not(.ant-btn-disabled):hover {
+  color: inherit;
+  background-color: inherit;
+}
+:where(.css-dev-only-do-not-override-3mqfnx).ant-btn {
+  &:not(:disabled):not(.ant-btn-disabled):active {
+    color: inherit;
+    background-color: inherit;
+  }
 }

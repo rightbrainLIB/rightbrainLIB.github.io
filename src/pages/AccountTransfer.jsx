@@ -2,12 +2,12 @@ import Keyboard, { KeyboardReactInterface }  from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
 import { Drawer, } from 'antd';
 import {useEffect, useRef, useState} from "react";
-import "../assets/keyboard-custom.scss";
+import "@styles/keyboard-custom.scss";
 import { Input, Button } from 'antd';
-import styles from "../assets/AccountTransfer.module.scss"
-import KBHeader from "../components/KBHeader.jsx";
-import KBContainer from "../components/KBContainer.jsx";
-import TransitInput from "../components/transit/TransitInput.jsx";
+import styles from "@styles/AccountTransfer.module.scss"
+import KBHeader from "@components/KBHeader.jsx";
+import KBContainer from "@components/KBContainer.jsx";
+import TransitInput from "@components/transit/TransitInput.jsx";
 
 const AccountTransfer = () => {
   const [numDrawerOpen, setNumDrawerOpen] = useState(false);

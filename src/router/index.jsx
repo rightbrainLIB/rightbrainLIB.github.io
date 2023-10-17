@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     element: <TransitView />
   },
   {
-    path: "/kb/accountTransfer",
+    path: "/accountTransfer",
     element: <AccountTransfer />
   },
 ]);

@@ -7,7 +7,9 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: [
-      { find: "@imgs", replacement: path.resolve(__dirname, "src/assets/images") }
+      { find: "@imgs", replacement: path.resolve(__dirname, "src/assets/images") },
+      { find: "@components", replacement: path.resolve(__dirname, "src/components") },
+      { find: "@styles", replacement: path.resolve(__dirname, "src/styles") },
     ]
   }
 })
