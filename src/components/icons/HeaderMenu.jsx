@@ -1,6 +1,7 @@
+import iconMenu from '@imgs/icon_menu.svg';
 const HeaderMenu = () => {
   return (
-    <img src="/src/assets/images/icon_menu.svg" alt="menu" />
+    <img src={iconMenu} alt="menu" />
   )
 }
 

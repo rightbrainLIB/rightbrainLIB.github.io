@@ -1,6 +1,8 @@
+import iconCamera from '@imgs/icon_camera_20.svg';
+
 const CameraTransit = () => {
   return (
-    <img src="/src/assets/images/icon_camera_20.svg" alt="" />
+    <img src={iconCamera} alt="" />
   )
 }
 

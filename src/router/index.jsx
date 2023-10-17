@@ -5,15 +5,15 @@ import TransitView from "../pages/TransitView.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/kb",
+    path: "/",
     element: <App />
   },
   {
-    path: "/kb/test",
+    path: "/test",
     element: <Test />
   },
   {
-    path: "/kb/transit",
+    path: "/transit",
     element: <TransitView />
   }
 ]);
