@@ -1,7 +1,7 @@
 import $style from '/src/styles/components/transit/UserTransitInput.module.scss'
 import {Input} from "antd";
-import CameraTransit from "/src/components/Buttons/CameraTransit.jsx";
-import PNTransit from "/src/components/Buttons/PNTransit.jsx";
+import CameraTransit from "/src/components/buttons/CameraTransit.jsx";
+import PNTransit from "/src/components/buttons/PNTransit.jsx";
 import {useEffect, useRef} from "react";
 
 const UserTransitInput = () => {

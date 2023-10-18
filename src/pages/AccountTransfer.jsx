@@ -12,14 +12,13 @@ import TransitInput from "@components/transit/TransitInput.jsx";
 const AccountTransfer = () => {
   const [numDrawerOpen, setNumDrawerOpen] = useState(false);
   const [accountValue, setAccountValue] = useState("")
-  const [bankValue, setBankValue] = useState("")
   const keyboardRef = useRef(null)
 
   const onChange = input => {
     setAccountValue(input);
     console.log("Input changed", input);
   };
-  
+
   const numDrawerClose = () => {
     setNumDrawerOpen(false)
   }
@@ -28,11 +27,11 @@ const AccountTransfer = () => {
     keyboardRef.current.clearInput();
     setAccountValue('');
   };
-  
+
   useEffect(()=> {
     setNumDrawerOpen(true)
   }, [])
-  
+
   return (
     <KBContainer>
       <KBHeader />
@@ -41,7 +40,6 @@ const AccountTransfer = () => {
         accountClick={()=>setNumDrawerOpen(true)}
         accountClear={accountClear}
         focusOut={numDrawerOpen}
-        bankValue={bankValue}
       />
       <Drawer
         placement={"bottom"}
@@ -61,7 +59,6 @@ const AccountTransfer = () => {
       />
       <Button block onClick={numDrawerClose}>확인</Button>
       </Drawer>
-      
     </KBContainer>
   )
 }
