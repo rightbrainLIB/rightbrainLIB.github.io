@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import iconTransit from "@imgs/icon_transprocess_110_38.svg";
 import textInfo from "@imgs/안내_최근이체기록없음_269_38.svg";
 import iconArrow from "@imgs/ico_arrow.svg";
@@ -5,12 +6,18 @@ import KBBottomSheet from "@components/BottomSheet/KBBottomSheet";
 import $style from "@styles/TransitCompleteModal.module.scss";
 
 const TransitCompleteModal = (drawerProps) => {
+  const navigate = useNavigate();
+
+  const move = () => {
+    navigate("/TransitCompletePage");
+  };
+
   return (
     <>
       <KBBottomSheet {...drawerProps.drawerProps}>
         <>
           <div className={$style.transCompleteWrap}>
-            <div>
+            <div className={$style.topImg}>
               <img src={iconTransit} alt="" />
             </div>
             <div className={$style.info}>
@@ -34,7 +41,9 @@ const TransitCompleteModal = (drawerProps) => {
               </p>
             </div>
           </div>
-          <div className={$style.bottomBtn}>이체</div>
+          <div className={$style.bottomBtn} onClick={move}>
+            이체
+          </div>
         </>
       </KBBottomSheet>
     </>
