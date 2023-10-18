@@ -1,5 +1,5 @@
 import { Drawer } from "antd";
-import $style from "../../styles/components/KBBottomSheet.module.scss";
+import $style from "@styles/components/KBBottomSheet.module.scss";
 
 const BottomSheet = ({ ...drawerProps }) => {
   const onClose = () => {
