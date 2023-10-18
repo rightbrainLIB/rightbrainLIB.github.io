@@ -17,7 +17,7 @@ const TransitCompleteModal = (drawerProps) => {
       <KBBottomSheet {...drawerProps.drawerProps}>
         <>
           <div className={$style.transCompleteWrap}>
-            <div>
+            <div className={$style.topImg}>
               <img src={iconTransit} alt="" />
             </div>
             <div className={$style.info}>

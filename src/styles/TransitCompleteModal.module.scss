@@ -1,7 +1,12 @@
 /* bottom sheet */
 .transCompleteWrap{
-    font-family: 'KBL';
     text-align: center;
+    .topImg {
+        img {
+            width: 110px;
+            height: 38px;
+        }
+    }
     .info {
         margin-top: 20px;
         color: #26282C;
