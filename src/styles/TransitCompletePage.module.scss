@@ -1,0 +1,11 @@
+.completeWrap {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 9px 9px 24px;
+        .left {
+            font-size: 18px;
+        }
+    }
+}

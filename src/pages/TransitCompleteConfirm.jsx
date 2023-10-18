@@ -18,6 +18,12 @@ const TransitCompleteConfirm = () => {
   const drawerProps = {
     open: mopen,
     onClose: onClose,
+    classNames: {
+      wrapper: "CmodalWrapper",
+      mask: "CmodalMask",
+      body: "CmodalBody",
+    },
+    height: "429px",
   };
 
   return (
