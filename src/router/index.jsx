@@ -2,23 +2,28 @@ import App from "../App.jsx";
 import { createBrowserRouter } from "react-router-dom";
 import Test from "../pages/Test.jsx";
 import TransitView from "../pages/TransitView.jsx";
+import AccountTransfer from "../pages/AccountTransfer.jsx";
 import TransitCompleteModal from "../pages/TransitCompleteModal.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/kb",
+    path: "/",
     element: <App />,
   },
   {
-    path: "/kb/test",
+    path: "/test",
     element: <Test />,
   },
   {
-    path: "/kb/transit",
+    path: "/transit",
     element: <TransitView />,
   },
   {
-    path: "/kb/AccountCompleteModal",
+    path: "/accountTransfer",
+    element: <AccountTransfer />,
+  },
+  {
+    path: "/TransitCompleteModal",
     element: <TransitCompleteModal />,
   },
 ]);

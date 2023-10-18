@@ -1,0 +1,110 @@
+.accountListWrap {
+  padding-top: 60px;
+  .tabBtn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: -24px;
+    padding-right: 24px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid #dde1e4;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 32px;
+      height: 4px;
+      background-color: #26282c;
+    }
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    width: calc(100% - 30px);
+    overflow-x: auto;
+    [class~="ant-btn"] {
+      font-family: 'KBM', sans-serif;
+      font-weight: normal;
+      font-size: 16px;
+      color: #8c949e;
+      padding: 0;
+      &:active,
+      &:hover {
+        color: #8c949e !important;
+      }
+    }
+    li {
+      &:first-child {
+        [class~="ant-btn"] {
+          color: #26282C;
+          &:active,
+          &:hover {
+            color: #26282C !important;
+          }
+        }
+      }
+      & + li {
+        padding-left: 31px;
+      }
+    }
+  }
+  .searchBtnBox {
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+  }
+}
+
+ ul.accountList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 11px;
+  margin-bottom: 12px;
+  overflow: initial;
+  li {
+    display: flex;
+    width: 100%;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #ebeef0;
+    &:last-child {
+      border-bottom: none;
+    }
+    & + li {
+      padding-left: 0;
+    }
+    .imgBox {
+      flex: none;
+      width: 32px;
+    }
+    .accountInfo {
+      flex: 1 0 calc(100% - 84px);
+      margin-left: 16px;
+      padding-top: 5px;
+      p {
+        & + p {
+          padding-top: 4px;
+        }
+        strong {
+          font-family: 'robotoM', sans-serif;
+          font-size: 17px;
+          font-weight: 500;
+          padding-left: 6px;
+        }
+      }
+    }
+  }
+  .favBtn {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    transform: translateY(29px);
+    [class~="ant-btn"] {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

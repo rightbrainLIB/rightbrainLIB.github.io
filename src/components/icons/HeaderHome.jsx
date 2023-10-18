@@ -1,6 +1,7 @@
+import iconHome from '@imgs/icon_home.svg';
 const HeaderHome = () => {
   return (
-    <img src="/src/assets/images/icon_home.svg" alt="home" />
+    <img src={iconHome} alt="home" />
   )
 }
 

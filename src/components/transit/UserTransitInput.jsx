@@ -1,7 +1,7 @@
 import $style from '/src/styles/components/transit/UserTransitInput.module.scss'
 import {Input} from "antd";
-import CameraTransit from "../Buttons/CameraTransit.jsx";
-import PNTransit from "../Buttons/PNTransit.jsx";
+import CameraTransit from "/src/components/Buttons/CameraTransit.jsx";
+import PNTransit from "/src/components/Buttons/PNTransit.jsx";
 import {useEffect, useRef} from "react";
 
 const UserTransitInput = () => {
@@ -9,7 +9,8 @@ const UserTransitInput = () => {
 
   useEffect(() => {
     if (accountNumRef.current) {
-      console.log('accountNumRef = ' ,accountNumRef.current)
+      const accountNumInput =accountNumRef.current;
+      console.log(accountNumInput);
     }
   }, [accountNumRef.current]);
 
