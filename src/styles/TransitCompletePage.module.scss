@@ -1,11 +1,140 @@
 .completeWrap {
+    padding-bottom: 80px;
     .header {
+        position:fixed;
+        width: 100%;
+        left: 0;
+        top:0;
+        height: 45px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 12px 9px 9px 24px;
+        box-sizing: border-box;
+        background-color: #fff;
+        z-index: 10;
         .left {
             font-size: 18px;
         }
+    }
+    .content {
+        padding-top: 56px;
+        text-align: center;
+        .img {
+            margin: 40px 0 16px 0;
+        }
+    }
+    .accoutUserInfo {
+        font-size: 22px;
+        .name {
+           font-family: "KBB"; 
+           font-size: 24px;
+           line-height: 31px;
+        }
+        .num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "KBB"; 
+            font-size: 22px;
+           span {
+            margin-left: 4px;
+            margin-top: -1px;
+            font-size: 18px;
+           }
+        }
+    }
+    .accoutInfo {
+        margin-top: 30px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #EBEEF0;
+        border-radius: 58px;
+        padding: 5px 20px 3px;
+        height: 30px;
+        box-sizing: border-box;
+        span {
+            color: #484B51;
+            font-size: 13px;
+        }
+        img {
+            margin-top: -2px;
+            margin-left: 4px;
+        }
+    }
+    .descImg {
+        margin-top: 45px;
+    }
+    .bottomDesc{
+        margin: 40px 24px 0 24px;
+        border-top:1px solid #EBEEF0;
+        p {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-top: 21px;
+            font-size: 14px;
+            color: #696E76;
+            img {
+                margin-left: 4px;
+            }
+        }
+    }
+   .btnBox {
+        margin: 29px 24px 8px 24px;
+        ul {
+            display: flex;
+            flex-direction: row;
+            margin-left: -8px;
+            li{
+                width: 50%;
+                margin-left: 8px;
+                height: 44px;
+                font-size: 16px;
+                line-height: 44px;
+                text-align: center;
+                border:1px solid #8C949E;
+                border-radius: 2px;
+                box-sizing: border-box;
+            }
+        }
+        p {
+            font-size: 14px;
+            line-height: 19px;
+            margin-top: 8px;
+            color: #696E76;
+            position: relative;
+            padding-left: 20px;
+            letter-spacing: -0.5px;
+            &::before {
+                content:'';
+                display:inline-block;
+                position:absolute;
+                left:0;
+                top: 2px;
+                width: 16px;
+                height: 16px;
+                background-repeat: no-repeat;
+                background-size: 16px;
+                background-image:url("../assets/images/icon_info_16.svg");
+            }
+        }
+   }
+    .bottomBtn {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        border:0;
+        box-shadow: none;
+        background-color: #FFD338;
+        border-radius: 0;
+        font-family: 'KBB';
+        font-size: 20px;
+        font-weight: 700;
     }
 }

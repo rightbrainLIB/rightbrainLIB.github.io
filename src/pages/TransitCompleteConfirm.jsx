@@ -29,11 +29,11 @@ const TransitCompleteConfirm = () => {
   return (
     <>
       <div className={$style.transPageWrap}>
+        <div className={$style.header}>
+          <span className={$style.left}>이체</span>
+          <span className={$style.right}>취소</span>
+        </div>
         <div className={$style.body}>
-          <div className={$style.header}>
-            <span className={$style.left}>이체</span>
-            <span className={$style.right}>취소</span>
-          </div>
           <div className={$style.topAccountBox}>
             <div className={$style.inner}>
               <span>출금</span>
