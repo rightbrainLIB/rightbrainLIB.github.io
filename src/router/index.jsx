@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Test from "../pages/Test.jsx";
 import TransitView from "../pages/TransitView.jsx";
 import AccountTransfer from "../pages/AccountTransfer.jsx";
-import TransitCompleteModal from "../pages/TransitCompleteModal.jsx";
+import TransitCompleteConfirm from "../pages/TransitCompleteConfirm.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
     element: <AccountTransfer />,
   },
   {
-    path: "/TransitCompleteModal",
-    element: <TransitCompleteModal />,
+    path: "/transitCompleteConfirm",
+    element: <TransitCompleteConfirm />,
   },
 ]);
 

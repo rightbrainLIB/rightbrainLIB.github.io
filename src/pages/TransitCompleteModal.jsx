@@ -1,39 +1,40 @@
-import { useState } from "react";
-import { Button, Space } from "antd";
-import KBBottomSheet from "../components/BottomSheet/KBBottomSheet";
-import $style from "../styles/pages/TransitCompleteModal.module.scss";
+import iconTransit from "@imgs/icon_transprocess_110_38.svg";
+import textInfo from "@imgs/안내_최근이체기록없음_269_38.svg";
+import iconArrow from "@imgs/ico_arrow.svg";
+import KBBottomSheet from "@components/BottomSheet/KBBottomSheet";
+import $style from "@styles/TransitCompleteModal.module.scss";
 
-const TransitCompleteModal = () => {
-  const [mopen, setMopen] = useState(false);
-  const showDrawer = () => {
-    setMopen(true);
-  };
-  const onClose = () => {
-    setMopen(false);
-  };
-
-  const drawerProps = {
-    open: mopen,
-    onClose: onClose,
-  };
-
+const TransitCompleteModal = (drawerProps) => {
   return (
     <>
-      <Space>
-        <Button type="primary" onClick={showDrawer}>
-          Open
-        </Button>
-      </Space>
-      <KBBottomSheet {...drawerProps}>
+      <KBBottomSheet {...drawerProps.drawerProps}>
         <>
           <div className={$style.transCompleteWrap}>
             <div>
-              <img
-                src="/src/assets/images/icon_transprocess_110_38.svg"
-                alt=""
-              />
+              <img src={iconTransit} alt="" />
+            </div>
+            <div className={$style.info}>
+              <p>
+                <span>김받음</span> 님께
+              </p>
+              <p>
+                <span>50,000원</span> 이체합니다.
+              </p>
+            </div>
+            <div className={$style.account}>
+              신한은행 <span>110-120-070894</span>
+            </div>
+            <div className={$style.bottomText}>
+              <img src={textInfo} alt="" />
+            </div>
+            <div className={$style.bottom}>
+              <p>
+                이체 상세정보
+                <img src={iconArrow} alt="" />
+              </p>
             </div>
           </div>
+          <div className={$style.bottomBtn}>이체</div>
         </>
       </KBBottomSheet>
     </>
