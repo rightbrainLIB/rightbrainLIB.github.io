@@ -11,6 +11,7 @@ import TransitInput from "@components/transit/TransitInput.jsx";
 import iconAccount from "@imgs/icon_account_20.svg";
 
 const AccountTransfer = () => {
+  // const inputPattern = /([0-9,\-]{3,6}\-[0-9,\-]{2,6}\-[0-9,\-])/
   const [numDrawerOpen, setNumDrawerOpen] = useState(false);
   const [accountValue, setAccountValue] = useState("")
   const keyboardRef = useRef(null)
@@ -51,13 +52,14 @@ const AccountTransfer = () => {
         </div>
       </div>
       <Drawer
-        className={$style.keyboardDrawer}
+        rootClassName={$style.keyboardDrawer}
         placement={"bottom"}
+        footer={<Button block onClick={numDrawerClose}>확인</Button>}
         onClose={numDrawerClose}
         open={numDrawerOpen}
         closeIcon={false}
         mask={false}
-        height={'50%'}
+        height={348}
       >
         <div className={$style.drawerContainer}>
           <Keyboard
@@ -65,12 +67,11 @@ const AccountTransfer = () => {
             keyboardRef={(r) => (keyboardRef.current = r)}
             layout={{default: ["1 2 3", "4 5 6", "7 8 9", " 0 {bksp}"],}}
             theme={"hg-theme-default hg-layout-numeric numeric-theme"}
-            display= {{"{bksp}": "←"}}
+            display= {{"{bksp}": `<img src="/src/assets/images/ico_delete.svg" alt="" />`}}
             onChange={(e)=> onChange(e)}
-            baseClass={"customKeypad"}
+            baseClass={`${$style.customKeypad}`}
           />
         </div>
-      <Button block onClick={numDrawerClose}>확인</Button>
       </Drawer>
     </KBContainer>
   )

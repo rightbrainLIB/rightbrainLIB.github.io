@@ -1,0 +1,83 @@
+.keyboardDrawer {
+  .utilBtns {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    padding-top: 2px;
+    padding-bottom: 6px;
+    li {
+      width: 100%;
+      flex: 0 1 auto;
+      & + li {
+        margin-left: 4px;
+      }
+    }
+    [class~="ant-btn"] {
+      width: 100%;
+      height: 34px;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 2px;
+      border: 1px solid #DDE1E4;
+      font-family: 'KBL', sans-serif;
+      font-size: 14px;
+      letter-spacing: -0.0125em;
+      color: #26282c;
+      &:hover {
+        border-color: #DDE1E4;
+        color: #26282c;
+
+      }
+    }
+  }
+  [class~="ant-drawer-content-wrapper"] {
+    overflow: hidden;
+    -webkit-border-radius: 16px 16px 0 0;
+    -moz-border-radius: 16px 16px 0 0;
+    border-radius: 16px 16px 0 0;
+    [class~="ant-drawer-content"] {
+      -webkit-border-radius: 16px 16px 0 0;
+      -moz-border-radius: 16px 16px 0 0;
+      border-radius: 16px 16px 0 0;
+      [class~="ant-drawer-body"] {
+        padding: 22px 21px;
+        overflow: hidden;
+      }
+      [class~="ant-drawer-footer"] {
+        padding: 0;
+        border: none;
+        [class~="ant-btn"] {
+          font-family: 'KBB', sans-serif;
+          font-size: 20px;
+          font-weight: normal;
+          line-height: 25px;
+          letter-spacing: -0.0125em;
+          background-color: #ffd338;
+          color: #26282C;
+          height: 60px;
+        }
+      }
+    }
+  }
+  .customKeypad {
+    background-color: transparent;
+    padding: 26px 0 32px;
+    [class~="hg-row"] {
+      margin: 0;
+      &:not(:first-child) {
+        padding-top: 32px;
+      }
+      [class~="hg-button"] {
+        font-family: 'robotoM', sans-serif;
+        font-size: 24px;
+        height: 28px;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border: none;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}

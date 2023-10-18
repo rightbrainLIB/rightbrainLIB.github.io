@@ -18,13 +18,18 @@ const transit = createSlice({
     },
     setShortedPrice: (state, {payload}) => {
       state.shortedPriceVal = payload;
+    },
+    plusUserPrice: (state, {payload}) => {
+      const currentPrice = Number(state.userPriceVal);
+      state.userPriceVal = String(currentPrice + payload);
     }
-  }
+  },
 });
 
 export const {
   setUserPrice,
   setDisplayPrice,
-  setShortedPrice}  = transit.actions;
+  setShortedPrice,
+  plusUserPrice}  = transit.actions;
 
 export default transit.reducer;

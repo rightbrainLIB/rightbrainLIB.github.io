@@ -1,3 +1,5 @@
+@forward "./components/keypadDrawer.module";
+
 .topAccountInfo {
   position: relative;
   margin-top: 22px;
@@ -34,8 +36,18 @@
   }
   &:focus-within {
     box-shadow: none;
+    border-color: #B0986A;
   }
   &:hover {
     border-color: #B0986A;
   }
+}
+
+.shortedPrice {
+  font-family: 'KBL', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: -0.0125em;
+  line-height: 20px;
+  margin-top: 8px;
 }
