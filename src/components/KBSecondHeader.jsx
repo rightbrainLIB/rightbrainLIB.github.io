@@ -1,12 +1,12 @@
 import $style from '../styles/components/KBHeader.module.scss'
+import {useNavigate} from "react-router-dom";
+import {useCallback} from "react";
+import {Button} from "antd";
 import HeaderBack from "./icons/HeaderBack.jsx";
-import {Button, Col, Row} from "antd";
 import HeaderHome from "./icons/HeaderHome.jsx";
 import HeaderMenu from "./icons/HeaderMenu.jsx";
-import {useCallback} from "react";
-import {useNavigate } from 'react-router-dom';
 
-const KBHeader = () => {
+const KBSecondHeader = () => {
   const navigate = useNavigate ();
 
   const onClickBack = useCallback(() => {
@@ -17,17 +17,11 @@ const KBHeader = () => {
     <>
       <div className={$style.kbHeader}>
         <div className={$style.col}>
-          <Button type="text" onClick={onClickBack}>
-            <HeaderBack />
-          </Button>
           <p>이체</p>
         </div>
         <div className={$style.col}>
-          <Button type="text">
-            <HeaderHome />
-          </Button>
-          <Button type="text">
-            <HeaderMenu />
+          <Button type="text" onClick={onClickBack}>
+            <span>취소</span>
           </Button>
         </div>
       </div>
@@ -35,4 +29,4 @@ const KBHeader = () => {
   )
 }
 
-export default KBHeader;
+export default KBSecondHeader;

@@ -4,7 +4,8 @@
     "paths" : {
       "@imgs/*": ["src/assets/images"],
       "@components/*": ["src/components"],
-      "@styles/*": ["src/styles"]
+      "@styles/*": ["src/styles"],
+      "@slices/*": ["src/slices"]
     }
   },
   "exclude": ["node_modules"]

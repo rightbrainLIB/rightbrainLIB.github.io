@@ -1,0 +1,41 @@
+.topAccountInfo {
+  position: relative;
+  margin-top: 22px;
+  .name {
+    font-family: "KBB";
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .account {
+    font-family: "KBM";
+    font-size: 20px;
+    line-height: 28px;
+    color: #8C949E;
+  }
+}
+
+.userPriceInput {
+  text-align: center;
+  border: none;
+  margin-top: 61px;
+  //border-bottom: 2px solid #26282C;
+  border-bottom: 2px solid #B0986A;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  font-size: 34px;
+  font-family: 'robotoM', sans-serif;
+  letter-spacing: -0.0125em;
+  &::placeholder {
+    font-family: 'KBB', sans-serif;
+    font-size: 30px;
+    line-height: 39px;
+    letter-spacing: -0.0125em;
+  }
+  &:focus-within {
+    box-shadow: none;
+  }
+  &:hover {
+    border-color: #B0986A;
+  }
+}

@@ -10,9 +10,11 @@ function App() {
       <br />
       <Link to="/accountTransfer">accountTransfer</Link>
       <br />
-      <Link to="/TransitCompleteConfirm">TransitCompleteConfirm</Link>
+      <Link to="/transferInput">TransferInput</Link>
       <br />
-      <Link to="/TransitCompletePage">TransitCompletePage</Link>
+      <Link to="/transitCompleteConfirm">TransitCompleteConfirm</Link>
+      <br />
+      <Link to="/transitCompletePage">TransitCompletePage</Link>
       <br />
     </>
   );
