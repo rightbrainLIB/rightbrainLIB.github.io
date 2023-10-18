@@ -67,16 +67,13 @@
     font-size: 20px;
     font-weight: 700;
 }
-[class~="ant-drawer-content-wrapper"] {
-    height: 429px !important;
+[class~="CmodalWrapper"] {
+    outline: none;
 }
-[class~="ant-drawer-body"]{
-    padding: 10px 0 0 0 !important;
+[class~="ant-drawer-body"][class~="CmodalBody"]{
+    padding: 10px 0 0 0;
 }
-[class~="ant-drawer"] [class~="ant-drawer-mask"] {
+[class~="ant-drawer-mask"][class~="CmodalMask"] {
     height: calc(100% - 46px);
     top: 46px;
-}
-[class~="ant-drawer"] {
-    outline: none;
 }
