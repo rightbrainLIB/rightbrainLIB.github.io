@@ -18,6 +18,7 @@ const TransitInput = ({accountValue, accountClick, accountClear, focusOut}) => {
   }, [accountNumRef.current]);
 
   const onFocusBankInput = useCallback(() => {
+    numDrawerClose
     setBankBSOpen(true);
     bankInputRef.current.blur();
   }, []);

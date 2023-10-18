@@ -51,21 +51,25 @@ const AccountTransfer = () => {
         </div>
       </div>
       <Drawer
+        className={$style.keyboardDrawer}
         placement={"bottom"}
         onClose={numDrawerClose}
         open={numDrawerOpen}
         closeIcon={false}
         mask={false}
+        height={'50%'}
       >
-        <Keyboard
-        // mergeDisplay={true}
-        keyboardRef={(r) => (keyboardRef.current = r)}
-        layout={{default: ["1 2 3", "4 5 6", "7 8 9", " 0 {bksp}"],}}
-        theme={"hg-theme-default hg-layout-numeric numeric-theme"}
-        display= {{"{bksp}": "←"}}
-        onChange={(e)=> onChange(e)}
-        baseClass={"customKeypad"}
-      />
+        <div className={$style.drawerContainer}>
+          <Keyboard
+            // mergeDisplay={true}
+            keyboardRef={(r) => (keyboardRef.current = r)}
+            layout={{default: ["1 2 3", "4 5 6", "7 8 9", " 0 {bksp}"],}}
+            theme={"hg-theme-default hg-layout-numeric numeric-theme"}
+            display= {{"{bksp}": "←"}}
+            onChange={(e)=> onChange(e)}
+            baseClass={"customKeypad"}
+          />
+        </div>
       <Button block onClick={numDrawerClose}>확인</Button>
       </Drawer>
     </KBContainer>
