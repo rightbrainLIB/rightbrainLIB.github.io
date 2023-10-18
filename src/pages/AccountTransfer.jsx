@@ -4,10 +4,11 @@ import { Drawer, } from 'antd';
 import {useEffect, useRef, useState} from "react";
 import "@styles/keyboard-custom.scss";
 import { Input, Button } from 'antd';
-import styles from "@styles/AccountTransfer.module.scss"
+import $style from "@styles/AccountTransfer.module.scss"
 import KBHeader from "@components/KBHeader.jsx";
 import KBContainer from "@components/KBContainer.jsx";
 import TransitInput from "@components/transit/TransitInput.jsx";
+import iconAccount from "@imgs/icon_account_20.svg";
 
 const AccountTransfer = () => {
   const [numDrawerOpen, setNumDrawerOpen] = useState(false);
@@ -41,6 +42,14 @@ const AccountTransfer = () => {
         accountClear={accountClear}
         focusOut={numDrawerOpen}
       />
+      <div className={$style.inputUtil}>
+        <div className={$style.utilList}>
+          <div className={$style.imgBox}>
+            <img src={iconAccount} alt="" />
+          </div>
+          <p>계좌 선택</p>
+        </div>
+      </div>
       <Drawer
         placement={"bottom"}
         onClose={numDrawerClose}

@@ -1,5 +1,6 @@
 .userTransit {
   padding-top: 21px;
+  pb
   h2 {
     font-family: 'KBB';
     font-weight: normal;
@@ -25,6 +26,7 @@
       transition: right .3s ease-in-out;
       will-change: right;
     }
+    &[class~="on"],
     &:focus-within {
       box-shadow: none;
       &:after {

@@ -1,0 +1,15 @@
+.inputUtil {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  .utilList {
+    display: flex;
+  }
+  p {
+    font-family: 'KBFGLight', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.0125em;
+    padding-left: 4px;
+  }
+}

@@ -3,7 +3,7 @@ import {Input} from "antd";
 import {useCallback, useEffect, useRef, useState} from "react";
 import InputClear from "@components/icons/InputClear.jsx";
 import BankBottomSheet from "@components/bottomSheet/BankBottomSheet.jsx";
-
+import cx from 'classnames';
 
 const TransitInput = ({accountValue, accountClick, accountClear, focusOut}) => {
   const [bankBSOpen, setBankBSOpen] = useState(false);
@@ -43,8 +43,9 @@ const TransitInput = ({accountValue, accountClick, accountClear, focusOut}) => {
         value={bankValue}
         placeholder={"은행/증권사"}
         inputMode="none"
-        className={$style.accountInput}
+        className={cx($style.accountInput, {on: bankValue.length > 0})}
         onFocus={onFocusBankInput}
+        allowClear={{clearIcon: <span></span>}}
       />
 
       <BankBottomSheet setBankValue={(val) => setBankValue(val)} open={bankBSOpen} handleOpen={handleOpen} />
