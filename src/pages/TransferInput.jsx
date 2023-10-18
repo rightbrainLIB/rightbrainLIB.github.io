@@ -7,6 +7,7 @@ import {setDisplayPrice, setUserPrice, setShortedPrice} from "@slices/transit.js
 import { useCallback, useEffect, useRef, useState } from "react";
 import Keyboard from "react-simple-keyboard";
 import "@styles/keyboard-custom.scss";
+import iconDelete from "@imgs/ico_delete.svg";
 import { plusUserPrice } from "@slices/transit.js";
 
 const TransferInput = () => {
@@ -176,7 +177,8 @@ const TransferInput = () => {
             keyboardRef={(r) => (keyboardRef.current = r)}
             layout={{default: ["1 2 3", "4 5 6", "7 8 9", "00 0 {bksp}"],}}
             theme={"hg-theme-default hg-layout-numeric numeric-theme"}
-            display= {{"{bksp}": `<img src="/src/assets/images/ico_delete.svg" alt="" />`}}
+            // display= {{"{bksp}": `<img src="/src/assets/images/ico_delete.svg" alt="" />`}}
+            display= {{"{bksp}": `<img src="${iconDelete}" alt="" />`}}
             onChange={(e)=> onChangeUserPrice(e)}
             baseClass={`${$style.customKeypad}`}
             useTouchEvents={true}

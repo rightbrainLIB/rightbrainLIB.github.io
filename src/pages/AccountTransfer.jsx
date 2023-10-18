@@ -9,6 +9,7 @@ import KBHeader from "@components/KBHeader.jsx";
 import KBContainer from "@components/KBContainer.jsx";
 import TransitInput from "@components/transit/TransitInput.jsx";
 import iconAccount from "@imgs/icon_account_20.svg";
+import iconDelete from "@imgs/ico_delete.svg";
 
 const AccountTransfer = () => {
   // const inputPattern = /([0-9,\-]{3,6}\-[0-9,\-]{2,6}\-[0-9,\-])/
@@ -67,7 +68,7 @@ const AccountTransfer = () => {
             keyboardRef={(r) => (keyboardRef.current = r)}
             layout={{default: ["1 2 3", "4 5 6", "7 8 9", " 0 {bksp}"],}}
             theme={"hg-theme-default hg-layout-numeric numeric-theme"}
-            display= {{"{bksp}": `<img src="/src/assets/images/ico_delete.svg" alt="" />`}}
+            display= {{"{bksp}": `<img src="${iconDelete}" alt="" />`}}
             onChange={(e)=> onChange(e)}
             baseClass={`${$style.customKeypad}`}
           />
