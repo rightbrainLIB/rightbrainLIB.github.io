@@ -2,34 +2,30 @@ import {Button} from "antd";
 import { useNavigate } from 'react-router-dom';
 import {useCallback} from "react";
 import $style from '@styles/SelectTaskView.module.scss';
+import {useDispatch} from "react-redux";
+import {setTestType} from "../slices/transit.js";
 
 const SelectTaskView = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onClickTask1 = useCallback(() => {
+  const onClickTask = useCallback((val) => {
+    dispatch(setTestType(val));
     navigate('/transit');
-  }, []);
-
-  const onClickTask2 = useCallback(() => {
-    navigate('/transit');
-  }, []);
-
-  const onClickTask3 = useCallback(() => {
-    navigate('/transit');
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
       <div className={$style.taskContainer}>
         <ul className={$style.taskListWrap}>
           <li>
-            <Button onClick={onClickTask1}>Task1</Button>
+            <Button onClick={() => onClickTask('task1')}>Task1</Button>
           </li>
           <li>
-            <Button onClick={onClickTask2}>Task2</Button>
+            <Button onClick={() => onClickTask('task2')}>Task2</Button>
           </li>
           <li>
-            <Button onClick={onClickTask3}>Task3</Button>
+            <Button onClick={() => onClickTask('task3')}>Task3</Button>
           </li>
         </ul>
       </div>
