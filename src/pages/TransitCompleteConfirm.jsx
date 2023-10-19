@@ -24,6 +24,7 @@ const TransitCompleteConfirm = () => {
       body: "CmodalBody",
     },
     height: "429px",
+    visible: false
   };
 
   return (
