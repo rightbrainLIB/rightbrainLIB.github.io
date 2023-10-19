@@ -8,6 +8,7 @@ import BankBottomSheet from "@components/bottomSheet/BankBottomSheet.jsx";
 import cx from 'classnames';
 import BgGrayButton from '../buttons/BgGrayButton';
 import iconDelete from "@imgs/ico_delete.svg";
+import iconAright from "@imgs/icon_arrow_right_bl_20.svg";
 import { setAccountNum } from "@slices/transit.js";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -68,6 +69,7 @@ const TransitInput = () => {
 
   const saveAccountNum = () => {
     dispatch(setAccountNum(accountValue))
+    // navigate('/TransferInput');
   }
 
   return (
@@ -76,7 +78,6 @@ const TransitInput = () => {
       <Input
         ref={accountNumRef}
         value={accountValue}
-        autoFocus
         onFocus={onFocusAccountInput}
         placeholder={"계좌번호 입력"}
         inputMode="none"
@@ -92,7 +93,7 @@ const TransitInput = () => {
         onFocus={onFocusBankInput}
         allowClear={{clearIcon: <span></span>}} 
       />
-      { bankValue === "" && testType === "task1" && testType === "task3" ? 
+      { bankValue === "" && testType === "task1" || testType === "task3" ? 
         <div className={$style.descWrap}>
           {
             accountValue.length <= 1 ?
@@ -126,7 +127,7 @@ const TransitInput = () => {
                   <BgGrayButton click={autoComplete}>KB국민</BgGrayButton>
                   <BgGrayButton click={autoComplete}>우리</BgGrayButton>
                 </> : null
-            } : 
+            }
           </div> : null
       }
       <Drawer
