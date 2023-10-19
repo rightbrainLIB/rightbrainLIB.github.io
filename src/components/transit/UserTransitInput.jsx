@@ -2,22 +2,26 @@ import $style from '/src/styles/components/transit/UserTransitInput.module.scss'
 import {Input} from "antd";
 import CameraTransit from "/src/components/buttons/CameraTransit.jsx";
 import PNTransit from "/src/components/buttons/PNTransit.jsx";
-import {useEffect, useRef} from "react";
+import {useCallback, useEffect, useRef} from "react";
+import { useNavigate } from 'react-router-dom';
 
 const UserTransitInput = () => {
-  const accountNumRef = useRef(null);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (accountNumRef.current) {
-      const accountNumInput =accountNumRef.current;
-      console.log(accountNumInput);
-    }
-  }, [accountNumRef.current]);
+  const onClickAccountNum = useCallback(() => {
+    navigate('/accountTransfer');
+  }, [navigate]);
 
   return (
     <div className={$style.userTransit}>
       <h2>누구에게 보낼까요?</h2>
-      <Input ref={accountNumRef} placeholder={"계좌번호 입력"} inputMode="none" className={$style.accountInput} allowClear={true} />
+      <Input
+        placeholder={"계좌번호 입력"}
+        inputMode="none"
+        className={$style.accountInput}
+        allowClear={true}
+        onClick={onClickAccountNum}
+      />
       <ul className={$style.userAccountNumUtil}>
         <li>
           <CameraTransit />

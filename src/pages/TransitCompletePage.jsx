@@ -6,8 +6,16 @@ import iconstar from "@imgs/icon_star_off_20.svg";
 import text01 from "@imgs/btn_메시지카드.svg";
 import iconArrow from "@imgs/ico_arrow.svg";
 import $style from "@styles/TransitCompletePage.module.scss";
+import {useCallback} from "react";
+import {useNavigate} from "react-router-dom";
 
 const TransitCompletePage = () => {
+  const navigate = useNavigate();
+
+  const onClickCompleteConfirm = useCallback(() => {
+    navigate('/')
+  }, [navigate]);
+
   return (
     <>
       <div className={$style.completeWrap}>
@@ -57,7 +65,7 @@ const TransitCompletePage = () => {
             다소 지연될 수 있습니다.
           </p>
         </div>
-        <div className={$style.bottomBtn}>확인</div>
+        <div className={$style.bottomBtn} onClick={onClickCompleteConfirm}>확인</div>
       </div>
     </>
   );

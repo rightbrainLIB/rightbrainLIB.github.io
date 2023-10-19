@@ -1,6 +1,7 @@
 .taskContainer {
   height: 100vh;
   margin: 0 48px;
+  overflow: hidden;
 }
 .taskListWrap {
   transform: translateY(-50%);

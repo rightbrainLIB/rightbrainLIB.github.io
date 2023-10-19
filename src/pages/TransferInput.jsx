@@ -9,9 +9,11 @@ import Keyboard from "react-simple-keyboard";
 import "@styles/keyboard-custom.scss";
 import iconDelete from "@imgs/ico_delete.svg";
 import { plusUserPrice } from "@slices/transit.js";
+import { useNavigate } from 'react-router-dom';
 
 const TransferInput = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [numDrawerOpen, setNumDrawerOpen] = useState(true);
   const keyboardRef = useRef(null);
@@ -21,7 +23,7 @@ const TransferInput = () => {
   const userPriceVal = useSelector(state => state.transit.userPriceVal);
   const displayPriceVal = useSelector(state => state.transit.displayPriceVal);
   const shortedPriceVal = useSelector(state => state.transit.shortedPriceVal);
-  
+
   const onKeyDownBackspace = useCallback((e) => {
     if (e.key === 'Backspace') {
       e.preventDefault();
@@ -97,6 +99,13 @@ const TransferInput = () => {
     dispatch(setUserPrice(input));
   }, []);
 
+  const onClickDrawerConfirm = useCallback(() => {
+    setNumDrawerOpen(false);
+    if (userPriceVal > 0) {
+      navigate('/transitChange');
+    }
+  }, [userPriceVal]);
+
   const numDrawerClose = useCallback(() => {
     setNumDrawerOpen(false);
   }, []);
@@ -146,7 +155,7 @@ const TransferInput = () => {
       <Drawer
         rootClassName={$style.keyboardDrawer}
         placement={"bottom"}
-        footer={<Button block onClick={numDrawerClose}>확인</Button>}
+        footer={<Button block onClick={onClickDrawerConfirm}>확인</Button>}
         onClose={numDrawerClose}
         open={numDrawerOpen}
         closeIcon={false}

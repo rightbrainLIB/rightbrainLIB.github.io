@@ -11,7 +11,11 @@ const KBHeader = () => {
 
   const onClickBack = useCallback(() => {
     navigate(-1);
-  }, []);
+  }, [navigate]);
+
+  const onClickHome = useCallback(() => {
+    navigate('/')
+  }, [navigate]);
 
   return (
     <>
@@ -23,7 +27,7 @@ const KBHeader = () => {
           <p>이체</p>
         </div>
         <div className={$style.col}>
-          <Button type="text">
+          <Button type="text" onClick={onClickHome}>
             <HeaderHome />
           </Button>
           <Button type="text">

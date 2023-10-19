@@ -15,6 +15,7 @@ import InputClear from "@components/icons/InputClear.jsx";
 import TransitCompleteModal from "./TransitCompleteModal.jsx";
 import BankBottomSheet from "@components/bottomSheet/BankBottomSheet.jsx";
 import $style from "@styles/TransitChange.module.scss";
+import {useSelector} from "react-redux";
 import "@styles/keyboard-custom.scss";
 
 const TransitChange = () => {
@@ -61,6 +62,9 @@ const TransitChange = () => {
   const onClose = () => {
     setMopen(false);
   };
+
+  const displayPriceVal = useSelector(state => state.transit.displayPriceVal);
+  const shortedPriceVal = useSelector(state => state.transit.shortedPriceVal);
 
   const drawerProps = {
     open: mopen,
@@ -128,9 +132,9 @@ const TransitChange = () => {
           </div>
           <div className={$style.accountNum}>
             <div className={$style.number}>
-              50,000<span>원</span>
+              {displayPriceVal}<span></span>
             </div>
-            <div className={$style.info}>5만원</div>
+            <div className={$style.info}>{shortedPriceVal}</div>
           </div>
         </div>
         <div className={$style.accountTransInfo}>
