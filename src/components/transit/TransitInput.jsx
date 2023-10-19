@@ -88,6 +88,7 @@ const TransitInput = () => {
   }, [accountNumRef.current, numDrawerOpen, bankValue]);
 
   const autoCompleteWithAccount = useCallback(() => {
+    dispatch(setAccountNum(String(1101200708094)));
     navigate('/transferInput')
   }, [navigate])
 
