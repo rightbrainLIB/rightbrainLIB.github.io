@@ -20,6 +20,7 @@ const TransitInput = () => {
   const keyboardRef = useRef(null)
   const accountNumRef = useRef(null);
   const bankInputRef = useRef(null);
+  const testType = useSelector(state => state.transit.testType);
   const dispatch = useDispatch()
 
   const onChange = input => {
@@ -91,21 +92,43 @@ const TransitInput = () => {
         onFocus={onFocusBankInput}
         allowClear={{clearIcon: <span></span>}} 
       />
-      {bankValue === "" ? <div className={$style.descWrap}>
-        {
-          
-          accountValue.length <= 1 ?
-          <p>계좌번호를 입력하면 찾아드릴게요.</p> :
-          accountValue.length > 1 && accountValue.length <= 5 ?
-          <p>금융기관을 보고 있어요.</p> :
-          accountValue.length >= 6 ?
-            <>
-              <BgGrayButton click={autoComplete}>신한</BgGrayButton>
-              <BgGrayButton click={autoComplete}>KB국민</BgGrayButton>
-              <BgGrayButton click={autoComplete}>우리</BgGrayButton>
-            </> : null
-        }
-      </div> : null}
+      { bankValue === "" && testType === "task1" && testType === "task3" ? 
+        <div className={$style.descWrap}>
+          {
+            accountValue.length <= 1 ?
+            <p>계좌번호를 입력하면 찾아드릴게요.</p> :
+            accountValue.length > 1 && accountValue.length <= 5 ?
+            <p>금융기관을 보고 있어요.</p> :
+            accountValue.length >= 6 ?
+              <>
+                <BgGrayButton click={autoComplete}>신한</BgGrayButton>
+                <BgGrayButton click={autoComplete}>KB국민</BgGrayButton>
+                <BgGrayButton click={autoComplete}>우리</BgGrayButton>
+              </> : null
+          }
+        </div> 
+        : bankValue === "" && testType === "task2" ? 
+          <div className={$style.descWrap}>
+            {
+              
+              accountValue.length === 0 ?
+              <p>계좌번호를 입력하면 찾아드릴게요.</p> :
+              accountValue.length === 1 ?
+              <p>금융기관을 보고 있어요.</p> :
+              accountValue.length >= 2 && accountValue.length <= 5 ?
+              <BgGrayButton size={"small"} click={autoComplete}>
+                <span className={$style.blue}>신한 1101200708094</span>로 이체할까요?
+                <img src={iconAright} alt="" />
+              </BgGrayButton> :
+              accountValue.length >= 6 ?
+                <>
+                  <BgGrayButton click={autoComplete}>신한</BgGrayButton>
+                  <BgGrayButton click={autoComplete}>KB국민</BgGrayButton>
+                  <BgGrayButton click={autoComplete}>우리</BgGrayButton>
+                </> : null
+            } : 
+          </div> : null
+      }
       <Drawer
         rootClassName={$style.keyboardDrawer}
         placement={"bottom"}

@@ -3,7 +3,6 @@ import { createBrowserRouter } from "react-router-dom";
 import Test from "../pages/Test.jsx";
 import TransitView from "../pages/TransitView.jsx";
 import AccountTransfer from "../pages/AccountTransfer.jsx";
-import AccountTransfer2 from "../pages/AccountTransfer2.jsx";
 import TransitCompleteConfirm from "../pages/TransitCompleteConfirm.jsx";
 import TransitCompletePage from "../pages/TransitCompletePage.jsx";
 import TransferInput from "../pages/TransferInput.jsx";
@@ -43,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/accountTransfer2",
     element: <AccountTransfer2 />,
+  },
+  {
+    path: "/transitCompletePage",
+    element: <TransitCompletePage />,
   },
   {
     path: "/transitChange",
