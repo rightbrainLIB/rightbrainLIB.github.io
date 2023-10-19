@@ -3,6 +3,9 @@
     height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
+    &.on {
+        overflow: hidden;
+    }
     .header {
         position:fixed;
         width: 100%;
@@ -125,7 +128,7 @@
             color: #696E76;
             font-size: 16px;
             line-height: 23px;
-            
+
         }
         .name + p {
             margin-top: 23px;

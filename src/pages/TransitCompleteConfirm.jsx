@@ -5,6 +5,7 @@ import iconArrow from "@imgs/ico_arrow.svg";
 import textAdd from "@imgs/btn_추가정보입력.svg";
 import TransitCompleteModal from "./TransitCompleteModal.jsx";
 import $style from "@styles/TransitCompleteConfirm.module.scss";
+import cx from "classnames";
 
 const TransitCompleteConfirm = () => {
   const [mopen, setMopen] = useState(false);
@@ -29,7 +30,7 @@ const TransitCompleteConfirm = () => {
 
   return (
     <>
-      <div className={$style.transPageWrap}>
+      <div className={cx($style.transPageWrap, {'on': mopen})}>
         <div className={$style.header}>
           <span className={$style.left}>이체</span>
           <span className={$style.right}>취소</span>
