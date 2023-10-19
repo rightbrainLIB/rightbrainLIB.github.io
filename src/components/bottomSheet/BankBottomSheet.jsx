@@ -1,6 +1,7 @@
-import {Button, Drawer} from "antd";
-import $style from '@styles/components/bottomSheet/BankBottomSheet.module.scss'
-import {useCallback, useEffect, useState} from "react";
+import { Button, Drawer } from "antd";
+import $style from "@styles/components/bottomSheet/BankBottomSheet.module.scss";
+import { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CI_KB from "@imgs/ci/CI_국민_24.svg";
 import CI_IBK from "@imgs/ci/CI_IBK기업_24.svg";
 import CI_NH from "@imgs/ci/CI_농협_24.svg";
@@ -19,7 +20,6 @@ import CI_KYUNGNAM from "@imgs/ci/CI_경남_24.svg";
 import CI_DAEGOO from "@imgs/ci/CI_대구_24.svg";
 import BottomSheetCloseIcon from "@components/icons/BottomSheetCloseIcon.jsx";
 
-
 const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
   const onCloseBankBottomSheet = useCallback(() => {
     handleOpen(false);
@@ -27,8 +27,12 @@ const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
 
   const onClickBank = useCallback((e) => {
     // setBankValue(e.currentTarget.childNodes[1].innerText);
-    setBankValue('신한');
+    setBankValue("신한");
     handleOpen(false);
+  }, []);
+
+  const onClickBack = useCallback(() => {
+    navigate(-1);
   }, []);
 
   return (
@@ -39,14 +43,16 @@ const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
       placement={"bottom"}
       key={"bankBottomSheet"}
       closeIcon={<BottomSheetCloseIcon />}
-      height={'65%'}
+      height={"65%"}
       onClose={onCloseBankBottomSheet}
     >
       <div className={$style.BSContainer}>
         <div className={$style.tabMenu}>
           <ul>
             <li>
-              <Button className={$style.on} type="text">은행</Button>
+              <Button className={$style.on} type="text">
+                은행
+              </Button>
             </li>
             <li>
               <Button type="text">증권사</Button>
@@ -155,7 +161,7 @@ const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
         </div>
       </div>
     </Drawer>
-  )
-}
+  );
+};
 
 export default BankBottomSheet;
