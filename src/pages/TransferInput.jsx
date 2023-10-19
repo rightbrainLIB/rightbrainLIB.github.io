@@ -126,8 +126,7 @@ const TransferInput = () => {
 
         <div className={$style.topAccountInfo}>
           <div>
-            <p className={$style.name}>김받음님께</p>
-            <p className={$style.account}>신한 110-120-0708094</p>
+            <p className={$style.name}>신한 110-120-0708094님께</p>
           </div>
         </div>
 
