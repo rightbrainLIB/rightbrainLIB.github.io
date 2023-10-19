@@ -9,9 +9,12 @@ import cx from 'classnames';
 import BgGrayButton from '../buttons/BgGrayButton';
 import iconDelete from "@imgs/ico_delete.svg";
 import { setAccountNum } from "@slices/transit.js";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 const TransitInput = () => {
+  const navigate = useNavigate();
+
   // const inputPattern = /([0-9,\-]{3,6}\-[0-9,\-]{2,6}\-[0-9,\-])/
   const [bankBSOpen, setBankBSOpen] = useState(false);
   const [bankValue, setBankValue] = useState('');
@@ -20,7 +23,7 @@ const TransitInput = () => {
   const keyboardRef = useRef(null)
   const accountNumRef = useRef(null);
   const bankInputRef = useRef(null);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const onChange = input => {
     setAccountValue(input);
@@ -62,13 +65,14 @@ const TransitInput = () => {
   }, []);
 
   const autoComplete = () => {
-    setNumDrawerOpen(false); 
-    setBankValue("신한"); 
+    setNumDrawerOpen(false);
+    setBankValue("신한");
   };
 
-  const saveAccountNum = () => {
-    dispatch(setAccountNum(accountValue))
-  }
+  const saveAccountNum = useCallback(() => {
+    dispatch(setAccountNum(accountValue));
+    navigate('/transferInput')
+  }, [dispatch]);
 
   return (
     <div className={$style.userTransit}>
@@ -90,11 +94,11 @@ const TransitInput = () => {
         inputMode="none"
         className={cx($style.accountInput, {on: bankValue.length > 0})}
         onFocus={onFocusBankInput}
-        allowClear={{clearIcon: <span></span>}} 
+        allowClear={{clearIcon: <span></span>}}
       />
       {bankValue === "" ? <div className={$style.descWrap}>
         {
-          
+
           accountValue.length <= 1 ?
           <p>계좌번호를 입력하면 찾아드릴게요.</p> :
           accountValue.length > 1 && accountValue.length <= 5 ?
