@@ -17,9 +17,10 @@ import BankBottomSheet from "@components/bottomSheet/BankBottomSheet.jsx";
 import $style from "@styles/TransitChange.module.scss";
 import "@styles/keyboard-custom.scss";
 
-const TransitChange = (changeAccountCheck) => {
+const TransitChange = () => {
   const dispatch = useDispatch();
 
+  const [chnageAccountChk, setChnageAccountChk] = useState(false);
   const [bankBSOpen, setBankBSOpen] = useState(false);
   const [numDrawerOpen, setNumDrawerOpen] = useState(false);
   const [accountValue, setAccountValue] = useState("");
@@ -103,7 +104,7 @@ const TransitChange = (changeAccountCheck) => {
           </div>
           <div className={$style.topAccountInfo}>
             <div className={$style.inner}>
-              {changeAccountCheck
+              {chnageAccountChk
                 ? [
                     <p className={$style.chaccount}>
                       신한 110-120-0708094님께
