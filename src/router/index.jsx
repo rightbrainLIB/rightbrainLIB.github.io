@@ -40,6 +40,10 @@ const router = createBrowserRouter([
     element: <AccountTransfer />,
   },
   {
+    path: "transitCompleteConfirm",
+    element: <TransitCompleteConfirm />,
+  },
+  {
     path: "/transitCompletePage",
     element: <TransitCompletePage />,
   },

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import iconpolygon from "@imgs/ico_polygon.svg";
 import text01 from "@imgs/계좌번호오류메시지_214_24.svg";
 import iconArrow from "@imgs/ico_arrow.svg";
@@ -7,6 +7,7 @@ import TransitCompleteModal from "./TransitCompleteModal.jsx";
 import $style from "@styles/TransitChange.module.scss";
 import { useSelector } from "react-redux";
 import "@styles/keyboard-custom.scss";
+import KBSecondHeader from "../components/KBSecondHeader.jsx";
 
 const TransitChange = () => {
   const [mopen, setMopen] = useState(false);
@@ -62,9 +63,8 @@ const TransitChange = () => {
   return (
     <>
       <div className={$style.transPageWrap}>
-        <div className={$style.header}>
-          <span className={$style.left}>이체</span>
-          <span className={$style.right}>취소</span>
+        <div className={$style.transPageContainer}>
+          <KBSecondHeader />
         </div>
         <div className={$style.body}>
           <div className={$style.topAccountBox}>

@@ -17,12 +17,15 @@ const TransferInput = () => {
 
   const [numDrawerOpen, setNumDrawerOpen] = useState(true);
   const keyboardRef = useRef(null);
+  const [amount, setAmount] = useState('');
+  const [currency, setCurrency] = useState('');
 
-  const userPriceInputRef = useRef(null);
+  // const userPriceInputRef = useRef(null);
 
   const userPriceVal = useSelector(state => state.transit.userPriceVal);
   const displayPriceVal = useSelector(state => state.transit.displayPriceVal);
   const shortedPriceVal = useSelector(state => state.transit.shortedPriceVal);
+  const userAccountNum = useSelector(state => state.transit.accountNum);
 
   const onKeyDownBackspace = useCallback((e) => {
     if (e.key === 'Backspace') {
@@ -58,7 +61,7 @@ const TransferInput = () => {
       dispatch(setUserPrice(''));
     } else {
       let newValue = parseInt(realValue).toLocaleString();
-      newValue += '원';
+      newValue += ' 원';
       dispatch(setDisplayPrice(newValue));
       dispatch(setUserPrice(String(realValue)));
     }
@@ -81,12 +84,24 @@ const TransferInput = () => {
         if (restVal > 0) {
           dottedRestVal = parseInt(restVal, 10).toLocaleString();
         }
-        dispatch(setShortedPrice(`${dottedFrontVal}만 ${dottedRestVal}원`));
+
+        if (dottedRestVal === '') {
+          dispatch(setShortedPrice(`${dottedFrontVal}만원`));
+        } else {
+          dispatch(setShortedPrice(`${dottedFrontVal}만 ${dottedRestVal}원`));
+        }
       }
     } else {
       dispatch(setShortedPrice(''));
     }
   }, [userPriceVal]);
+
+  useEffect(() => {
+    if (displayPriceVal) {
+      setAmount(displayPriceVal.split(' ')[0]);
+      setCurrency(displayPriceVal.split(' ')[1]);
+    }
+  }, [displayPriceVal])
 
   useEffect(() => {
     if (numDrawerOpen && keyboardRef && keyboardRef.current) {
@@ -100,9 +115,10 @@ const TransferInput = () => {
   }, []);
 
   const onClickDrawerConfirm = useCallback(() => {
-    setNumDrawerOpen(false);
     if (userPriceVal > 0) {
-      navigate('/transitChange');
+      setNumDrawerOpen(false);
+      // navigate('/transitChange');
+      navigate('/transitCompleteConfirm');
     }
   }, [userPriceVal]);
 
@@ -119,7 +135,7 @@ const TransferInput = () => {
     let addedValue = Number(userPriceVal) + value;
     const utilValue = String(addedValue).replace(/,/g, '').replace(/원/g, '');
     let newValue = parseInt(utilValue).toLocaleString();
-    newValue += '원';
+    newValue += ' 원';
     dispatch(setDisplayPrice(newValue));
   }, [userPriceVal, displayPriceVal]);
 
@@ -134,21 +150,32 @@ const TransferInput = () => {
 
         <div className={$style.topAccountInfo}>
           <div>
-            <p className={$style.name}>신한 110-120-0708094님께</p>
+            <p className={$style.name}>신한 {userAccountNum ? userAccountNum : '110-120-0708094'}님께</p>
           </div>
         </div>
 
-        <Input
-          ref={userPriceInputRef}
-          className={$style.userPriceInput}
-          value={displayPriceVal}
-          placeholder={"얼마를 보낼까요?"}
-          // onChange={onChangeUserPrice}
-          maxLength={15}
-          inputMode="none"
-          onKeyDown={onKeyDownBackspace}
-          onClick={onFocusUserPriceInput}
-        />
+        {/*<Input*/}
+        {/*  ref={userPriceInputRef}*/}
+        {/*  className={$style.userPriceInput}*/}
+        {/*  value={displayPriceVal}*/}
+        {/*  placeholder={"얼마를 보낼까요?"}*/}
+        {/*  // onChange={onChangeUserPrice}*/}
+        {/*  maxLength={15}*/}
+        {/*  inputMode="none"*/}
+        {/*  onKeyDown={onKeyDownBackspace}*/}
+        {/*  onClick={onFocusUserPriceInput}*/}
+        {/*/>*/}
+
+        <div className={$style.userPriceInput} onClick={() => setNumDrawerOpen(true)}>
+          {userPriceVal === '' && <span className={$style.placeholderText}>얼마를 보낼까요?</span>}
+          {
+            userPriceVal !== '' &&
+            <>
+              <span className={$style.amount}>{amount}</span>
+              <span className={$style.currency}>{currency}</span>
+            </>
+          }
+        </div>
         <div className={$style.shortedPrice}>{shortedPriceVal ? shortedPriceVal : "출금가능 금액 200,000원"}</div>
       </KBContainer>
 

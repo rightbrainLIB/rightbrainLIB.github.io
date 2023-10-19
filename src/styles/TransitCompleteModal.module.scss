@@ -11,15 +11,13 @@
         margin-top: 20px;
         color: #26282C;
         p {
+            font-family: 'KBL', sans-serif;
             font-size: 20px;
+            letter-spacing: -0.0125em;
             line-height: 28px;
-            &:first-child {
-                font-family: 'KBB';
-                font-weight: 700;
-            }
-            span{
-                font-family: 'KBB';
-                font-weight: 700;
+            strong {
+                font-family: 'KBB', sans-serif;
+                font-size: 20px;
             }
         }
     }

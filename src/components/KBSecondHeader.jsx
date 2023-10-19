@@ -20,7 +20,7 @@ const KBSecondHeader = () => {
           <p>이체</p>
         </div>
         <div className={$style.col}>
-          <Button type="text" onClick={onClickBack}>
+          <Button type="text" className={$style.cancelBtn} onClick={onClickBack}>
             <span>취소</span>
           </Button>
         </div>

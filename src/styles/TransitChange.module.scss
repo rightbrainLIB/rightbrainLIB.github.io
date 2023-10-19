@@ -5,6 +5,10 @@
     height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
+    .transPageContainer {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
     &.on {
         overflow-y: hidden;
     }

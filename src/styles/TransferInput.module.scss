@@ -2,7 +2,7 @@
 
 .topAccountInfo {
   position: relative;
-  margin-top: 22px;
+  padding-top: 55px;
   .name {
     font-family: "KBB";
     font-size: 20px;
@@ -26,7 +26,7 @@
   -moz-border-radius: 0;
   border-radius: 0;
   font-size: 34px;
-  font-family: 'robotoM', sans-serif;
+  font-family: 'KBB', 'robotoM', sans-serif;
   letter-spacing: -0.0125em;
   &::placeholder {
     font-family: 'KBB', sans-serif;
@@ -40,6 +40,25 @@
   }
   &:hover {
     border-color: #B0986A;
+  }
+  .placeholderText {
+    font-family: 'KBM', sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    color: #C6CBD0;
+    line-height: 39px;
+    letter-spacing: -0.0125em;
+  }
+  .amount {
+    font-family: 'robotoM', sans-serif;
+    font-size: 34px;
+    letter-spacing: -0.0125em;
+  }
+  .currency {
+    font-family: 'KBB', sans-serif;
+    font-size: 30px;
+    line-height: 39px;
+    padding-left: 4px;
   }
 }
 

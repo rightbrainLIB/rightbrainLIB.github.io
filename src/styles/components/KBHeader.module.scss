@@ -1,7 +1,13 @@
 .kbHeader {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: #fff;
   display: flex;
   align-items: center;
-  padding: 12px 0 0;
+  padding: 12px 24px 20px;
   .col {
     flex: 0 1 50%;
   }
@@ -26,9 +32,16 @@
     }
   }
   p {
+    font-family: 'KBL', sans-serif;
     font-size: 18px;
     color: #26282C;
     display: inline-flex;
     transform: translateY(3px);
+  }
+  .cancelBtn {
+    font-family: 'KBL', sans-serif;
+    font-size: 16px;
+    letter-spacing: -0.0125em;
+    line-height: 23px;
   }
 }

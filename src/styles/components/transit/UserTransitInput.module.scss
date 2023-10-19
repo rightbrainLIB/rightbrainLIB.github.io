@@ -20,14 +20,15 @@
       content: '';
       position: absolute;
       left: 0;
-      right: 100%;
+      //right: 100%;
+      right: 0;
       bottom: -2px;
       background-color: #B0986A;
       height: 2px;
       transition: right .3s ease-in-out;
       will-change: right;
     }
-    &[class~="on"],
+    &.on,
     &:focus-within, &:focus {
       box-shadow: none;
       &:after {
@@ -38,6 +39,7 @@
       font-family: 'KBB';
       font-weight: normal;
       font-size: 19px;
+      box-shadow: none;
       &::placeholder {
         font-family: 'KBB';
         font-weight: normal;
@@ -97,9 +99,12 @@
     font-weight: normal;
     line-height: 25px;
     letter-spacing: -0.0125em;
-    background-color: #ffd338;
-    color: #26282C;
+    background-color: #ffd338 !important;
+    color: #26282C !important;
     height: 60px;
     border: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
   }
 }

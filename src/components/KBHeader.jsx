@@ -3,8 +3,9 @@ import HeaderBack from "./icons/HeaderBack.jsx";
 import {Button, Col, Row} from "antd";
 import HeaderHome from "./icons/HeaderHome.jsx";
 import HeaderMenu from "./icons/HeaderMenu.jsx";
-import {useCallback} from "react";
+import { useCallback, useEffect, useState } from "react";
 import {useNavigate } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 const KBHeader = () => {
   const navigate = useNavigate ();
@@ -12,7 +13,6 @@ const KBHeader = () => {
   const onClickBack = useCallback(() => {
     navigate(-1);
   }, [navigate]);
-
   const onClickHome = useCallback(() => {
     navigate('/')
   }, [navigate]);

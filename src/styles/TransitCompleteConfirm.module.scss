@@ -1,8 +1,20 @@
+@forward "./components/keypadDrawer.module";
+
 /* page */
 .transPageWrap{
     height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
+    .transPageContainer {
+        position: fixed;
+        z-index: 10;
+        background-color: #fff;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
     &.on {
         overflow-y: hidden;
     }
@@ -110,11 +122,24 @@
             font-size: 34px;
             text-align: center;
             border-bottom: 2px solid #B0986A;
-            span {
+            .amount {
+                font-family: 'robotoM';
+                font-size: 34px;
+                letter-spacing: -0.0125em;
+            }
+            .currency {
                 margin-left: 4px;
                 font-family: 'KBB';
                 font-size: 30px;
+                line-height: 30px;
             }
+        }
+        .errAccount {
+            font-family: 'KBB', sans-serif;
+            font-size: 20px;
+            letter-spacing: -0.0125em;
+            line-height: 28px;
+            color: #26282C;
         }
         .info {
             margin-top: 8px;
@@ -171,5 +196,55 @@
 @media screen and (max-height: 741px) {
     .accountTransInfo {
         padding-bottom: 100px;
+    }
+}
+
+.keyboardDrawer {
+    [class~="ant-drawer-content"] {
+        [class~="ant-drawer-wrapper-body"] {
+            [class~="ant-drawer-body"] {
+                padding-top: 3px;
+            }
+        }
+        [class~="ant-drawer-header"] {
+            [class~="ant-drawer-header-title"] {
+                padding-top: 15px;
+            }
+            border-bottom: none;
+            [class~="ant-drawer-title"] {
+                font-family: 'KBB', sans-serif;
+                font-size: 20px;
+                letter-spacing: -0.0125em;
+                line-height: 28px;
+            }
+            [class~="ant-drawer-close"] {
+                width: 24px;
+                height: 24px;
+                order: 1;
+                margin: 0;
+                span {
+                    width: 24px;
+                    height: 24px;
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+        }
+    }
+    .drawerContainer {
+        .accountInput {
+            [class~="ant-input"] {
+                font-family: 'KBB', sans-serif;
+                font-size: 22px;
+                letter-spacing: -0.0125em;
+                line-height: 1.4;
+            }
+            border: none;
+            border-bottom: 2px solid #26282C;
+            border-radius: 0;
+            box-shadow: none;
+        }
     }
 }

@@ -1,11 +1,12 @@
 .taskContainer {
+  display: flex;
+  align-items: center;
   height: 100vh;
   margin: 0 48px;
   overflow: hidden;
 }
 .taskListWrap {
-  transform: translateY(-50%);
-  margin-top: 300px;
+  width: 100%;
   li {
     width: 100%;
     & + li {

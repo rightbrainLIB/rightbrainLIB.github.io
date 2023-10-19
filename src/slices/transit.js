@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   testType: '',
+  keypadType: '',
   userPriceVal: '', // 실제값
   accountNum: '', // 계좌번호
   displayPriceVal: '', // 실제값 + '원'
@@ -14,6 +15,9 @@ const transit = createSlice({
   reducers: {
     setTestType: (state, { payload }) => {
       state.testType = payload;
+    },
+    setKeypadType: (state, { payload }) => {
+      state.keypadType = payload;
     },
     setUserPrice: (state, {payload}) => {
       state.userPriceVal = payload;
@@ -36,6 +40,7 @@ const transit = createSlice({
 
 export const {
   setTestType,
+  setKeypadType,
   setUserPrice,
   setDisplayPrice,
   setShortedPrice,

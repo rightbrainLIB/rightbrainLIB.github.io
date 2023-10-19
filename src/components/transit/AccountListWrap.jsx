@@ -72,10 +72,10 @@ const AccountListWrap = () => {
             <CI_HANA />
           </div>
           <div className={$style.accountInfo}>
-            <p>안신한</p>
+            <p>고하나</p>
             <p>
-              <span>신한</span>
-              <strong>110-120-0708094</strong>
+              <span>하나</span>
+              <strong>500-920000-91234</strong>
             </p>
           </div>
           <div className={$style.favBtn}>
@@ -90,7 +90,7 @@ const AccountListWrap = () => {
             <CI_KB />
           </div>
           <div className={$style.accountInfo}>
-            <p>이국민</p>
+            <p>김국민</p>
             <p>
               <span>KB국민</span>
               <strong>800000-21-900000</strong>
@@ -126,10 +126,118 @@ const AccountListWrap = () => {
             <CI_HANA />
           </div>
           <div className={$style.accountInfo}>
+            <p>고하나</p>
+            <p>
+              <span>하나</span>
+              <strong>500-920000-91234</strong>
+            </p>
+          </div>
+          <div className={$style.favBtn}>
+            <Button type="text">
+              <FavStarOff />
+            </Button>
+          </div>
+        </li>
+
+        <li>
+          <div className={$style.imgBox}>
+            <CI_KB />
+          </div>
+          <div className={$style.accountInfo}>
+            <p>김국민</p>
+            <p>
+              <span>KB국민</span>
+              <strong>800000-21-900000</strong>
+            </p>
+          </div>
+          <div className={$style.favBtn}>
+            <Button type="text">
+              <FavStarOn />
+            </Button>
+          </div>
+        </li>
+
+        <li>
+          <div className={$style.imgBox}>
+            <CI_SH />
+          </div>
+          <div className={$style.accountInfo}>
             <p>안신한</p>
             <p>
               <span>신한</span>
               <strong>110-120-0708094</strong>
+            </p>
+          </div>
+          <div className={$style.favBtn}>
+            <Button type="text">
+              <FavStarOff />
+            </Button>
+          </div>
+        </li>
+
+        <li>
+          <div className={$style.imgBox}>
+            <CI_HANA />
+          </div>
+          <div className={$style.accountInfo}>
+            <p>고하나</p>
+            <p>
+              <span>하나</span>
+              <strong>500-920000-91234</strong>
+            </p>
+          </div>
+          <div className={$style.favBtn}>
+            <Button type="text">
+              <FavStarOff />
+            </Button>
+          </div>
+        </li>
+
+        <li>
+          <div className={$style.imgBox}>
+            <CI_KB />
+          </div>
+          <div className={$style.accountInfo}>
+            <p>김국민</p>
+            <p>
+              <span>KB국민</span>
+              <strong>800000-21-900000</strong>
+            </p>
+          </div>
+          <div className={$style.favBtn}>
+            <Button type="text">
+              <FavStarOn />
+            </Button>
+          </div>
+        </li>
+
+        <li>
+          <div className={$style.imgBox}>
+            <CI_SH />
+          </div>
+          <div className={$style.accountInfo}>
+            <p>안신한</p>
+            <p>
+              <span>신한</span>
+              <strong>110-120-0708094</strong>
+            </p>
+          </div>
+          <div className={$style.favBtn}>
+            <Button type="text">
+              <FavStarOff />
+            </Button>
+          </div>
+        </li>
+
+        <li>
+          <div className={$style.imgBox}>
+            <CI_HANA />
+          </div>
+          <div className={$style.accountInfo}>
+            <p>고하나</p>
+            <p>
+              <span>하나</span>
+              <strong>500-920000-91234</strong>
             </p>
           </div>
           <div className={$style.favBtn}>

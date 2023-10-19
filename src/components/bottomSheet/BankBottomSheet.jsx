@@ -23,7 +23,7 @@ import BottomSheetCloseIcon from "@components/icons/BottomSheetCloseIcon.jsx";
 const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
   const onCloseBankBottomSheet = useCallback(() => {
     handleOpen(false);
-  }, [handleOpen]);
+  }, [open, handleOpen]);
 
   const onClickBank = useCallback((e) => {
     // setBankValue(e.currentTarget.childNodes[1].innerText);
@@ -43,7 +43,7 @@ const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
       placement={"bottom"}
       key={"bankBottomSheet"}
       closeIcon={<BottomSheetCloseIcon />}
-      height={"65%"}
+      height={534}
       onClose={onCloseBankBottomSheet}
     >
       <div className={$style.BSContainer}>
