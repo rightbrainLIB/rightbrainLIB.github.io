@@ -21,7 +21,7 @@ const TransferInput = () => {
   const userPriceVal = useSelector(state => state.transit.userPriceVal);
   const displayPriceVal = useSelector(state => state.transit.displayPriceVal);
   const shortedPriceVal = useSelector(state => state.transit.shortedPriceVal);
-
+  
   const onKeyDownBackspace = useCallback((e) => {
     if (e.key === 'Backspace') {
       e.preventDefault();
@@ -118,7 +118,6 @@ const TransferInput = () => {
     console.log('total');
   }, [userPriceVal, displayPriceVal]);
 
-
   return (
     <>
       <KBContainer>
@@ -141,7 +140,7 @@ const TransferInput = () => {
           onKeyDown={onKeyDownBackspace}
           onClick={onFocusUserPriceInput}
         />
-        <div className={$style.shortedPrice}>{shortedPriceVal}</div>
+        <div className={$style.shortedPrice}>{shortedPriceVal ? shortedPriceVal : "출금가능 금액 200,000원"}</div>
       </KBContainer>
 
       <Drawer
