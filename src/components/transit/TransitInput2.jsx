@@ -8,10 +8,11 @@ import BankBottomSheet from "@components/bottomSheet/BankBottomSheet.jsx";
 import cx from 'classnames';
 import BgGrayButton from '../buttons/BgGrayButton';
 import iconDelete from "@imgs/ico_delete.svg";
+import iconAright from "@imgs/icon_arrow_right_bl_20.svg";
 import { setAccountNum } from "@slices/transit.js";
 import { useDispatch, useSelector } from "react-redux";
 
-const TransitInput = () => {
+const TransitInput2 = () => {
   // const inputPattern = /([0-9,\-]{3,6}\-[0-9,\-]{2,6}\-[0-9,\-])/
   const [bankBSOpen, setBankBSOpen] = useState(false);
   const [bankValue, setBankValue] = useState('');
@@ -39,6 +40,7 @@ const TransitInput = () => {
   useEffect(()=> {
     if (accountNumRef.current) {
       accountNumRef.current.focus();
+      setNumDrawerOpen(true)
     }
   }, [])
 
@@ -49,12 +51,12 @@ const TransitInput = () => {
     }
   }, []);
 
-  const onFocusAccountInput = useCallback(() => {
-    setNumDrawerOpen(true);
+  const onFocusAccountInput = () => {
+    setNumDrawerOpen(true)
     if (accountNumRef.current) {
       accountNumRef.current.blur();
     }
-  }, []);
+  };
 
   const handleOpen = useCallback((value) => {
     setBankBSOpen(value);
@@ -64,6 +66,11 @@ const TransitInput = () => {
   const autoComplete = () => {
     setNumDrawerOpen(false); 
     setBankValue("신한"); 
+    setBankBSOpen(false)
+    if (accountNumRef.current) {
+      accountNumRef.current.blur();
+      console.log(accountNumRef.current)
+    }
   };
 
   const saveAccountNum = () => {
@@ -76,8 +83,7 @@ const TransitInput = () => {
       <Input
         ref={accountNumRef}
         value={accountValue}
-        autoFocus
-        onFocus={onFocusAccountInput}
+        onClick={onFocusAccountInput}
         placeholder={"계좌번호 입력"}
         inputMode="none"
         className={cx($style.accountInput, {on: accountValue.length > 0})}
@@ -95,10 +101,15 @@ const TransitInput = () => {
       {bankValue === "" ? <div className={$style.descWrap}>
         {
           
-          accountValue.length <= 1 ?
+          accountValue.length === 0 ?
           <p>계좌번호를 입력하면 찾아드릴게요.</p> :
-          accountValue.length > 1 && accountValue.length <= 5 ?
+          accountValue.length === 1 ?
           <p>금융기관을 보고 있어요.</p> :
+          accountValue.length >= 2 && accountValue.length <= 5 ?
+          <BgGrayButton size={"small"} click={autoComplete}>
+            <span className={$style.blue}>신한 1101200708094</span>로 이체할까요?
+            <img src={iconAright} alt="" />
+          </BgGrayButton> :
           accountValue.length >= 6 ?
             <>
               <BgGrayButton click={autoComplete}>신한</BgGrayButton>
@@ -138,4 +149,4 @@ const TransitInput = () => {
   )
 }
 
-export default TransitInput;
+export default TransitInput2;

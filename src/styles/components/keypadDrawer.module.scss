@@ -26,7 +26,6 @@
       &:hover {
         border-color: #DDE1E4;
         color: #26282c;
-
       }
     }
   }
@@ -55,6 +54,15 @@
           background-color: #ffd338;
           color: #26282C;
           height: 60px;
+          border: 0;
+          &.change {
+            background-color: #DDE1E4;
+            color: #AAB0B8;
+            &.active {
+              background-color: #ffd338;
+              color: #26282C;
+            }
+          }
         }
       }
     }

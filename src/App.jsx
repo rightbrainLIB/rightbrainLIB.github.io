@@ -14,6 +14,12 @@ function App() {
       <br />
       <Link to="/transitCompleteConfirm">TransitCompleteConfirm</Link>
       <br />
+      <Link to="/accountTransfer">accountTransfer(Task1)</Link>
+      <br />
+      <Link to="/accountTransfer2">accountTransfer(Task2)</Link>
+      <br />
+      <Link to="/accountTransfer">accountTransfer(Task3)</Link>
+      <br />
       <Link to="/transitChange">TransitChange(Task3)</Link>
       <br />
     </>

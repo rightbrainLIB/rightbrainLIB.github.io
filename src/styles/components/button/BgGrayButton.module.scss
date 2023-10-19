@@ -1,0 +1,18 @@
+.grayButton{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 8px 18px;
+	background-color: #F7F7F8;
+	border-radius: 4px;
+	font-family: "KBM";
+	font-size: 19px;
+	line-height: 20px;
+	border: 0;
+	margin-right: 8px;
+	color: #26282C;
+	&.small {
+		padding: 8px 14px;
+		font-size: 14px;
+	}
+}
