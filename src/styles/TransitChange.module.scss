@@ -1,8 +1,13 @@
+@forward "./components/keypadDrawer.module";
+
 /* page */
 .transPageWrap{
     height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
+    &.on {
+        overflow-y: hidden;
+    }
     .header {
         position:fixed;
         width: 100%;
@@ -59,14 +64,36 @@
     .topAccountInfo {
         position: relative;
         padding: 0 24px;
+        .name {
+            font-family: "KBB";
+            font-size: 20px;
+            line-height: 28px;
+        }
         .account {
+            font-family: "KBM";
+            font-size: 20px;
+            line-height: 28px;
+            color: #8C949E;
+        }
+        .text {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            line-height: 23px;
+            color: #8C949E;
+            img {
+                margin-top: -2px;
+                margin-left: 4px;
+            }
+        }
+        .chaccount {
             padding-right: 70px;
             font-family: "KBB";
             font-size: 20px;
             line-height: 28px;
             letter-spacing: -0.5px;
         }
-        .text {
+        .chtext {
             img {
                 margin-top: 6px;
             }
@@ -156,6 +183,88 @@
     font-size: 20px;
     font-weight: 700;
 }
+
+/* 계좌 입력 부분 */
+.keyboardBottomDrawer {
+    .modalbtn {
+        border-radius: 0;
+        border:0;
+    }
+    .accountInput {
+        position: relative;
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px solid #898585;
+        height: 44px;
+        line-height: 44px;
+        padding: 0;
+        &:after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 100%;
+          bottom: -2px;
+          background-color: #B0986A;
+          height: 2px;
+          transition: right .3s ease-in-out;
+          will-change: right;
+        }
+        &[class~="on"],
+        &:focus-within {
+          box-shadow: none;
+          &:after {
+            right: 0;
+          }
+        }
+        [class~="ant-input"], &[class~="ant-input"] {
+          font-family: 'KBB';
+          font-weight: normal;
+          font-size: 19px;
+          &::placeholder {
+            font-family: 'KBB';
+            font-weight: normal;
+            font-size: 19px;
+          }
+        }
+      }
+    [class~="ant-drawer-header"] {
+        border-bottom:0;
+        padding: 30px 24px 30px 25px;
+    }
+    [class~="ant-drawer-content-wrapper"] [class~="ant-drawer-content"] [class~="ant-drawer-body"]{
+        padding: 0 24px 0 24px;
+    }
+    [class~="ant-drawer-header-title"]{
+        position:relative;
+        border-bottom:0;
+    }
+    [class~="ant-drawer-title"]{
+        font-family: 'KBM';
+        font-size: 20px;
+        color: #26282C;
+        line-height: 28px;
+    }
+    [class~="ant-drawer-close"] {
+        position: absolute;
+        right: 0;
+        top:0;
+        margin:0;
+        padding:0;
+        & > [class~="anticon"]{
+            svg {
+                display: none;
+            }
+            width: 24px;
+            height: 24px;
+            background-size: 24px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image:url("../assets/images/icon_close_24.svg");
+        }
+    }
+}
+
+
 @media screen and (max-height: 741px) {
     .accountTransInfo {
         padding-bottom: 100px;
