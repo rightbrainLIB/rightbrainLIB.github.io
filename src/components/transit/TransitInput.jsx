@@ -10,8 +10,8 @@ import BgGrayButton from '../buttons/BgGrayButton';
 import iconDelete from "@imgs/ico_delete.svg";
 import iconAright from "@imgs/icon_arrow_right_bl_20.svg";
 import { setAccountNum } from "@slices/transit.js";
-import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux";
 
 const TransitInput = () => {
   const navigate = useNavigate();

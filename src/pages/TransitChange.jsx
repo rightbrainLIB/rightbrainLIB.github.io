@@ -15,7 +15,6 @@ import InputClear from "@components/icons/InputClear.jsx";
 import TransitCompleteModal from "./TransitCompleteModal.jsx";
 import BankBottomSheet from "@components/bottomSheet/BankBottomSheet.jsx";
 import $style from "@styles/TransitChange.module.scss";
-import {useSelector} from "react-redux";
 import "@styles/keyboard-custom.scss";
 
 const TransitChange = () => {
