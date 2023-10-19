@@ -25,12 +25,8 @@ const TransitInput2 = () => {
 
   const onChange = input => {
     setAccountValue(input);
-    // console.log("Input changed", input);
+    console.log("Input changed", input);
   };
-
-  const numDrawerClose = () => {
-    setNumDrawerOpen(false)
-  }
 
   const accountClear = () => {
     keyboardRef.current.clearInput();
@@ -40,7 +36,6 @@ const TransitInput2 = () => {
   useEffect(()=> {
     if (accountNumRef.current) {
       accountNumRef.current.focus();
-      setNumDrawerOpen(true)
     }
   }, [])
 
@@ -51,12 +46,12 @@ const TransitInput2 = () => {
     }
   }, []);
 
-  const onFocusAccountInput = () => {
+  const onFocusAccountInput = useCallback(() => {
     setNumDrawerOpen(true)
     if (accountNumRef.current) {
       accountNumRef.current.blur();
     }
-  };
+  }, []);
 
   const handleOpen = useCallback((value) => {
     setBankBSOpen(value);
@@ -66,10 +61,8 @@ const TransitInput2 = () => {
   const autoComplete = () => {
     setNumDrawerOpen(false); 
     setBankValue("신한"); 
-    setBankBSOpen(false)
     if (accountNumRef.current) {
       accountNumRef.current.blur();
-      console.log(accountNumRef.current)
     }
   };
 
@@ -83,11 +76,11 @@ const TransitInput2 = () => {
       <Input
         ref={accountNumRef}
         value={accountValue}
-        onClick={onFocusAccountInput}
+        onFocus={onFocusAccountInput}
         placeholder={"계좌번호 입력"}
         inputMode="none"
         className={cx($style.accountInput, {on: accountValue.length > 0})}
-        allowClear={numDrawerOpen ? { clearIcon: <span onClick={ accountClear }><InputClear /></span> } : {clearIcon : <span></span>}}
+        allowClear={numDrawerOpen ? { clearIcon: <span className={$style.clearBtn} onClick={ accountClear }><InputClear /></span> } : {clearIcon : <span></span>}}
       />
       <Input
         ref={bankInputRef}
@@ -122,7 +115,6 @@ const TransitInput2 = () => {
         rootClassName={$style.keyboardDrawer}
         placement={"bottom"}
         footer={<Button className={cx($style.change, accountValue.length >= 6 ? $style.active : "")} block onClick={handleOpen}>확인</Button>}
-        onClose={numDrawerClose}
         open={numDrawerOpen}
         closeIcon={false}
         mask={false}

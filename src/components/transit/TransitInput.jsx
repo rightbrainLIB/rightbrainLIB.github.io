@@ -24,12 +24,8 @@ const TransitInput = () => {
 
   const onChange = input => {
     setAccountValue(input);
-    // console.log("Input changed", input);
+    console.log("Input changed", input);
   };
-
-  const numDrawerClose = () => {
-    setNumDrawerOpen(false)
-  }
 
   const accountClear = () => {
     keyboardRef.current.clearInput();
@@ -50,7 +46,7 @@ const TransitInput = () => {
   }, []);
 
   const onFocusAccountInput = useCallback(() => {
-    setNumDrawerOpen(true);
+    setNumDrawerOpen(true)
     if (accountNumRef.current) {
       accountNumRef.current.blur();
     }
@@ -64,6 +60,9 @@ const TransitInput = () => {
   const autoComplete = () => {
     setNumDrawerOpen(false); 
     setBankValue("신한"); 
+    if (accountNumRef.current) {
+      accountNumRef.current.blur();
+    }
   };
 
   const saveAccountNum = () => {
@@ -81,7 +80,7 @@ const TransitInput = () => {
         placeholder={"계좌번호 입력"}
         inputMode="none"
         className={cx($style.accountInput, {on: accountValue.length > 0})}
-        allowClear={numDrawerOpen ? { clearIcon: <span onClick={ accountClear }><InputClear /></span> } : {clearIcon : <span></span>}}
+        allowClear={numDrawerOpen ? { clearIcon: <span className={$style.clearBtn} onClick={ accountClear }><InputClear /></span> } : {clearIcon : <span></span>}}
       />
       <Input
         ref={bankInputRef}
@@ -111,7 +110,6 @@ const TransitInput = () => {
         rootClassName={$style.keyboardDrawer}
         placement={"bottom"}
         footer={<Button className={cx($style.change, accountValue.length >= 6 ? $style.active : "")} block onClick={handleOpen}>확인</Button>}
-        onClose={numDrawerClose}
         open={numDrawerOpen}
         closeIcon={false}
         mask={false}
