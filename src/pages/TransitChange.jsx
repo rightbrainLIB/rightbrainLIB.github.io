@@ -15,7 +15,6 @@ import InputClear from "@components/icons/InputClear.jsx";
 import TransitCompleteModal from "./TransitCompleteModal.jsx";
 import BankBottomSheet from "@components/bottomSheet/BankBottomSheet.jsx";
 import $style from "@styles/TransitChange.module.scss";
-import {useSelector} from "react-redux";
 import "@styles/keyboard-custom.scss";
 
 const TransitChange = () => {
@@ -30,9 +29,8 @@ const TransitChange = () => {
   const keyboardRef = useRef(null);
   const accountNumRef = useRef(null);
 
-  let accountNum = useSelector((state) => state.transit.accountNum);
+  const accountNum = useSelector((state) => state.transit.accountNum);
 
-  accountNum = "123123";
   const handleOpen = useCallback((value) => {
     setBankBSOpen(value);
     setNumDrawerOpen(false);
@@ -63,8 +61,8 @@ const TransitChange = () => {
     setMopen(false);
   };
 
-  const displayPriceVal = useSelector(state => state.transit.displayPriceVal);
-  const shortedPriceVal = useSelector(state => state.transit.shortedPriceVal);
+  const displayPriceVal = useSelector((state) => state.transit.displayPriceVal);
+  const shortedPriceVal = useSelector((state) => state.transit.shortedPriceVal);
 
   const drawerProps = {
     open: mopen,
@@ -132,7 +130,8 @@ const TransitChange = () => {
           </div>
           <div className={$style.accountNum}>
             <div className={$style.number}>
-              {displayPriceVal}<span></span>
+              {displayPriceVal}
+              <span></span>
             </div>
             <div className={$style.info}>{shortedPriceVal}</div>
           </div>
