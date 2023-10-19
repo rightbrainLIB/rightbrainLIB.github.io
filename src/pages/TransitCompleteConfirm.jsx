@@ -24,8 +24,7 @@ const TransitCompleteConfirm = () => {
       mask: "CmodalMask",
       body: "CmodalBody",
     },
-    height: "429px",
-    visible: false
+    height: "429px"
   };
 
   return (
