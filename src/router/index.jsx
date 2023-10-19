@@ -6,6 +6,7 @@ import AccountTransfer from "../pages/AccountTransfer.jsx";
 import TransitCompleteConfirm from "../pages/TransitCompleteConfirm.jsx";
 import TransitCompletePage from "../pages/TransitCompletePage.jsx";
 import TransferInput from "../pages/TransferInput.jsx";
+import TransitChange from "../pages/TransitChange.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/transitCompletePage",
     element: <TransitCompletePage />,
+  },
+  {
+    path: "/transitChange",
+    element: <TransitChange />,
   },
 ]);
 

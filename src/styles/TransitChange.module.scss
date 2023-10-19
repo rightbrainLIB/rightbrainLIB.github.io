@@ -59,26 +59,16 @@
     .topAccountInfo {
         position: relative;
         padding: 0 24px;
-        .name {
+        .account {
+            padding-right: 70px;
             font-family: "KBB";
             font-size: 20px;
             line-height: 28px;
-        }
-        .account {
-            font-family: "KBM";
-            font-size: 20px;
-            line-height: 28px;
-            color: #8C949E;
+            letter-spacing: -0.5px;
         }
         .text {
-            display: flex;
-            align-items: center;
-            font-size: 16px;
-            line-height: 23px;
-            color: #8C949E;
             img {
-                margin-top: -2px;
-                margin-left: 4px;
+                margin-top: 6px;
             }
         }
         .btn {
@@ -94,6 +84,7 @@
             border-radius: 26px;
             border: 1px solid #EBEEF0;
             background-color: #F7F7F8;
+            z-index: 1;
         }
     }
     .accountNum {

@@ -14,7 +14,7 @@ function App() {
       <br />
       <Link to="/transitCompleteConfirm">TransitCompleteConfirm</Link>
       <br />
-      <Link to="/transitCompletePage">TransitCompletePage</Link>
+      <Link to="/transitChange">TransitChange(Task3)</Link>
       <br />
     </>
   );
