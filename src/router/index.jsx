@@ -7,15 +7,25 @@ import TransitCompleteConfirm from "../pages/TransitCompleteConfirm.jsx";
 import TransitCompletePage from "../pages/TransitCompletePage.jsx";
 import TransferInput from "../pages/TransferInput.jsx";
 import TransitChange from "../pages/TransitChange.jsx";
+import PasswordView from "../pages/PasswordView.jsx";
+import SelectTaskView from "../pages/SelectTaskView.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <SelectTaskView />,
+  },
+  {
+    path: "/app",
     element: <App />,
   },
   {
     path: "/test",
     element: <Test />,
+  },
+  {
+    path: "/password",
+    element: <PasswordView />,
   },
   {
     path: "/transit",
