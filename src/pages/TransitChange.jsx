@@ -6,9 +6,38 @@ import textAdd from "@imgs/btn_추가정보입력.svg";
 import TransitCompleteModal from "./TransitCompleteModal.jsx";
 import $style from "@styles/TransitChange.module.scss";
 import { useSelector } from "react-redux";
+import "@styles/keyboard-custom.scss";
 
 const TransitChange = () => {
   const [mopen, setMopen] = useState(false);
+  const keyboardRef = useRef(null);
+  const accountNumRef = useRef(null);
+
+  const accountNum = useSelector((state) => state.transit.accountNum);
+
+  const handleOpen = useCallback((value) => {
+    setBankBSOpen(value);
+    setNumDrawerOpen(false);
+  }, []);
+
+  const accountDrawerOpen = useCallback(() => {
+    setNumDrawerOpen(true);
+  }, []);
+
+  const numDrawerClose = useCallback(() => {
+    setNumDrawerOpen(false);
+  }, []);
+
+  const accountClear = () => {
+    keyboardRef.current.clearInput();
+    setAccountValue("");
+  };
+
+  const onChange = (input) => {
+    setAccountValue(input);
+    console.log("Input changed", input);
+  };
+
   const showDrawer = () => {
     setMopen(true);
   };
@@ -16,8 +45,8 @@ const TransitChange = () => {
     setMopen(false);
   };
 
-  const displayPriceVal = useSelector(state => state.transit.displayPriceVal);
-  const shortedPriceVal = useSelector(state => state.transit.shortedPriceVal);
+  const displayPriceVal = useSelector((state) => state.transit.displayPriceVal);
+  const shortedPriceVal = useSelector((state) => state.transit.shortedPriceVal);
 
   const drawerProps = {
     open: mopen,
@@ -56,7 +85,8 @@ const TransitChange = () => {
           </div>
           <div className={$style.accountNum}>
             <div className={$style.number}>
-              {displayPriceVal}<span></span>
+              {displayPriceVal}
+              <span></span>
             </div>
             <div className={$style.info}>{shortedPriceVal}</div>
           </div>
