@@ -42,7 +42,7 @@ const TransitCompleteModal = (drawerProps) => {
               </p>
             </div>
             <div className={$style.account}>
-              신한은행 <span>{accountNum ? accountNum : '110-120-070894'}</span>
+              신한은행 <span>{accountNum ? accountNum.replace(/(\d{3})(\d{3})(\d{7})/, "$1-$2-$3") : '110-120-070894'}</span>
             </div>
             <div className={$style.bottomText}>
               <img src={textInfo} alt="" />

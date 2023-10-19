@@ -150,7 +150,7 @@ const TransferInput = () => {
 
         <div className={$style.topAccountInfo}>
           <div>
-            <p className={$style.name}>신한 {userAccountNum ? userAccountNum : '110-120-0708094'}님께</p>
+            <p className={$style.name}>신한 {userAccountNum ? userAccountNum.replace(/(\d{3})(\d{3})(\d{7})/, "$1-$2-$3") : '110-120-0708094'}님께</p>
           </div>
         </div>
 

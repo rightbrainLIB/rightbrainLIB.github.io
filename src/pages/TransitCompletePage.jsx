@@ -17,6 +17,7 @@ const TransitCompletePage = () => {
   const [currency, setCurrency] = useState('');
 
   const displayPriceVal = useSelector(state => state.transit.displayPriceVal);
+  const accountNum = useSelector(state => state.transit.accountNum);
 
   useEffect(() => {
     if (displayPriceVal) {
@@ -57,7 +58,7 @@ const TransitCompletePage = () => {
             <p>이체가 완료되었습니다.</p>
           </div>
           <div className={$style.accoutInfo}>
-            <span>신한은행 110-120-0708094</span>
+            <span>신한은행 {accountNum ? accountNum.replace(/(\d{3})(\d{3})(\d{7})/, "$1-$2-$3") : '110-120-0708094'}</span>
             <img src={iconstar} alt="" />
           </div>
           <div className={$style.descImg}>

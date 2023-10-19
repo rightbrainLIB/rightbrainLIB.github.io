@@ -55,7 +55,9 @@ const TransitInput = () => {
 
   // 숫자 키패드 입력시 값 변환
   const onChangeKeypad = useCallback(input => {
-    setAccountValue(input);
+    if (input.length <= 13) {
+      setAccountValue(input);
+    }
   }, [accountValue]);
 
   // 숫자 키패드 '확인' 버튼

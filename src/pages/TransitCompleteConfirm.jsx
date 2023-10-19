@@ -21,7 +21,7 @@ const TransitCompleteConfirm = () => {
 
   const [mopen, setMopen] = useState(false);
   const [accountValue, setAccountValue] = useState('');
-  const [numDrawerOpen, setNumDrawerOpen] = useState(true); // 계좌번호 입력 키패드 바텀시트
+  const [numDrawerOpen, setNumDrawerOpen] = useState(false); // 계좌번호 입력 키패드 바텀시트
   const [amount, setAmount] = useState('');
   const [currency, setCurrency] = useState('');
   const [chkAccountValid, setChkAccountValid] = useState(true); // 계좌번호 유효 체크
@@ -54,7 +54,9 @@ const TransitCompleteConfirm = () => {
   const shortedPriceVal = useSelector(state => state.transit.shortedPriceVal);
 
   const onChangeAccountNum = useCallback((input) => {
+    if (input.length <= 13) {
       setAccountValue(input);
+    }
   }, [accountValue]);
 
   // 계좌번호 입력창 x 버튼
@@ -66,19 +68,21 @@ const TransitCompleteConfirm = () => {
   // 키패드 합칠 경우 필요하면 활용
   const onClickAccountChangeBtn = useCallback(() => {
     // dispatch(setKeypadType('acount'));
-  }, []);
+    setNumDrawerOpen(true);
+  }, [numDrawerOpen]);
 
   const numDrawerClose = useCallback(() => {
     setNumDrawerOpen(false);
   }, []);
 
+  // 계좌번호 입력 키패드 '확인' 선택
   const onClickDrawerConfirm = useCallback(() => {
-    if (accountValue > 0) {
+    if (accountValue.length <= 13) {
       dispatch(setAccountNum(accountValue));
       setChkAccountValid(true);
       setNumDrawerOpen(false);
     }
-  }, [accountValue, accountNum]);
+  }, [accountValue, accountNum], chkAccountValid);
 
   useEffect(() => {
     if (displayPriceVal) {
@@ -90,9 +94,8 @@ const TransitCompleteConfirm = () => {
   useEffect(() => {
     if (testType === 'task3') {
       setChkAccountValid( false);
-      console.log(chkAccountValid);
     }
-  }, []);
+  }, [testType]);
 
   return (
     <>
@@ -114,14 +117,14 @@ const TransitCompleteConfirm = () => {
                 chkAccountValid ?
                 <>
                   <p className={$style.name}>김받음님</p>
-                  <p className={$style.account}>신한 {accountNum ? accountNum : '110-120-0708094'}</p>
+                  <p className={$style.account}>신한 {accountNum ? accountNum.replace(/(\d{3})(\d{3})(\d{7})/, "$1-$2-$3") : '110-120-0708094'}</p>
                   <p className={$style.text}>
                     사기의심계좌 여부 조회
                     <img src={iconAright} alt="" />
                   </p>
                 </> :
                 <>
-                  <p className={$style.errAccount}>신한 {accountNum ? accountNum : '110-120-0708094'}</p>
+                  <p className={$style.errAccount}>신한 {accountNum ? accountNum.replace(/(\d{3})(\d{3})(\d{7})/, "$1-$2-$3") : '110-120-0708094'}</p>
                   <p className={$style.text}>
                     <img src={text01} alt="" />
                   </p>
@@ -132,10 +135,21 @@ const TransitCompleteConfirm = () => {
           </div>
           <div className={$style.accountNum}>
             <div className={$style.number}>
-              <span className={$style.amount}>{amount}</span>
-              <span className={$style.currency}>{currency}</span>
+              {
+                displayPriceVal ? 
+                  <>
+                    <span className={$style.amount}>{amount}</span>
+                    <span className={$style.currency}>{currency}</span>
+                  </> :
+                  <>
+                    <span className={$style.amount}>50,000</span>
+                    <span className={$style.currency}>원</span>
+                  </>
+              }
             </div>
-            <div className={$style.info}>{shortedPriceVal}</div>
+            <div className={$style.info}>
+              {shortedPriceVal ? shortedPriceVal : '5만원'}
+            </div>
           </div>
         </div>
         <div className={$style.accountTransInfo}>
@@ -164,7 +178,6 @@ const TransitCompleteConfirm = () => {
         onClose={numDrawerClose}
         open={numDrawerOpen}
         closeIcon={true}
-        mask={false}
         height={466}
       >
         <div className={$style.drawerContainer}>
