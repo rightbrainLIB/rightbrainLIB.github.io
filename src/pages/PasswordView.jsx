@@ -17,7 +17,7 @@ const PasswordView = () => {
 
   useEffect(() => {
     if (passwordValue && passwordValue === PASSWORD) {
-      navigate('/')
+      navigate('/home')
     }
   }, [passwordValue])
 

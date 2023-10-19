@@ -13,6 +13,10 @@ import SelectTaskView from "../pages/SelectTaskView.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <PasswordView />,
+  },
+  {
+    path: "/home",
     element: <SelectTaskView />,
   },
   {
@@ -22,10 +26,6 @@ const router = createBrowserRouter([
   {
     path: "/test",
     element: <Test />,
-  },
-  {
-    path: "/password",
-    element: <PasswordView />,
   },
   {
     path: "/transit",

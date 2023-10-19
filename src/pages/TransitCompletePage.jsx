@@ -27,7 +27,7 @@ const TransitCompletePage = () => {
   }, [displayPriceVal]);
 
   const onClickCompleteConfirm = useCallback(() => {
-    navigate('/')
+    navigate('/home')
   }, [navigate]);
 
 

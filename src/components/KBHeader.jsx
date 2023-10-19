@@ -14,7 +14,7 @@ const KBHeader = () => {
     navigate(-1);
   }, [navigate]);
   const onClickHome = useCallback(() => {
-    navigate('/')
+    navigate('/home')
   }, [navigate]);
 
   return (
