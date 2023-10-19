@@ -30,7 +30,7 @@ const TransitCompleteConfirm = () => {
 
   return (
     <>
-      <div className={cx($style.transPageWrap, {'on': mopen})}>
+      <div className={cx($style.transPageWrap, {[$style.on]: mopen})}>
         <div className={$style.header}>
           <span className={$style.left}>이체</span>
           <span className={$style.right}>취소</span>
