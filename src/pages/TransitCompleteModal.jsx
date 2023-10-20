@@ -17,6 +17,7 @@ const TransitCompleteModal = (drawerProps) => {
   const [amount, setAmount] = useState('');
   const [currency, setCurrency] = useState('');
 
+  const testType = useSelector(state => state.transit.testType);
   const displayPriceVal = useSelector(state => state.transit.displayPriceVal);
   const accountNum = useSelector(state => state.transit.accountNum);
 
@@ -45,7 +46,9 @@ const TransitCompleteModal = (drawerProps) => {
               신한은행 <span>{accountNum ? accountNum.replace(/(\d{3})(\d{3})(\d{7})/, "$1-$2-$3") : '110-120-070894'}</span>
             </div>
             <div className={$style.bottomText}>
-              <img src={textInfo} alt="" />
+              {
+                testType === 'task1' && <img src={textInfo} alt="" />
+              }
             </div>
             <div className={$style.bottom}>
               <p>
