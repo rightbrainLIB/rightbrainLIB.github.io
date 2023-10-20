@@ -52,7 +52,7 @@
         .inner {
             display: flex;
             flex-direction: row;
-            font-family: 'KBB';
+            font-family: 'KBB', sans-serif;
             font-size: 13px;
             p{
                 position: relative;
@@ -76,7 +76,7 @@
         padding: 0 24px;
         .errAccount {
             padding-right: 70px;
-            font-family: "KBB";
+            font-family: "KBB", sans-serif;
             font-size: 20px;
             line-height: 28px;
             letter-spacing: -0.5px;
@@ -88,13 +88,13 @@
             }
         }
         .name {
-            font-family: "KBB";
+            font-family: "KBB", sans-serif;
             font-size: 20px;
             line-height: 28px;
         }
         .account {
             padding-right: 70px;
-            font-family: "KBM";
+            font-family: "KBM", sans-serif;
             font-size: 20px;
             line-height: 28px;
             word-wrap: break-word;
@@ -133,18 +133,18 @@
             align-items: center;
             padding-bottom: 5px;
             justify-content: center;
-            font-family: 'robotoB';
+            font-family: 'robotoB', sans-serif;
             font-size: 34px;
             text-align: center;
             border-bottom: 2px solid #B0986A;
             .amount {
-                font-family: 'robotoM';
+                font-family: 'robotoM', sans-serif;
                 font-size: 34px;
                 letter-spacing: -0.0125em;
             }
             .currency {
                 margin-left: 4px;
-                font-family: 'KBB';
+                font-family: 'KBB', sans-serif;
                 font-size: 30px;
                 line-height: 30px;
             }
@@ -174,14 +174,20 @@
             margin-top: 23px;
         }
         .name {
+            position: relative;
+            height: 36px;
             margin-top: 4px;
             padding-bottom: 7px;
             border-bottom: 2px solid #B0986A;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-family: 'KBB';
+            font-family: 'KBB', sans-serif;
             font-size: 19px;
+            img {
+                position: absolute;
+                right: 0;
+            }
         }
     }
     .desc {
@@ -202,11 +208,23 @@
     line-height: 60px;
     border:0;
     box-shadow: none;
-    background-color: #FFD338;
     border-radius: 0;
-    font-family: 'KBB';
-    font-size: 20px;
-    font-weight: 700;
+    [class~="ant-btn"] {
+        font-family: 'KBB', sans-serif;
+        font-size: 20px;
+        border: none;
+        width: 100%;
+        height: 60px;
+        color: #26282C;
+        background-color: #FFD338;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        &[disabled] {
+            color: #AAB0B8;
+            background-color: #DDE1E4;
+        }
+    }
 }
 @media screen and (max-height: 741px) {
     .accountTransInfo {

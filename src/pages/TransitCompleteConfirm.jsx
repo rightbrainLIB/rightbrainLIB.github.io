@@ -11,7 +11,7 @@ import $style from "@styles/TransitCompleteConfirm.module.scss";
 import cx from "classnames";
 import KBSecondHeader from "@components/KBSecondHeader.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { setAccountNum, setKeypadType } from "../slices/transit.js";
+import { setAccountNum } from "../slices/transit.js";
 import { Button, Drawer, Input } from "antd";
 import Keyboard from "react-simple-keyboard";
 import "@styles/keyboard-custom.scss";
@@ -25,15 +25,17 @@ const TransitCompleteConfirm = () => {
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("");
   const [chkAccountValid, setChkAccountValid] = useState(true); // 계좌번호 유효 체크
+  const [adjustTaskHeight, setAdjustTaskHeight] = useState("");
 
   const keyboardRef = useRef(null);
 
-  const showDrawer = () => {
+  const showDrawer = useCallback(() => {
     setMopen(true);
-  };
-  const onClose = () => {
+  }, []);
+  const onClose = useCallback(() => {
+    if (!chkAccountValid) return;
     setMopen(false);
-  };
+  }, [chkAccountValid]);
 
   const drawerProps = {
     open: mopen,
@@ -43,7 +45,7 @@ const TransitCompleteConfirm = () => {
       mask: "CmodalMask",
       body: "CmodalBody",
     },
-    height: "429px",
+    height: adjustTaskHeight, // "429px", "372px"
   };
 
   const testType = useSelector((state) => state.transit.testType);
@@ -80,6 +82,7 @@ const TransitCompleteConfirm = () => {
   // 계좌번호 입력 키패드 '확인' 선택
   const onClickDrawerConfirm = useCallback(
     () => {
+      if (accountValue.length === 0) return;
       if (accountValue.length <= 13) {
         dispatch(setAccountNum(accountValue));
         setChkAccountValid(true);
@@ -98,8 +101,31 @@ const TransitCompleteConfirm = () => {
   }, [displayPriceVal]);
 
   useEffect(() => {
+    if (numDrawerOpen) {
+      if (accountNum.length > 0) {
+        setAccountValue(accountNum)
+      } else {
+        setAccountValue('1101200708094')
+      }
+    }
+  }, [numDrawerOpen, accountNum]);
+
+  useEffect(() => {
+    if (accountNum.length < 13) {
+      setChkAccountValid(false);
+    } else {
+      setChkAccountValid(true);
+    }
+  }, [accountNum]);
+
+  useEffect(() => {
     if (testType === "task3") {
       setChkAccountValid(false);
+    }
+    if (testType === "task1") {
+      setAdjustTaskHeight("492px")
+    } else {
+      setAdjustTaskHeight("372px")
     }
   }, [testType]);
 
@@ -178,14 +204,21 @@ const TransitCompleteConfirm = () => {
           </div>
           <p>내 통장 표시</p>
           <div className={$style.name}>
-            이나연 <img src={iconArrow} alt="" />
+            {
+              chkAccountValid &&
+              <>
+                이나연
+              </>
+            }
+            <img src={iconArrow} alt="" />
           </div>
           <div className={$style.desc}>
             <img src={textAdd} alt="" />
           </div>
         </div>
-        <div className={$style.bottomBtn} onClick={showDrawer}>
-          이체
+        <div className={$style.bottomBtn}>
+          {/*chkAccountValid*/}
+          <Button onClick={showDrawer} disabled={!chkAccountValid}>이체</Button>
         </div>
       </div>
       <TransitCompleteModal drawerProps={drawerProps} />
