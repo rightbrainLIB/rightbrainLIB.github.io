@@ -57,7 +57,7 @@ const TransitCompleteConfirm = () => {
   // 키패드 누를시 실행
   const onChangeAccountNum = useCallback(
     (input) => {
-      if (accountValue.length < 13) {
+      if (input.length < 13) {
         setAccountValue(input);
       }
     },
@@ -269,8 +269,10 @@ const TransitCompleteConfirm = () => {
             theme={"hg-theme-default hg-layout-numeric numeric-theme"}
             display={{ "{bksp}": `<img src="${iconDelete}" alt="" />` }}
             onChange={(e) => {
-              setAccountValue(e);
-              onChangeAccountNum(e);
+              if (e.length <= 13) {
+                setAccountValue(e);
+                onChangeAccountNum(e);
+              }
             }}
             baseClass={`${$style.customKeypad}`}
             useTouchEvents={true}
