@@ -103,7 +103,6 @@ const TransitInput = () => {
   // 첫 진입시 keypad 활성화
   useEffect(() => {
     setNumDrawerOpen(true);
-    console.log('bankValue = ', bankValue)
   }, []);
 
   return (
