@@ -54,13 +54,15 @@ const TransitCompleteConfirm = () => {
   const displayPriceVal = useSelector((state) => state.transit.displayPriceVal);
   const shortedPriceVal = useSelector((state) => state.transit.shortedPriceVal);
 
+  // 키패드 누를시 실행
   const onChangeAccountNum = useCallback(
     (input) => {
-      if (input.length <= 13) {
+      console.log(input)
+      if (accountValue.length <= 13) {
         setAccountValue(input);
       }
     },
-    [accountValue]
+    [accountValue, accountNum]
   );
 
   // 계좌번호 입력창 x 버튼
@@ -93,22 +95,24 @@ const TransitCompleteConfirm = () => {
     chkAccountValid
   );
 
+  // 계좌번호 입력 키패드 활성화시 Input에 현재 계좌번호 불러오기
+  const afterOpenAccountKeypad = useCallback((val) => {
+    if (val) {
+      if (accountNum) {
+        console.log('계좌 있다.');
+        setAccountValue(accountNum);
+      } else {
+        console.log('계좌 없다.');
+      }
+    }
+  }, [numDrawerOpen, accountNum, accountValue]);
+
   useEffect(() => {
     if (displayPriceVal) {
       setAmount(displayPriceVal.split(" ")[0]);
       setCurrency(displayPriceVal.split(" ")[1]);
     }
   }, [displayPriceVal]);
-
-  useEffect(() => {
-    if (numDrawerOpen) {
-      if (accountNum.length > 0) {
-        setAccountValue(accountNum)
-      } else {
-        setAccountValue('1101200708094')
-      }
-    }
-  }, [numDrawerOpen, accountNum]);
 
   useEffect(() => {
     if (accountNum.length < 13) {
@@ -123,7 +127,7 @@ const TransitCompleteConfirm = () => {
       setChkAccountValid(false);
     }
     if (testType === "task1") {
-      setAdjustTaskHeight("492px")
+      setAdjustTaskHeight("423px")
     } else {
       setAdjustTaskHeight("372px")
     }
@@ -147,7 +151,7 @@ const TransitCompleteConfirm = () => {
             <div className={$style.inner}>
               {chkAccountValid ? (
                 <>
-                  <p className={$style.name}>김받음님</p>
+                  <p className={$style.name}>이나연님</p>
                   <p className={$style.account}>
                     신한{" "}
                     {accountNum
@@ -200,7 +204,7 @@ const TransitCompleteConfirm = () => {
         <div className={$style.accountTransInfo}>
           <p>받는 분 통장 표시</p>
           <div className={$style.name}>
-            김국민 <img src={iconArrow} alt="" />
+            김경민님 <img src={iconArrow} alt="" />
           </div>
           <p>내 통장 표시</p>
           <div className={$style.name}>
@@ -235,6 +239,7 @@ const TransitCompleteConfirm = () => {
         open={numDrawerOpen}
         closeIcon={true}
         height={466}
+        afterOpenChange={afterOpenAccountKeypad}
       >
         <div className={$style.drawerContainer}>
           <Input

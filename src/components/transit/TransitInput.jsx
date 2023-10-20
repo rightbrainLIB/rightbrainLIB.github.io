@@ -33,12 +33,6 @@ const TransitInput = () => {
     setAccountValue('');
   }, [accountValue]);
 
-  // useEffect(()=> {
-  //   if (accountNumRef.current) {
-  //     accountNumRef.current.focus();
-  //   }
-  // }, [])
-  //
   // const onFocusBankInput = useCallback(() => {
   //   setBankBSOpen(true);
   //   if (bankInputRef.current) {
@@ -100,6 +94,16 @@ const TransitInput = () => {
     }
   }, [navigate, accountValue]);
 
+  const afterOpenChangeKeyboard = useCallback((val) => {
+    if (val) {
+      accountNumRef.current.focus();
+      accountNumRef.current.input.placeholder = '';
+    } else {
+      accountNumRef.current.blur();
+      accountNumRef.current.input.placeholder = '계좌번호 입력';
+    }
+  }, []);
+
   // 첫 진입시 keypad 활성화
   useEffect(() => {
     setNumDrawerOpen(true);
@@ -110,7 +114,7 @@ const TransitInput = () => {
       <h2>누구에게 보낼까요?</h2>
       {/* 계좌번호 입력 */}
       <Input
-        // ref={accountNumRef}
+        ref={accountNumRef}
         value={accountValue}
         onClick={() => setNumDrawerOpen(true)}
         placeholder={"계좌번호 입력"}
@@ -134,9 +138,9 @@ const TransitInput = () => {
       { bankValue === "" && testType === "task1" || testType === "task3" ?
         <div className={$style.descWrap}>
           {
-            accountValue.length <= 1 ?
+            accountValue.length <= 0 ?
             <p>계좌번호를 입력하면 찾아드릴게요.</p> :
-            accountValue.length > 1 && accountValue.length <= 5 ?
+            accountValue.length >= 1 && accountValue.length <= 5 ?
             <p>금융기관을 찾고있어요.</p> :
             accountValue.length >= 6 ?
               <>
@@ -180,6 +184,7 @@ const TransitInput = () => {
           </Button>
         }
         open={numDrawerOpen}
+        afterOpenChange={afterOpenChangeKeyboard}
         closeIcon={false}
         mask={false}
         height={348}
