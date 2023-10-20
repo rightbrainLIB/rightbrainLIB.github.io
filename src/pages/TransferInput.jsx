@@ -96,20 +96,6 @@ const TransferInput = () => {
     }
   }, [userPriceVal]);
 
-  useEffect(() => {
-    if (displayPriceVal) {
-      setAmount(displayPriceVal.split(' ')[0]);
-      setCurrency(displayPriceVal.split(' ')[1]);
-    }
-  }, [displayPriceVal])
-
-  useEffect(() => {
-    if (numDrawerOpen && keyboardRef && keyboardRef.current) {
-      keyboardRef.current.setInput(userPriceVal);
-      keyboardRef.current.setCaretPosition(userPriceVal.length);
-    }
-  }, [numDrawerOpen, userPriceVal]);
-
   const onChange = useCallback(input => {
     dispatch(setUserPrice(input));
   }, []);
@@ -142,6 +128,24 @@ const TransferInput = () => {
   const onClickPlusTotal = useCallback(() => {
     console.log('total');
   }, [userPriceVal, displayPriceVal]);
+
+  useEffect(() => {
+    dispatch(setUserPrice(''));
+  }, [])
+
+  useEffect(() => {
+    if (displayPriceVal) {
+      setAmount(displayPriceVal.split(' ')[0]);
+      setCurrency(displayPriceVal.split(' ')[1]);
+    }
+  }, [displayPriceVal])
+
+  useEffect(() => {
+    if (numDrawerOpen && keyboardRef && keyboardRef.current) {
+      keyboardRef.current.setInput(userPriceVal);
+      keyboardRef.current.setCaretPosition(userPriceVal.length);
+    }
+  }, [numDrawerOpen, userPriceVal]);
 
   return (
     <>

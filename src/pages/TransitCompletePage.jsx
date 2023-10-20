@@ -37,7 +37,7 @@ const TransitCompletePage = () => {
         <div className={$style.header}>
           <div className={$style.left}>이체</div>
           <div>
-            <Button type="text">
+            <Button type="text" onClick={onClickCompleteConfirm}>
               <HeaderHome />
             </Button>
             <Button type="text">

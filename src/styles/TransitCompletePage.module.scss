@@ -16,6 +16,12 @@
         .left {
             font-size: 18px;
         }
+        [class~="ant-btn"] {
+            padding: 4px 0;
+            & + [class~="ant-btn"] {
+                margin-left: 20px;
+            }
+        }
     }
     .content {
         padding-top: 56px;
@@ -29,7 +35,7 @@
     .accoutUserInfo {
         font-size: 22px;
         .name {
-           font-family: "KBB"; 
+           font-family: "KBB";
            font-size: 24px;
            line-height: 31px;
         }
@@ -37,7 +43,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: "KBB"; 
+            font-family: "KBB";
             font-size: 22px;
            span {
             margin-left: 4px;
