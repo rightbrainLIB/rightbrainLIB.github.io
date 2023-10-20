@@ -51,6 +51,10 @@
       width: 20px;
       height: 20px;
     }
+    & + .accountInput {
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
   }
   .userAccountNumUtil {
     display: flex;
@@ -80,7 +84,7 @@
   }
   .descWrap {
     p, button {
-      margin-top: 8px;
+      margin-bottom: 2px;
     }
     p {
       font-family: "KBL";

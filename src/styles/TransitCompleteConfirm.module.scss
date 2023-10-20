@@ -209,7 +209,7 @@
     border:0;
     box-shadow: none;
     border-radius: 0;
-    [class~="ant-btn"] {
+    [class~="ant-btn"][class~="ant-btn-default"] {
         font-family: 'KBB', sans-serif;
         font-size: 20px;
         border: none;
@@ -223,6 +223,10 @@
         &[disabled] {
             color: #AAB0B8;
             background-color: #DDE1E4;
+        }
+        &:hover:not([disabled]) {
+            color: #26282C;
+            background-color: #FFD338;
         }
     }
 }
