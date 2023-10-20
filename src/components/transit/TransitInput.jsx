@@ -137,7 +137,7 @@ const TransitInput = () => {
             accountValue.length <= 1 ?
             <p>계좌번호를 입력하면 찾아드릴게요.</p> :
             accountValue.length > 1 && accountValue.length <= 5 ?
-            <p>금융기관을 보고 있어요.</p> :
+            <p>금융기관을 찾고있어요.</p> :
             accountValue.length >= 6 ?
               <>
                 <BgGrayButton click={autoComplete}>신한</BgGrayButton>
@@ -152,7 +152,7 @@ const TransitInput = () => {
               accountValue.length === 0 ?
                 <p>계좌번호를 입력하면 찾아드릴게요.</p> :
               accountValue.length === 1 ?
-                <p>금융기관을 보고 있어요.</p> :
+                <p>금융기관을 찾고있어요.</p> :
               accountValue.length >= 2 && accountValue.length <= 5 ?
                 <BgGrayButton size={"small"} click={autoCompleteWithAccount}>
                   <span className={$style.blue}>신한 1101200708094</span>로 이체
