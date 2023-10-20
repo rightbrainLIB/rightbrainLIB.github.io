@@ -96,8 +96,9 @@ const TransitInput = () => {
 
   const afterOpenChangeKeyboard = useCallback((val) => {
     if (val) {
-      accountNumRef.current.focus();
+      console.log(accountNumRef.current)
       accountNumRef.current.input.placeholder = '';
+      accountNumRef.current.focus();
     } else {
       accountNumRef.current.blur();
       accountNumRef.current.input.placeholder = '계좌번호 입력';
