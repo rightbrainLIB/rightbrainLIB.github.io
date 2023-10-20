@@ -96,7 +96,7 @@ const TransitInput = () => {
 
   const afterOpenChangeKeyboard = useCallback((val) => {
     if (val) {
-      console.log(accountNumRef.current)
+      // console.log(accountNumRef.current)
       accountNumRef.current.input.placeholder = '';
       accountNumRef.current.focus();
     } else {
