@@ -74,6 +74,18 @@
     .topAccountInfo {
         position: relative;
         padding: 0 24px;
+        .errAccount {
+            padding-right: 70px;
+            font-family: "KBB";
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: -0.5px;
+        }
+        .errText {
+            img {
+                margin-top: 6px;
+            }
+        }
         .name {
             font-family: "KBB";
             font-size: 20px;

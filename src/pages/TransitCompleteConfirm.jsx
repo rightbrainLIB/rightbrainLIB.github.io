@@ -20,14 +20,13 @@ const TransitCompleteConfirm = () => {
   const dispatch = useDispatch();
 
   const [mopen, setMopen] = useState(false);
-  const [accountValue, setAccountValue] = useState('');
+  const [accountValue, setAccountValue] = useState("");
   const [numDrawerOpen, setNumDrawerOpen] = useState(false); // 계좌번호 입력 키패드 바텀시트
-  const [amount, setAmount] = useState('');
-  const [currency, setCurrency] = useState('');
+  const [amount, setAmount] = useState("");
+  const [currency, setCurrency] = useState("");
   const [chkAccountValid, setChkAccountValid] = useState(true); // 계좌번호 유효 체크
 
   const keyboardRef = useRef(null);
-
 
   const showDrawer = () => {
     setMopen(true);
@@ -44,25 +43,28 @@ const TransitCompleteConfirm = () => {
       mask: "CmodalMask",
       body: "CmodalBody",
     },
-    height: "429px"
+    height: "429px",
   };
 
-  const testType = useSelector(state => state.transit.testType);
-  const accountNum = useSelector(state => state.transit.accountNum);
+  const testType = useSelector((state) => state.transit.testType);
+  const accountNum = useSelector((state) => state.transit.accountNum);
 
-  const displayPriceVal = useSelector(state => state.transit.displayPriceVal);
-  const shortedPriceVal = useSelector(state => state.transit.shortedPriceVal);
+  const displayPriceVal = useSelector((state) => state.transit.displayPriceVal);
+  const shortedPriceVal = useSelector((state) => state.transit.shortedPriceVal);
 
-  const onChangeAccountNum = useCallback((input) => {
-    if (input.length <= 13) {
-      setAccountValue(input);
-    }
-  }, [accountValue]);
+  const onChangeAccountNum = useCallback(
+    (input) => {
+      if (input.length <= 13) {
+        setAccountValue(input);
+      }
+    },
+    [accountValue]
+  );
 
   // 계좌번호 입력창 x 버튼
   const accountClear = useCallback(() => {
-      keyboardRef.current.clearInput();
-      setAccountValue('');
+    keyboardRef.current.clearInput();
+    setAccountValue("");
   }, [accountValue]);
 
   // 키패드 합칠 경우 필요하면 활용
@@ -76,30 +78,34 @@ const TransitCompleteConfirm = () => {
   }, []);
 
   // 계좌번호 입력 키패드 '확인' 선택
-  const onClickDrawerConfirm = useCallback(() => {
-    if (accountValue.length <= 13) {
-      dispatch(setAccountNum(accountValue));
-      setChkAccountValid(true);
-      setNumDrawerOpen(false);
-    }
-  }, [accountValue, accountNum], chkAccountValid);
+  const onClickDrawerConfirm = useCallback(
+    () => {
+      if (accountValue.length <= 13) {
+        dispatch(setAccountNum(accountValue));
+        setChkAccountValid(true);
+        setNumDrawerOpen(false);
+      }
+    },
+    [accountValue, accountNum],
+    chkAccountValid
+  );
 
   useEffect(() => {
     if (displayPriceVal) {
-      setAmount(displayPriceVal.split(' ')[0]);
-      setCurrency(displayPriceVal.split(' ')[1]);
+      setAmount(displayPriceVal.split(" ")[0]);
+      setCurrency(displayPriceVal.split(" ")[1]);
     }
   }, [displayPriceVal]);
 
   useEffect(() => {
-    if (testType === 'task3') {
-      setChkAccountValid( false);
+    if (testType === "task3") {
+      setChkAccountValid(false);
     }
   }, [testType]);
 
   return (
     <>
-      <div className={cx($style.transPageWrap, {[$style.on]: mopen})}>
+      <div className={cx($style.transPageWrap, { [$style.on]: mopen })}>
         <div className={$style.transPageContainer}>
           <KBSecondHeader />
         </div>
@@ -113,42 +119,55 @@ const TransitCompleteConfirm = () => {
           </div>
           <div className={$style.topAccountInfo}>
             <div className={$style.inner}>
-              {
-                chkAccountValid ?
+              {chkAccountValid ? (
                 <>
                   <p className={$style.name}>김받음님</p>
-                  <p className={$style.account}>신한 {accountNum ? accountNum.replace(/(\d{3})(\d{3})(\d{7})/, "$1-$2-$3") : '110-120-0708094'}</p>
+                  <p className={$style.account}>
+                    신한{" "}
+                    {accountNum
+                      ? accountNum.replace(/(\d{3})(\d{3})(\d{7})/, "$1-$2-$3")
+                      : "110-120-0708094"}
+                  </p>
                   <p className={$style.text}>
                     사기의심계좌 여부 조회
                     <img src={iconAright} alt="" />
                   </p>
-                </> :
+                </>
+              ) : (
                 <>
-                  <p className={$style.errAccount}>신한 {accountNum ? accountNum.replace(/(\d{3})(\d{3})(\d{7})/, "$1-$2-$3") : '110-120-0708094'}</p>
-                  <p className={$style.text}>
+                  <p className={$style.errAccount}>
+                    신한{" "}
+                    {accountNum
+                      ? accountNum.replace(/(\d{3})(\d{3})(\d{7})/, "$1-$2-$3")
+                      : "110-120-0708094"}
+                    님께
+                  </p>
+                  <p className={$style.errText}>
                     <img src={text01} alt="" />
                   </p>
                 </>
-              }
+              )}
             </div>
-            <div className={$style.btn} onClick={onClickAccountChangeBtn}>변경</div>
+            <div className={$style.btn} onClick={onClickAccountChangeBtn}>
+              변경
+            </div>
           </div>
           <div className={$style.accountNum}>
             <div className={$style.number}>
-              {
-                displayPriceVal ? 
-                  <>
-                    <span className={$style.amount}>{amount}</span>
-                    <span className={$style.currency}>{currency}</span>
-                  </> :
-                  <>
-                    <span className={$style.amount}>50,000</span>
-                    <span className={$style.currency}>원</span>
-                  </>
-              }
+              {displayPriceVal ? (
+                <>
+                  <span className={$style.amount}>{amount}</span>
+                  <span className={$style.currency}>{currency}</span>
+                </>
+              ) : (
+                <>
+                  <span className={$style.amount}>50,000</span>
+                  <span className={$style.currency}>원</span>
+                </>
+              )}
             </div>
             <div className={$style.info}>
-              {shortedPriceVal ? shortedPriceVal : '5만원'}
+              {shortedPriceVal ? shortedPriceVal : "5만원"}
             </div>
           </div>
         </div>
@@ -174,7 +193,11 @@ const TransitCompleteConfirm = () => {
         title={"계좌번호"}
         rootClassName={$style.keyboardDrawer}
         placement={"bottom"}
-        footer={<Button block onClick={onClickDrawerConfirm}>확인</Button>}
+        footer={
+          <Button block onClick={onClickDrawerConfirm}>
+            확인
+          </Button>
+        }
         onClose={numDrawerClose}
         open={numDrawerOpen}
         closeIcon={true}
@@ -186,19 +209,29 @@ const TransitCompleteConfirm = () => {
             onClick={() => setNumDrawerOpen(true)}
             placeholder={""}
             inputMode="none"
-            className={cx($style.accountInput, {[$style.on]: accountNum.length > 0})}
-            allowClear={numDrawerOpen ? {
-                clearIcon: <span className={$style.clearBtn} onClick={ accountClear }><InputClear /></span>
-            } : {
-                clearIcon : <span></span>}
+            className={cx($style.accountInput, {
+              [$style.on]: accountNum.length > 0,
+            })}
+            allowClear={
+              numDrawerOpen
+                ? {
+                    clearIcon: (
+                      <span className={$style.clearBtn} onClick={accountClear}>
+                        <InputClear />
+                      </span>
+                    ),
+                  }
+                : {
+                    clearIcon: <span></span>,
+                  }
             }
           />
           <Keyboard
             keyboardRef={(r) => (keyboardRef.current = r)}
-            layout={{default: ["1 2 3", "4 5 6", "7 8 9", " 0 {bksp}"],}}
+            layout={{ default: ["1 2 3", "4 5 6", "7 8 9", " 0 {bksp}"] }}
             theme={"hg-theme-default hg-layout-numeric numeric-theme"}
-            display= {{"{bksp}": `<img src="${iconDelete}" alt="" />`}}
-            onChange={(e)=> onChangeAccountNum(e)}
+            display={{ "{bksp}": `<img src="${iconDelete}" alt="" />` }}
+            onChange={(e) => onChangeAccountNum(e)}
             baseClass={`${$style.customKeypad}`}
             useTouchEvents={true}
           />
