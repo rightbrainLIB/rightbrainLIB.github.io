@@ -10,23 +10,25 @@ import CI_HANA from "@components/icons/CI_HANA.jsx";
 const AccountListWrap = () => {
   return (
     <div className={$style.accountListWrap}>
-      <div className={$style.tabBtn}>
-        <ul>
-          <li>
-            <Button type={"text"}>최근</Button>
-          </li>
-          <li>
-            <Button type={"text"}>자주쓰는</Button>
-          </li>
-          <li>
-            <Button type={"text"}>빠른</Button>
-          </li>
-          <li>
-            <Button type={"text"}>내계좌</Button>
-          </li>
-        </ul>
-        <div className={$style.searchBtnBox}>
-          <SearchIcon />
+      <div className={$style.btnContainer}>
+        <div className={$style.tabBtn}>
+          <ul>
+            <li>
+              <Button type={"text"}>최근</Button>
+            </li>
+            <li>
+              <Button type={"text"}>자주쓰는</Button>
+            </li>
+            <li>
+              <Button type={"text"}>빠른</Button>
+            </li>
+            <li>
+              <Button type={"text"}>내계좌</Button>
+            </li>
+          </ul>
+          <div className={$style.searchBtnBox}>
+            <SearchIcon />
+          </div>
         </div>
       </div>
 

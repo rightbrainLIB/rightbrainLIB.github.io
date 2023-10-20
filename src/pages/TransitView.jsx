@@ -9,8 +9,8 @@ const TransitView = () => {
       <KBContainer>
         <KBHeader />
         <UserTransitInput />
-        <AccountListWrap />
       </KBContainer>
+      <AccountListWrap />
     </>
   )
 }
