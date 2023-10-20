@@ -46,7 +46,7 @@ const TransitCompleteConfirm = () => {
       body: "CmodalBody",
     },
     height: adjustTaskHeight, // "429px", "372px"
-    forcedRender: true
+    forceRender: true
   };
 
   const testType = useSelector((state) => state.transit.testType);
