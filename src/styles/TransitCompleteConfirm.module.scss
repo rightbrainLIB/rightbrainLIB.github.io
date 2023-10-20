@@ -80,6 +80,7 @@
             font-size: 20px;
             line-height: 28px;
             letter-spacing: -0.5px;
+            word-wrap: break-word;
         }
         .errText {
             img {
@@ -92,9 +93,11 @@
             line-height: 28px;
         }
         .account {
+            padding-right: 70px;
             font-family: "KBM";
             font-size: 20px;
             line-height: 28px;
+            word-wrap: break-word;
             color: #8C949E;
         }
         .text {
