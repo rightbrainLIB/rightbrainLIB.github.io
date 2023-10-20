@@ -178,7 +178,7 @@ const TransitCompleteConfirm = () => {
           </div>
           <p>내 통장 표시</p>
           <div className={$style.name}>
-            김받음 <img src={iconArrow} alt="" />
+            이나연 <img src={iconArrow} alt="" />
           </div>
           <div className={$style.desc}>
             <img src={textAdd} alt="" />

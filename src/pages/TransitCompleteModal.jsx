@@ -37,7 +37,7 @@ const TransitCompleteModal = (drawerProps) => {
             </div>
             <div className={$style.info}>
               <p>
-                <strong>김받음</strong> 님께<br />
+                <strong>이나연</strong> 님께<br />
                 <strong>{amount}</strong>원 이체합니다.
               </p>
             </div>

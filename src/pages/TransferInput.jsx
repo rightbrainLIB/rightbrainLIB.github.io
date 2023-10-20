@@ -180,7 +180,7 @@ const TransferInput = () => {
             </>
           }
         </div>
-        <div className={$style.shortedPrice}>{shortedPriceVal ? shortedPriceVal : "출금가능 금액 200,000원"}</div>
+        <div className={$style.shortedPrice}>{shortedPriceVal && userPriceVal > 10000 ? shortedPriceVal : "출금가능 금액 200,000원"}</div>
       </KBContainer>
 
       <Drawer

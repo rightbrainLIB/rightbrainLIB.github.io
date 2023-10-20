@@ -61,31 +61,31 @@ const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
         </div>
         <div className={$style.itemList}>
           <ul>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_KB} alt="" />
               </div>
               <p>KB국민</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_IBK} alt="" />
               </div>
               <p>기업</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_NH} alt="" />
               </div>
               <p>농협</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_KDB} alt="" />
               </div>
               <p>산업</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_SOOHYUB} alt="" />
               </div>
@@ -97,61 +97,61 @@ const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
               </div>
               <p>신한</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_WOORI} alt="" />
               </div>
               <p>우리</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_JPMorgan} alt="" />
               </div>
               <p>제이피모간체이스</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_HANA} alt="" />
               </div>
               <p>하나</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_CITY} alt="" />
               </div>
               <p>한국씨티</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_SC} alt="" />
               </div>
               <p>SC제일</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_KAKAO} alt="" />
               </div>
               <p>카카오뱅크</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_AMERICA} alt="" />
               </div>
               <p>뱅크오브아메리카</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_TOSS} alt="" />
               </div>
               <p>토스뱅크</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_KYUNGNAM} alt="" />
               </div>
               <p>경남</p>
             </li>
-            <li onClick={onClickBank}>
+            <li>
               <div className={$style.imgBox}>
                 <img src={CI_DAEGOO} alt="" />
               </div>

@@ -141,8 +141,8 @@ const TransitInput = () => {
             accountValue.length >= 6 ?
               <>
                 <BgGrayButton click={autoComplete}>신한</BgGrayButton>
-                <BgGrayButton click={autoComplete}>KB국민</BgGrayButton>
-                <BgGrayButton click={autoComplete}>우리</BgGrayButton>
+                <BgGrayButton>KB국민</BgGrayButton>
+                <BgGrayButton>우리</BgGrayButton>
               </> : null
           }
         </div>
@@ -161,8 +161,8 @@ const TransitInput = () => {
               accountValue.length >= 6 ?
                 <>
                   <BgGrayButton click={autoComplete}>신한</BgGrayButton>
-                  <BgGrayButton click={autoComplete}>KB국민</BgGrayButton>
-                  <BgGrayButton click={autoComplete}>우리</BgGrayButton>
+                  <BgGrayButton>KB국민</BgGrayButton>
+                  <BgGrayButton>우리</BgGrayButton>
                 </> : null
             }
           </div> : null
@@ -187,7 +187,7 @@ const TransitInput = () => {
         <div className={$style.drawerContainer}>
           <Keyboard
             keyboardRef={(r) => (keyboardRef.current = r)}
-            layout={{default: ["1 3 2", "5 4 6", "7 0 9", " 8 {bksp}"],}}
+            layout={{default: ["1 2 3", "4 5 6", "7 8 9", " 0 {bksp}"],}}
             theme={"hg-theme-default hg-layout-numeric numeric-theme"}
             display= {{"{bksp}": `<img src="${iconDelete}" alt="" />`}}
             onChange={(e)=> onChangeKeypad(e)}
