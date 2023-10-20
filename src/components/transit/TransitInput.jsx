@@ -103,6 +103,7 @@ const TransitInput = () => {
   // 첫 진입시 keypad 활성화
   useEffect(() => {
     setNumDrawerOpen(true);
+    console.log('bankValue = ', bankValue)
   }, []);
 
   return (
@@ -131,14 +132,14 @@ const TransitInput = () => {
         onClick={() => handleBankBSOpen(true)}
         allowClear={{clearIcon: <span></span>}}
       />
-      { bankValue === "" && testType === "task1" && testType === "task3" ?
+      { bankValue === "" && testType === "task1" || testType === "task3" ?
         <div className={$style.descWrap}>
           {
-            accountNum.length <= 1 ?
+            accountValue.length <= 1 ?
             <p>계좌번호를 입력하면 찾아드릴게요.</p> :
-            accountNum.length > 1 && accountNum.length <= 5 ?
+            accountValue.length > 1 && accountValue.length <= 5 ?
             <p>금융기관을 보고 있어요.</p> :
-            accountNum.length >= 6 ?
+            accountValue.length >= 6 ?
               <>
                 <BgGrayButton click={autoComplete}>신한</BgGrayButton>
                 <BgGrayButton click={autoComplete}>KB국민</BgGrayButton>
@@ -155,7 +156,7 @@ const TransitInput = () => {
                 <p>금융기관을 보고 있어요.</p> :
               accountValue.length >= 2 && accountValue.length <= 5 ?
                 <BgGrayButton size={"small"} click={autoCompleteWithAccount}>
-                  <span className={$style.blue}>신한 1101200708094</span>로 이체할까요?
+                  <span className={$style.blue}>신한 1101200708094</span>로 이체
                   <img src={iconAright} alt="" />
                 </BgGrayButton> :
               accountValue.length >= 6 ?
