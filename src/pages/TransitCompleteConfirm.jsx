@@ -57,8 +57,7 @@ const TransitCompleteConfirm = () => {
   // 키패드 누를시 실행
   const onChangeAccountNum = useCallback(
     (input) => {
-      console.log(input)
-      if (accountValue.length <= 13) {
+      if (accountValue.length < 13) {
         setAccountValue(input);
       }
     },
@@ -85,27 +84,29 @@ const TransitCompleteConfirm = () => {
   const onClickDrawerConfirm = useCallback(
     () => {
       if (accountValue.length === 0) return;
+      console.log(accountValue)
       if (accountValue.length <= 13) {
         dispatch(setAccountNum(accountValue));
         setChkAccountValid(true);
         setNumDrawerOpen(false);
       }
     },
-    [accountValue, accountNum],
-    chkAccountValid
+    [accountValue, accountNum, chkAccountValid]
   );
 
   // 계좌번호 입력 키패드 활성화시 Input에 현재 계좌번호 불러오기
   const afterOpenAccountKeypad = useCallback((val) => {
     if (val) {
       if (accountNum) {
-        console.log('계좌 있다.');
+        console.log(accountNum);
         setAccountValue(accountNum);
+        keyboardRef.current.setInput(accountNum);
       } else {
-        console.log('계좌 없다.');
+        setAccountValue('1101200708094');
+        keyboardRef.current.setInput('1101200708094');
       }
     }
-  }, [numDrawerOpen, accountNum, accountValue]);
+  }, [numDrawerOpen, accountNum]);
 
   useEffect(() => {
     if (displayPriceVal) {
@@ -272,6 +273,9 @@ const TransitCompleteConfirm = () => {
             onChange={(e) => onChangeAccountNum(e)}
             baseClass={`${$style.customKeypad}`}
             useTouchEvents={true}
+            disableButtonHold={true}
+            syncInstanceInputs={true}
+            inputName={$style.accountInput}
           />
         </div>
       </Drawer>
