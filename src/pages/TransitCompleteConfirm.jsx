@@ -84,7 +84,6 @@ const TransitCompleteConfirm = () => {
   const onClickDrawerConfirm = useCallback(
     () => {
       if (accountValue.length === 0) return;
-      console.log(accountValue)
       if (accountValue.length <= 13) {
         dispatch(setAccountNum(accountValue));
         setChkAccountValid(true);
@@ -98,12 +97,11 @@ const TransitCompleteConfirm = () => {
   const afterOpenAccountKeypad = useCallback((val) => {
     if (val) {
       if (accountNum) {
-        console.log(accountNum);
         setAccountValue(accountNum);
-        keyboardRef.current.setInput(accountNum);
+        keyboardRef.current.setInput(accountNum, 'accountInput');
       } else {
         setAccountValue('1101200708094');
-        keyboardRef.current.setInput('1101200708094');
+        keyboardRef.current.setInput('1101200708094', 'accountInput');
       }
     }
   }, [numDrawerOpen, accountNum]);
@@ -270,12 +268,15 @@ const TransitCompleteConfirm = () => {
             layout={{ default: ["1 2 3", "4 5 6", "7 8 9", " 0 {bksp}"] }}
             theme={"hg-theme-default hg-layout-numeric numeric-theme"}
             display={{ "{bksp}": `<img src="${iconDelete}" alt="" />` }}
-            onChange={(e) => onChangeAccountNum(e)}
+            onChange={(e) => {
+              setAccountValue(e);
+              onChangeAccountNum(e);
+            }}
             baseClass={`${$style.customKeypad}`}
             useTouchEvents={true}
             disableButtonHold={true}
             syncInstanceInputs={true}
-            inputName={$style.accountInput}
+            inputName="accountInput"
           />
         </div>
       </Drawer>
