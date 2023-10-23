@@ -190,9 +190,24 @@ const TransitInput = () => {
                 </BgGrayNormalButton> :
               accountValue.length >= 6 ?
                 <>
-                  <BgGrayButton click={autoComplete}>신한</BgGrayButton>
-                  <BgGrayButton>KB국민</BgGrayButton>
-                  <BgGrayButton>우리</BgGrayButton>
+                  <BgGrayButton click={autoComplete}>
+                    <span className="img-box">
+                      <CI_SH />
+                    </span>
+                    <span>신한</span>
+                  </BgGrayButton>
+                  <BgGrayButton>
+                    <span className="img-box">
+                      <CI_KB />
+                    </span>
+                    <span>KB국민</span>
+                  </BgGrayButton>
+                  <BgGrayButton>
+                    <span className="img-box">
+                      <CI_WOORI />
+                    </span>
+                    <span>우리</span>
+                  </BgGrayButton>
                 </> : null
             }
           </div> : null
