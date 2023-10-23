@@ -21,6 +21,7 @@ import CI_DAEGOO from "@imgs/ci/CI_대구_24.svg";
 import BottomSheetCloseIcon from "@components/icons/BottomSheetCloseIcon.jsx";
 
 const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
+  const navigate = useNavigate();
   const onCloseBankBottomSheet = useCallback(() => {
     handleOpen(false);
   }, [open, handleOpen]);
@@ -35,6 +36,12 @@ const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
     navigate(-1);
   }, []);
 
+  const afterOpenChangeBankBS = useCallback( val => {
+    if (!val) {
+      navigate('/TransferInput');
+    }
+  }, [navigate]);
+
   return (
     <Drawer
       className={$style.bankBottomSheet}
@@ -45,6 +52,7 @@ const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
       closeIcon={<BottomSheetCloseIcon />}
       height={534}
       onClose={onCloseBankBottomSheet}
+      afterOpenChange={afterOpenChangeBankBS}
     >
       <div className={$style.BSContainer}>
         <div className={$style.tabMenu}>
