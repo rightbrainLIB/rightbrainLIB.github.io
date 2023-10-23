@@ -60,12 +60,14 @@ const TransitInput = () => {
 
   // 숫자 키패드 '확인' 버튼
   const handleOpen = useCallback(() => {
+    // setAccountValue(accountValue);
+    dispatch(setAccountNum(accountValue));
     setNumDrawerOpen(false);
     if (bankValue === '') setBankBSOpen(true);
     if (accountNumRef.current) {
       accountNumRef.current.blur();
     }
-  }, [numDrawerOpen, bankBSOpen, accountNumRef.current]);
+  }, [accountValue, numDrawerOpen, bankBSOpen, accountNumRef.current]);
 
   // 은행/증권사 바텀시트 열기/닫기
   const handleBankBSOpen = useCallback((value) => {
@@ -107,12 +109,20 @@ const TransitInput = () => {
       accountNumRef.current.blur();
       accountNumRef.current.input.placeholder = '계좌번호 입력';
     }
-  }, []);
+  }, [])
+
+  const clickBankValue = useCallback((val) => {
+    setBankValue(val)
+  }, [accountValue, bankBSOpen]);
 
   // 첫 진입시 keypad 활성화
   useEffect(() => {
     setNumDrawerOpen(true);
   }, []);
+
+  useEffect(() => {
+    console.log(accountValue)
+  }, [accountValue]);
 
   return (
     <div className={$style.userTransit}>
@@ -242,7 +252,7 @@ const TransitInput = () => {
         </div>
       </Drawer>
       <BankBottomSheet
-        setBankValue={(val) => setBankValue(val)}
+        setBankValue={(val) => clickBankValue(val)}
         open={bankBSOpen}
         handleOpen={handleBankBSOpen}
       />
