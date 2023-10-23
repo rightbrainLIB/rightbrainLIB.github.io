@@ -6,16 +6,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    p {
+      color: #696E76;
+      border-bottom: 1px solid #696E76;
+    }
   }
   h2 {
     font-family: 'KBB', sans-serif;
     font-weight: normal;
     font-size: 20px;
-  }
-  p {
-    color: #696E76;
-    border-bottom: 1px solid #696E76;
   }
   .accountInput {
     position: relative;

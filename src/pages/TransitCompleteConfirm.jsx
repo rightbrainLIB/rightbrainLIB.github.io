@@ -137,7 +137,7 @@ const TransitCompleteConfirm = () => {
       if (bankBSOpen) return;
       setChkAccountValid(true);
     }
-  }, [accountNum]);
+  }, [accountNum, chkAccountValid]);
 
   useEffect(() => {
     if (testType === "task3") {
