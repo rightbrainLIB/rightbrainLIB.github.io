@@ -4,6 +4,7 @@ import iconpolygon from "@imgs/ico_polygon.svg";
 import iconDelete from "@imgs/ico_delete.svg";
 import iconAright from "@imgs/icon_arrow_right_20.svg";
 import iconArrow from "@imgs/ico_arrow.svg";
+import iconSiren from "@imgs/icon_siren_22_24.svg";
 import textAdd from "@imgs/btn_추가정보입력.svg";
 import InputClear from "@components/icons/InputClear.jsx";
 import TransitCompleteModal from "./TransitCompleteModal.jsx";
@@ -14,12 +15,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAccountNum } from "../slices/transit.js";
 import { Button, Drawer, Input } from "antd";
 import Keyboard from "react-simple-keyboard";
+import BankBottomSheet from "@components/bottomSheet/BankBottomSheet";
 import "@styles/keyboard-custom.scss";
 
 const TransitCompleteConfirm = () => {
   const dispatch = useDispatch();
 
   const [mopen, setMopen] = useState(false);
+  const [bankValue, setBankValue] = useState('');
+  const [bankBSOpen, setBankBSOpen] = useState(false); // 은행/증권사 바텀시트
   const [accountValue, setAccountValue] = useState("");
   const [numDrawerOpen, setNumDrawerOpen] = useState(false); // 계좌번호 입력 키패드 바텀시트
   const [amount, setAmount] = useState("");
@@ -28,6 +32,8 @@ const TransitCompleteConfirm = () => {
   const [adjustTaskHeight, setAdjustTaskHeight] = useState("");
 
   const keyboardRef = useRef(null);
+  const accountNumRef = useRef(null);
+
 
   const showDrawer = useCallback(() => {
     setMopen(true);
@@ -87,12 +93,22 @@ const TransitCompleteConfirm = () => {
       if (accountValue.length === 0) return;
       if (accountValue.length <= 13) {
         dispatch(setAccountNum(accountValue));
-        setChkAccountValid(true);
+        // setChkAccountValid(true);
         setNumDrawerOpen(false);
+        setBankBSOpen(true);
       }
     },
     [accountValue, accountNum, chkAccountValid]
   );
+
+  // 은행/증권사 바텀시트 열기/닫기
+  const handleBankBSOpen = useCallback((value) => {
+    if (accountNumRef.current) {
+      accountNumRef.current.blur();
+    }
+    setNumDrawerOpen(false);
+    setBankBSOpen(value);
+  }, [bankBSOpen, accountNumRef.current]);
 
   // 계좌번호 입력 키패드 활성화시 Input에 현재 계좌번호 불러오기
   const afterOpenAccountKeypad = useCallback((val) => {
@@ -118,6 +134,7 @@ const TransitCompleteConfirm = () => {
     if (accountNum.length < 13) {
       setChkAccountValid(false);
     } else {
+      if (bankBSOpen) return;
       setChkAccountValid(true);
     }
   }, [accountNum]);
@@ -151,7 +168,7 @@ const TransitCompleteConfirm = () => {
             <div className={$style.inner}>
               {chkAccountValid ? (
                 <>
-                  <p className={$style.name}>이나연님께</p>
+                  <p className={$style.name}>이지영님께</p>
                   <p className={$style.account}>
                     신한{" "}
                     {accountNum
@@ -204,20 +221,26 @@ const TransitCompleteConfirm = () => {
         <div className={$style.accountTransInfo}>
           <p>받는 분 통장 표시</p>
           <div className={$style.name}>
-            김경민 <img src={iconArrow} alt="" />
+            김국민 <img src={iconArrow} alt="" />
           </div>
           <p>내 통장 표시</p>
           <div className={$style.name}>
             {
               chkAccountValid &&
               <>
-                이나연
+                이지영
               </>
             }
             <img src={iconArrow} alt="" />
           </div>
           <div className={$style.desc}>
             <img src={textAdd} alt="" />
+          </div>
+          <div className={$style.evaluateText}>
+            <span className={$style.imgBox}>
+              <img src={iconSiren} alt=""/>
+            </span>
+            <p>받는분이 사기의심계좌인지 조회할 수 있어요</p>
           </div>
         </div>
         <div className={$style.bottomBtn}>
@@ -283,6 +306,16 @@ const TransitCompleteConfirm = () => {
           />
         </div>
       </Drawer>
+
+      <BankBottomSheet
+        setBankValue={(val) => {
+          setChkAccountValid(true);
+          return setBankValue(val);
+        }}
+        open={bankBSOpen}
+        handleOpen={handleBankBSOpen}
+      >
+      </BankBottomSheet>
     </>
   );
 };

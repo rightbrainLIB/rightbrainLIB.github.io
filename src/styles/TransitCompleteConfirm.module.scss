@@ -194,6 +194,27 @@
         text-align: right;
         margin: 20px 0 0 0;
     }
+    .evaluateText {
+        display: flex;
+        align-items: center;
+        font-family: 'KBL', sans-serif;
+        font-size: 14px;
+        letter-spacing: -0.0125em;
+        line-height: 23px;
+        color: #8C949E;
+        margin-top: 20px;
+        .imgBox {
+            width: 22px;
+            height: 24px;
+            margin-right: 4px;
+            display: inline-flex;
+        }
+        p {
+            display: inline-flex;
+            text-decoration: underline;
+            color: #8C949E;
+        }
+    }
 
     .bottomBtn {
         position: fixed;

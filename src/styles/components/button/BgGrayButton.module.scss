@@ -2,17 +2,27 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	padding: 8px 18px;
-	background-color: #F7F7F8;
-	border-radius: 4px;
-	font-family: "KBM";
+	height: 40px;
+	padding: 10px 16px;
+	background-color: #fff;
+	border-radius: 44px;
+	font-family: "KBM", sans-serif;
 	font-size: 19px;
 	line-height: 20px;
-	border: 0;
 	margin-right: 8px;
 	color: #26282C;
+	border: 1px solid #c6c6c6;
 	&.small {
 		padding: 8px 14px;
 		font-size: 14px;
+	}
+	[class~="img-box"] {
+		width: 24px;
+		height: 24px;
+		margin-right: 4px;
+		img {
+			width: 24px;
+			height: 24px;
+		}
 	}
 }

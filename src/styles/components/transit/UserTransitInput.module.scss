@@ -2,10 +2,19 @@
 
 .userTransit {
   padding-top: 76px;
-  h2 {
-    font-family: 'KBB';
-    font-weight: normal;
-    font-size: 20px;
+  .transitTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      font-family: 'KBB', sans-serif;
+      font-weight: normal;
+      font-size: 20px;
+    }
+    p {
+      color: #696E76;
+      border-bottom: 1px solid #696E76;
+    }
   }
   .accountInput {
     position: relative;
@@ -36,12 +45,12 @@
       }
     }
     [class~="ant-input"], &[class~="ant-input"] {
-      font-family: 'KBB';
+      font-family: 'KBB', sans-serif;
       font-weight: normal;
       font-size: 19px;
       box-shadow: none;
       &::placeholder {
-        font-family: 'KBB';
+        font-family: 'KBB', sans-serif;
         font-weight: normal;
         font-size: 19px;
       }
@@ -82,12 +91,21 @@
       }
     }
   }
+  .descContainer {
+    overflow: hidden;
+    margin-right: -24px;
+  }
   .descWrap {
+    display: flex;
+    overflow-x: auto;
+    button {
+      flex: 1 0 auto;
+    }
     p, button {
       margin-bottom: 2px;
     }
     p {
-      font-family: "KBL";
+      font-family: "KBL", sans-serif;
       font-size: 14px;
     }
     .blue {

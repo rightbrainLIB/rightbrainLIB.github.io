@@ -12,6 +12,9 @@ import iconAright from "@imgs/icon_arrow_right_bl_20.svg";
 import { setAccountNum } from "@slices/transit.js";
 import { useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from "react-redux";
+import CI_SH from "@components/icons/CI_SH.jsx";
+import CI_KB from "@components/icons/CI_KB.jsx";
+import CI_WOORI from "@components/icons/CI_WOORI.jsx";
 
 const TransitInput = () => {
   const dispatch = useDispatch();
@@ -90,7 +93,7 @@ const TransitInput = () => {
   const saveAccountNum = useCallback(() => {
     if (accountValue !== '') {
       dispatch(setAccountNum(accountValue));
-      navigate('/TransferInput');
+      navigate('/transferInput');
     }
   }, [navigate, accountValue]);
 
@@ -112,7 +115,10 @@ const TransitInput = () => {
 
   return (
     <div className={$style.userTransit}>
-      <h2>누구에게 보낼까요?</h2>
+      <div className={$style.transitTitle}>
+        <h2>누구에게 보낼까요?</h2>
+        <p>계좌 선택</p>
+      </div>
       {/* 계좌번호 입력 */}
       <Input
         ref={accountNumRef}
@@ -137,20 +143,38 @@ const TransitInput = () => {
         allowClear={{clearIcon: <span></span>}}
       />
       { bankValue === "" && testType === "task1" || testType === "task3" ?
-        <div className={$style.descWrap}>
-          {
-            accountValue.length <= 0 ?
-            <p>계좌번호를 입력하면 찾아드릴게요.</p> :
-            accountValue.length >= 1 && accountValue.length <= 5 ?
-            <p>금융기관을 찾고있어요.</p> :
-            accountValue.length >= 6 ?
-              <>
-                <BgGrayButton click={autoComplete}>신한</BgGrayButton>
-                <BgGrayButton>KB국민</BgGrayButton>
-                <BgGrayButton>우리</BgGrayButton>
-              </> : null
-          }
+        <div className={$style.descContainer}>
+          <div className={$style.descWrap}>
+            {
+              accountValue.length <= 0 ?
+                <p>계좌번호를 입력하면 찾아드릴게요.</p> :
+                accountValue.length >= 1 && accountValue.length <= 5 ?
+                  <p>금융기관을 찾고있어요.</p> :
+                  accountValue.length >= 6 ?
+                    <>
+                      <BgGrayButton click={autoComplete}>
+                  <span className="img-box">
+                    <CI_SH />
+                  </span>
+                        <span>신한</span>
+                      </BgGrayButton>
+                      <BgGrayButton>
+                  <span className="img-box">
+                    <CI_KB />
+                  </span>
+                        <span>KB국민</span>
+                      </BgGrayButton>
+                      <BgGrayButton>
+                  <span className="img-box">
+                    <CI_WOORI />
+                  </span>
+                        <span>우리</span>
+                      </BgGrayButton>
+                    </> : null
+            }
+          </div>
         </div>
+
         : bankValue === "" && testType === "task2" ?
           <div className={$style.descWrap}>
             {

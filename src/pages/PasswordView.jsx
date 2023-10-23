@@ -3,7 +3,7 @@ import {Input} from "antd";
 import {useCallback, useEffect, useState} from "react";
 import { useNavigate } from 'react-router-dom';
 
-const PASSWORD = "1234";
+const PASSWORD = "0760";
 
 const PasswordView = () => {
   const navigate = useNavigate();

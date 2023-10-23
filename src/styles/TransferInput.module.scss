@@ -4,12 +4,12 @@
   position: relative;
   padding-top: 76px;
   .name {
-    font-family: "KBB";
+    font-family: "KBB", sans-serif;
     font-size: 20px;
     line-height: 28px;
   }
   .account {
-    font-family: "KBM";
+    font-family: "KBM", sans-serif;
     font-size: 20px;
     line-height: 28px;
     color: #8C949E;
@@ -21,7 +21,7 @@
   border: none;
   margin-top: 61px;
   //border-bottom: 2px solid #26282C;
-  border-bottom: 2px solid #B0986A;
+  //border-bottom: 2px solid #B0986A;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;

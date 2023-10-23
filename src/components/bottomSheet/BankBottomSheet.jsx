@@ -1,7 +1,7 @@
 import { Button, Drawer } from "antd";
 import $style from "@styles/components/bottomSheet/BankBottomSheet.module.scss";
 import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import CI_KB from "@imgs/ci/CI_국민_24.svg";
 import CI_IBK from "@imgs/ci/CI_IBK기업_24.svg";
 import CI_NH from "@imgs/ci/CI_농협_24.svg";
@@ -19,9 +19,14 @@ import CI_TOSS from "@imgs/ci/CI_토스뱅크_24.svg";
 import CI_KYUNGNAM from "@imgs/ci/CI_경남_24.svg";
 import CI_DAEGOO from "@imgs/ci/CI_대구_24.svg";
 import BottomSheetCloseIcon from "@components/icons/BottomSheetCloseIcon.jsx";
+import {useSelector} from "react-redux";
 
 const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const testType = useSelector(state => state.transit.testType)
+
   const onCloseBankBottomSheet = useCallback(() => {
     handleOpen(false);
   }, [open, handleOpen]);
@@ -32,15 +37,18 @@ const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
     handleOpen(false);
   }, []);
 
-  const onClickBack = useCallback(() => {
-    navigate(-1);
-  }, []);
+  // const onClickBack = useCallback(() => {
+  //   navigate(-1);
+  // }, []);
 
   const afterOpenChangeBankBS = useCallback( val => {
     if (!val) {
-      navigate('/TransferInput');
+      if (testType === 'task3' && location.pathname === '/transitCompleteConfirm') {
+        return;
+      }
+      navigate('/transferInput');
     }
-  }, [navigate]);
+  }, [navigate, location.pathname]);
 
   return (
     <Drawer

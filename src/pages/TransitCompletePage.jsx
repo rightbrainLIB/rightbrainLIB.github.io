@@ -50,7 +50,7 @@ const TransitCompletePage = () => {
             <img src={comimg} alt="" />
           </div>
           <div className={$style.accoutUserInfo}>
-            <p className={$style.name}>이나연님께</p>
+            <p className={$style.name}>이지영님께</p>
             <p className={$style.num}>
               <span className={$style.amount}>{amount}</span>
               <span className={$style.currency}>{currency}</span>
