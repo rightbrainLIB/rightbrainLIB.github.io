@@ -43,7 +43,7 @@ const BankBottomSheet = ({ open, handleOpen, setBankValue }) => {
 
   const afterOpenChangeBankBS = useCallback( val => {
     if (!val) {
-      if (testType === 'task3' && location.pathname === '/transitCompleteConfirm') {
+      if (location.pathname === '/transitCompleteConfirm') {
         return;
       }
       navigate('/transferInput');
