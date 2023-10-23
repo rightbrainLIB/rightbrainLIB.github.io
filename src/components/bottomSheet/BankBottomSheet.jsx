@@ -1,6 +1,6 @@
 import { Button, Drawer } from "antd";
 import $style from "@styles/components/bottomSheet/BankBottomSheet.module.scss";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import CI_KB from "@imgs/ci/CI_국민_24.svg";
 import CI_IBK from "@imgs/ci/CI_IBK기업_24.svg";
