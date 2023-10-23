@@ -131,6 +131,9 @@ const TransitCompleteConfirm = () => {
   }, [displayPriceVal]);
 
   useEffect(() => {
+    console.log('chkAccountValid = ', chkAccountValid);
+    console.log('accountNum = ', accountNum)
+
     if (accountNum.length < 13) {
       setChkAccountValid(false);
     } else {
@@ -190,7 +193,7 @@ const TransitCompleteConfirm = () => {
                     님께
                   </p>
                   <p className={$style.errText}>
-                    <img src={text01} alt="" />
+                    <img src={text01} alt="계좌번호를 다시 확인해주세요" />
                   </p>
                 </>
               )}
