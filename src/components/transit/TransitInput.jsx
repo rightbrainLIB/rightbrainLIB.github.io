@@ -15,6 +15,7 @@ import {useDispatch, useSelector} from "react-redux";
 import CI_SH from "@components/icons/CI_SH.jsx";
 import CI_KB from "@components/icons/CI_KB.jsx";
 import CI_WOORI from "@components/icons/CI_WOORI.jsx";
+import BgGrayNormalButton from "../buttons/BgGrayNormalButton.jsx";
 
 const TransitInput = () => {
   const dispatch = useDispatch();
@@ -183,10 +184,10 @@ const TransitInput = () => {
               accountValue.length === 1 ?
                 <p>금융기관을 찾고있어요.</p> :
               accountValue.length >= 2 && accountValue.length <= 5 ?
-                <BgGrayButton size={"small"} click={autoCompleteWithAccount}>
+                <BgGrayNormalButton size={"small"} click={autoCompleteWithAccount}>
                   <span className={$style.blue}>신한 1101200708094</span>로 이체
                   <img src={iconAright} alt="" />
-                </BgGrayButton> :
+                </BgGrayNormalButton> :
               accountValue.length >= 6 ?
                 <>
                   <BgGrayButton click={autoComplete}>신한</BgGrayButton>

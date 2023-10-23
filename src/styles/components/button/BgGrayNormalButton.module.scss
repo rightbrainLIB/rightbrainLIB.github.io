@@ -1,0 +1,16 @@
+.grayNormalButton {
+  flex: 0 1 auto;
+  display: inline-flex;
+  align-items: center;
+  font-family: 'KBM', sans-serif;
+  font-size: 14px;
+  letter-spacing: -0.0125em;
+  background-color: #F7F7F8;
+  border: none;
+  text-align: left;
+  width: 224px;
+  padding: 8px 14px;
+  span {
+    color: #287EFF;
+  }
+}
