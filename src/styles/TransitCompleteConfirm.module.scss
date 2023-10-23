@@ -2,16 +2,16 @@
 
 /* page */
 .transPageWrap{
-    height: calc(100vh - 60px);
-    display: flex;
-    flex-direction: column;
+    //height: calc(100vh - 60px);
+    //display: flex;
+    //flex-direction: column;
     .transPageContainer {
-        position: fixed;
-        z-index: 10;
-        background-color: #fff;
-        top: 0;
-        left: 0;
-        right: 0;
+        //position: fixed;
+        //z-index: 10;
+        //background-color: #fff;
+        //top: 0;
+        //left: 0;
+        //right: 0;
         padding-left: 24px;
         padding-right: 24px;
     }
@@ -39,8 +39,8 @@
         }
     }
     .body {
-       flex: 1;
-       padding-top: 45px;
+       //flex: 1;
+       padding-top: 50px;
     }
     .topAccountBox {
         display: flex;
@@ -164,6 +164,8 @@
     }
     .accountTransInfo {
         margin: 0 24px 20px 24px;
+        padding-bottom: 100px;
+
         p {
             color: #696E76;
             font-size: 16px;
@@ -251,11 +253,11 @@
         }
     }
 }
-@media screen and (max-height: 741px) {
-    .accountTransInfo {
-        padding-bottom: 150px;
-    }
-}
+//@media screen and (max-height: 741px) {
+//    .accountTransInfo {
+//        padding-bottom: 150px;
+//    }
+//}
 
 .keyboardDrawer {
     [class~="ant-drawer-content"] {
