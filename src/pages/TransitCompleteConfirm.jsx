@@ -151,7 +151,7 @@ const TransitCompleteConfirm = () => {
             <div className={$style.inner}>
               {chkAccountValid ? (
                 <>
-                  <p className={$style.name}>이나연님</p>
+                  <p className={$style.name}>이나연님께</p>
                   <p className={$style.account}>
                     신한{" "}
                     {accountNum
@@ -204,7 +204,7 @@ const TransitCompleteConfirm = () => {
         <div className={$style.accountTransInfo}>
           <p>받는 분 통장 표시</p>
           <div className={$style.name}>
-            김경민님 <img src={iconArrow} alt="" />
+            김경민 <img src={iconArrow} alt="" />
           </div>
           <p>내 통장 표시</p>
           <div className={$style.name}>
