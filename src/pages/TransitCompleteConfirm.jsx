@@ -135,6 +135,7 @@ const TransitCompleteConfirm = () => {
       setChkAccountValid(false);
     } else {
       if (bankBSOpen) return;
+      if (testType === 'task3') return;
       setChkAccountValid(true);
     }
   }, [accountNum, chkAccountValid]);
@@ -149,6 +150,12 @@ const TransitCompleteConfirm = () => {
       setAdjustTaskHeight("372px")
     }
   }, [testType]);
+
+  useEffect(() => {
+    if (testType === "task3") {
+      setChkAccountValid(false);
+    }
+  }, []);
 
   return (
     <>
@@ -175,10 +182,10 @@ const TransitCompleteConfirm = () => {
                       ? accountNum.replace(/(\d{3})(\d{3})(\d{7})/, "$1-$2-$3")
                       : "110-120-0708094"}
                   </p>
-                  <p className={$style.text}>
-                    사기의심계좌 여부 조회
-                    <img src={iconAright} alt="" />
-                  </p>
+                  {/*<p className={$style.text}>*/}
+                  {/*  사기의심계좌 여부 조회*/}
+                  {/*  <img src={iconAright} alt="" />*/}
+                  {/*</p>*/}
                 </>
               ) : (
                 <>
