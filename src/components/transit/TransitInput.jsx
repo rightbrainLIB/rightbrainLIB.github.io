@@ -102,7 +102,6 @@ const TransitInput = () => {
 
   const afterOpenChangeKeyboard = useCallback((val) => {
     if (val) {
-      // console.log(accountNumRef.current)
       accountNumRef.current.input.placeholder = '';
       accountNumRef.current.focus();
     } else {
@@ -119,10 +118,6 @@ const TransitInput = () => {
   useEffect(() => {
     setNumDrawerOpen(true);
   }, []);
-
-  useEffect(() => {
-    console.log(accountValue)
-  }, [accountValue]);
 
   return (
     <div className={$style.userTransit}>

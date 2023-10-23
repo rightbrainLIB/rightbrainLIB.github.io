@@ -131,9 +131,6 @@ const TransitCompleteConfirm = () => {
   }, [displayPriceVal]);
 
   useEffect(() => {
-    console.log('chkAccountValid = ', chkAccountValid);
-    console.log('accountNum = ', accountNum)
-
     if (accountNum.length < 13) {
       setChkAccountValid(false);
     } else {
