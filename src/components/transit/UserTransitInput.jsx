@@ -24,8 +24,8 @@ const UserTransitInput = () => {
       {/*  onClick={onClickAccountNum}*/}
       {/*  readOnly*/}
       {/*/>*/}
-      <div className={$style.transitBox}>
-        <div className={$style.userTransitDiv} onClick={onClickAccountNum}>
+      <div className={$style.transitBox} onClick={onClickAccountNum}>
+        <div className={$style.userTransitDiv}>
           <p>계좌번호 입력</p>
         </div>
       </div>
