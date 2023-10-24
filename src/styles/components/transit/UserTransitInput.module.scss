@@ -25,6 +25,7 @@
     line-height: 44px;
     margin-top: 24px;
     padding: 0;
+    user-select: none;
     &:after {
       content: '';
       position: absolute;
@@ -49,6 +50,7 @@
       font-weight: normal;
       font-size: 19px;
       box-shadow: none;
+      user-select: none;
       &::placeholder {
         font-family: 'KBB', sans-serif;
         font-weight: normal;

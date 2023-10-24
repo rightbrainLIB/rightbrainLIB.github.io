@@ -16,8 +16,9 @@ const UserTransitInput = () => {
     <div className={$style.userTransit}>
       <h2>누구에게 보낼까요?</h2>
       <Input
+        tabIndex={-1}
         placeholder={"계좌번호 입력"}
-        inputMode="none"
+        // inputMode="none"
         className={$style.accountInput}
         allowClear={true}
         onClick={onClickAccountNum}
