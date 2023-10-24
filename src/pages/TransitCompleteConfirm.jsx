@@ -156,18 +156,18 @@ const TransitCompleteConfirm = () => {
     }
   }, [displayPriceVal]);
 
-  useEffect(() => {
-    // if (accountNum.length < 13) {
-    //   setChkAccountValid(false);
-    // } else {
-    //   if (bankBSOpen) return;
-    //   if (testType === 'task3') return;
-    //   setChkAccountValid(true);
-    // }
-    if (accountNum.length > 0) {
-      setChkAccountValid(true);
-    }
-  }, [accountNum, chkAccountValid]);
+  // useEffect(() => {
+  //   // if (accountNum.length < 13) {
+  //   //   setChkAccountValid(false);
+  //   // } else {
+  //   //   if (bankBSOpen) return;
+  //   //   if (testType === 'task3') return;
+  //   //   setChkAccountValid(true);
+  //   // }
+  //   if (accountNum.length > 0) {
+  //     setChkAccountValid(true);
+  //   }
+  // }, [accountNum, chkAccountValid]);
 
   useEffect(() => {
     if (numDrawerOpen) {
@@ -184,6 +184,8 @@ const TransitCompleteConfirm = () => {
   useEffect(() => {
     if (testType === "task3") {
       setChkAccountValid(false);
+    } else {
+      setChkAccountValid(true);
     }
     if (testType === "task1") {
       setAdjustTaskHeight("423px")
@@ -191,12 +193,6 @@ const TransitCompleteConfirm = () => {
       setAdjustTaskHeight("372px")
     }
   }, [testType]);
-
-  useEffect(() => {
-    if (testType === "task3") {
-      setChkAccountValid(false);
-    }
-  }, []);
 
   return (
     <>
