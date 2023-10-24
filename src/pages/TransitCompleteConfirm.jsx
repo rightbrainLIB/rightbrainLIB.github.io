@@ -28,7 +28,7 @@ const TransitCompleteConfirm = () => {
   const [numDrawerOpen, setNumDrawerOpen] = useState(false); // 계좌번호 입력 키패드 바텀시트
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("");
-  const [chkAccountValid, setChkAccountValid] = useState(false); // 계좌번호 유효 체크
+  const [chkAccountValid, setChkAccountValid] = useState(true); // 계좌번호 유효 체크
   const [adjustTaskHeight, setAdjustTaskHeight] = useState("");
 
   const keyboardRef = useRef(null);
