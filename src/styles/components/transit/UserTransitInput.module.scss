@@ -1,5 +1,13 @@
 @import "../../components/keypadDrawer.module.scss";
 
+.transitBox {
+  //background-color: red;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 .userTransit {
   padding-top: 76px;
   .transitTitle {
@@ -52,9 +60,11 @@
       box-shadow: none;
       user-select: none;
       &::placeholder {
-        font-family: 'KBB', sans-serif;
+        font-family: 'KBM', sans-serif;
         font-weight: normal;
         font-size: 19px;
+        letter-spacing: -0.0125em;
+        color: #C6CBD0;
       }
     }
     .clearBtn {
@@ -91,6 +101,20 @@
           background-color: #c4c4c4;
         }
       }
+    }
+  }
+  .userTransitDiv {
+    background-color: #fff;
+    border-bottom: 2px solid #B0986A;
+    height: 44px;
+    line-height: 44px;
+    margin-top: 23px;
+    p {
+      font-family: 'KBM', sans-serif;
+      font-weight: normal;
+      font-size: 19px;
+      letter-spacing: -0.0125em;
+      color: #C6CBD0;
     }
   }
   .descContainer {
