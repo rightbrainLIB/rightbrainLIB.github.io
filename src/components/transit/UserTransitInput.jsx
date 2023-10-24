@@ -21,6 +21,7 @@ const UserTransitInput = () => {
         className={$style.accountInput}
         allowClear={true}
         onClick={onClickAccountNum}
+        readOnly
       />
       <ul className={$style.userAccountNumUtil}>
         <li>
