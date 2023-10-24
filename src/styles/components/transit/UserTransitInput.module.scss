@@ -99,7 +99,8 @@
     display: flex;
     overflow-x: auto;
     button {
-      flex: 1 0 auto;
+      flex: 0 1 auto;
+      //flex: 1 0 auto;
     }
     p, button {
       margin-bottom: 2px;

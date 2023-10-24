@@ -28,11 +28,12 @@ const TransitCompleteConfirm = () => {
   const [numDrawerOpen, setNumDrawerOpen] = useState(false); // 계좌번호 입력 키패드 바텀시트
   const [amount, setAmount] = useState("");
   const [currency, setCurrency] = useState("");
-  const [chkAccountValid, setChkAccountValid] = useState(true); // 계좌번호 유효 체크
+  const [chkAccountValid, setChkAccountValid] = useState(false); // 계좌번호 유효 체크
   const [adjustTaskHeight, setAdjustTaskHeight] = useState("");
 
   const keyboardRef = useRef(null);
   const accountNumRef = useRef(null);
+  const accountValueRef = useRef('');
 
 
   const showDrawer = useCallback(() => {
@@ -64,8 +65,11 @@ const TransitCompleteConfirm = () => {
   // 키패드 누를시 실행
   const onChangeAccountNum = useCallback(
     (input) => {
-      if (input.length < 13) {
+      if (input.length <= 13) {
         setAccountValue(input);
+        accountValueRef.current = input; // ref 값을 직접 변경
+      } else {
+        keyboardRef.current.setInput(accountValueRef.current, 'accountInput');
       }
     },
     [accountValue, accountNum]
@@ -91,14 +95,17 @@ const TransitCompleteConfirm = () => {
   const onClickDrawerConfirm = useCallback(
     () => {
       if (accountValue.length === 0) return;
-      if (accountValue.length <= 13) {
-        dispatch(setAccountNum(accountValue));
-        // setChkAccountValid(true);
-        setNumDrawerOpen(false);
-        setBankBSOpen(true);
-      }
+      // if (accountValue.length <= 13) {
+      //   dispatch(setAccountNum(accountValue));
+      //   // setChkAccountValid(true);
+      //   setNumDrawerOpen(false);
+      //   setBankBSOpen(true);
+      // }
+      // dispatch(setAccountNum(accountValue));
+      setNumDrawerOpen(false);
+      setBankBSOpen(true);
     },
-    [accountValue, accountNum, chkAccountValid]
+    [accountValue, accountValue]
   );
 
   // 은행/증권사 바텀시트 열기/닫기
@@ -123,6 +130,25 @@ const TransitCompleteConfirm = () => {
     }
   }, [numDrawerOpen, accountNum]);
 
+  const onClickBankSH = useCallback(() => {
+    dispatch(setAccountNum(accountValue));
+    setChkAccountValid(true);
+  }, [accountValue, accountNum, chkAccountValid]);
+
+  // 상태 업데이트: ref 값이 변경될 때마다 실행
+  useEffect(() => {
+    setAccountValue(accountValueRef.current);
+  }, [accountValueRef.current]);
+
+  useEffect(() => {
+    // 상태 업데이트: ref 값이 변경될 때마다 실행
+    // 여기서 계좌번호의 길이를 체크하여 상태 업데이트 제한 적용
+    if (accountValueRef.current.length <= 13) {
+      setAccountValue(accountValueRef.current);
+      // dispatch(setAccountNum(accountValueRef.current));
+    }
+  }, [accountValueRef.current]);
+
   useEffect(() => {
     if (displayPriceVal) {
       setAmount(displayPriceVal.split(" ")[0]);
@@ -131,14 +157,29 @@ const TransitCompleteConfirm = () => {
   }, [displayPriceVal]);
 
   useEffect(() => {
-    if (accountNum.length < 13) {
-      setChkAccountValid(false);
-    } else {
-      if (bankBSOpen) return;
-      if (testType === 'task3') return;
+    // if (accountNum.length < 13) {
+    //   setChkAccountValid(false);
+    // } else {
+    //   if (bankBSOpen) return;
+    //   if (testType === 'task3') return;
+    //   setChkAccountValid(true);
+    // }
+    if (accountNum.length > 0) {
       setChkAccountValid(true);
     }
   }, [accountNum, chkAccountValid]);
+
+  useEffect(() => {
+    if (numDrawerOpen) {
+      if (accountNum) {
+        setAccountValue(accountNum);
+        keyboardRef.current.setInput(accountNum, 'accountInput');
+      } else {
+        setAccountValue('1101200708094');
+        keyboardRef.current.setInput('1101200708094', 'accountInput');
+      }
+    }
+  }, [numDrawerOpen]);
 
   useEffect(() => {
     if (testType === "task3") {
@@ -251,7 +292,6 @@ const TransitCompleteConfirm = () => {
           </div>
         </div>
         <div className={$style.bottomBtn}>
-          {/*chkAccountValid*/}
           <Button onClick={showDrawer} disabled={!chkAccountValid}>이체</Button>
         </div>
       </div>
@@ -299,12 +339,7 @@ const TransitCompleteConfirm = () => {
             layout={{ default: ["1 2 3", "4 5 6", "7 8 9", " 0 {bksp}"] }}
             theme={"hg-theme-default hg-layout-numeric numeric-theme"}
             display={{ "{bksp}": `<img src="${iconDelete}" alt="" />` }}
-            onChange={(e) => {
-              if (e.length <= 13) {
-                setAccountValue(e);
-                onChangeAccountNum(e);
-              }
-            }}
+            onChange={onChangeAccountNum}
             baseClass={`${$style.customKeypad}`}
             useTouchEvents={true}
             disableButtonHold={true}
@@ -315,12 +350,10 @@ const TransitCompleteConfirm = () => {
       </Drawer>
 
       <BankBottomSheet
-        setBankValue={(val) => {
-          setChkAccountValid(true);
-          return setBankValue(val);
-        }}
+        setBankValue={(val) => setBankValue(val)}
         open={bankBSOpen}
         handleOpen={handleBankBSOpen}
+        onClickBankSH={onClickBankSH}
       >
       </BankBottomSheet>
     </>

@@ -247,9 +247,11 @@ const TransitInput = () => {
         </div>
       </Drawer>
       <BankBottomSheet
+        bankValue={bankValue}
         setBankValue={(val) => clickBankValue(val)}
         open={bankBSOpen}
         handleOpen={handleBankBSOpen}
+        onClickBankSH={() => ''}
       />
       {
         bankValue !== "" &&
