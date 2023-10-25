@@ -219,7 +219,7 @@ const TransferInput = () => {
             display= {{"{bksp}": `<img src="${iconDelete}" alt="" />`}}
             onChange={(e)=> onChangeUserPrice(e)}
             baseClass={`${$style.customKeypad}`}
-            useTouchEvents={true}
+            // useTouchEvents={true}
           />
         </div>
       </Drawer>
