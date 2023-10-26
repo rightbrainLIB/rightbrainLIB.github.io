@@ -151,7 +151,7 @@ const TransitInput = () => {
         onClick={() => handleBankBSOpen(true)}
         allowClear={{clearIcon: <span></span>}}
       />
-      { bankValue === "" && testType === "task1" || testType === "task3" ?
+      { bankValue === "" && (testType === "task1" || testType === "task3") ?
         <div className={$style.descContainer}>
           <div className={$style.descWrap}>
             {
