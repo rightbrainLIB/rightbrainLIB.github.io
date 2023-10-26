@@ -22,7 +22,7 @@ const TransitCompleteConfirm = () => {
   const dispatch = useDispatch();
 
   const [mopen, setMopen] = useState(false);
-  const [bankValue, setBankValue] = useState('');
+  const [bankValue, setBankValue] = useState("");
   const [bankBSOpen, setBankBSOpen] = useState(false); // 은행/증권사 바텀시트
   const [accountValue, setAccountValue] = useState("");
   const [numDrawerOpen, setNumDrawerOpen] = useState(false); // 계좌번호 입력 키패드 바텀시트
@@ -33,8 +33,7 @@ const TransitCompleteConfirm = () => {
 
   const keyboardRef = useRef(null);
   const accountNumRef = useRef(null);
-  const accountValueRef = useRef('');
-
+  const accountValueRef = useRef("");
 
   const showDrawer = useCallback(() => {
     setMopen(true);
@@ -53,7 +52,7 @@ const TransitCompleteConfirm = () => {
       body: "CmodalBody",
     },
     height: adjustTaskHeight, // "429px", "372px"
-    forceRender: true
+    forceRender: true,
   };
 
   const testType = useSelector((state) => state.transit.testType);
@@ -69,7 +68,7 @@ const TransitCompleteConfirm = () => {
         setAccountValue(input);
         accountValueRef.current = input; // ref 값을 직접 변경
       } else {
-        keyboardRef.current.setInput(accountValueRef.current, 'accountInput');
+        keyboardRef.current.setInput(accountValueRef.current, "accountInput");
       }
     },
     [accountValue, accountNum]
@@ -92,43 +91,46 @@ const TransitCompleteConfirm = () => {
   }, []);
 
   // 계좌번호 입력 키패드 '확인' 선택
-  const onClickDrawerConfirm = useCallback(
-    () => {
-      if (accountValue.length === 0) return;
-      // if (accountValue.length <= 13) {
-      //   dispatch(setAccountNum(accountValue));
-      //   // setChkAccountValid(true);
-      //   setNumDrawerOpen(false);
-      //   setBankBSOpen(true);
-      // }
-      // dispatch(setAccountNum(accountValue));
-      setNumDrawerOpen(false);
-      setBankBSOpen(true);
-    },
-    [accountValue, accountValue]
-  );
+  const onClickDrawerConfirm = useCallback(() => {
+    if (accountValue.length === 0) return;
+    // if (accountValue.length <= 13) {
+    //   dispatch(setAccountNum(accountValue));
+    //   // setChkAccountValid(true);
+    //   setNumDrawerOpen(false);
+    //   setBankBSOpen(true);
+    // }
+    // dispatch(setAccountNum(accountValue));
+    setNumDrawerOpen(false);
+    setBankBSOpen(true);
+  }, [accountValue, accountValue]);
 
   // 은행/증권사 바텀시트 열기/닫기
-  const handleBankBSOpen = useCallback((value) => {
-    if (accountNumRef.current) {
-      accountNumRef.current.blur();
-    }
-    setNumDrawerOpen(false);
-    setBankBSOpen(value);
-  }, [bankBSOpen, accountNumRef.current]);
+  const handleBankBSOpen = useCallback(
+    (value) => {
+      if (accountNumRef.current) {
+        accountNumRef.current.blur();
+      }
+      setNumDrawerOpen(false);
+      setBankBSOpen(value);
+    },
+    [bankBSOpen, accountNumRef.current]
+  );
 
   // 계좌번호 입력 키패드 활성화시 Input에 현재 계좌번호 불러오기
-  const afterOpenAccountKeypad = useCallback((val) => {
-    if (val) {
-      if (accountNum) {
-        setAccountValue(accountNum);
-        keyboardRef.current.setInput(accountNum, 'accountInput');
-      } else {
-        setAccountValue('1101200708094');
-        keyboardRef.current.setInput('1101200708094', 'accountInput');
+  const afterOpenAccountKeypad = useCallback(
+    (val) => {
+      if (val) {
+        if (accountNum) {
+          setAccountValue(accountNum);
+          keyboardRef.current.setInput(accountNum, "accountInput");
+        } else {
+          setAccountValue("1101200708094");
+          keyboardRef.current.setInput("1101200708094", "accountInput");
+        }
       }
-    }
-  }, [numDrawerOpen, accountNum]);
+    },
+    [numDrawerOpen, accountNum]
+  );
 
   const onClickBankSH = useCallback(() => {
     dispatch(setAccountNum(accountValue));
@@ -173,10 +175,10 @@ const TransitCompleteConfirm = () => {
     if (numDrawerOpen) {
       if (accountNum) {
         setAccountValue(accountNum);
-        keyboardRef.current.setInput(accountNum, 'accountInput');
+        keyboardRef.current.setInput(accountNum, "accountInput");
       } else {
-        setAccountValue('1101200708094');
-        keyboardRef.current.setInput('1101200708094', 'accountInput');
+        setAccountValue("1101200708094");
+        keyboardRef.current.setInput("1101200708094", "accountInput");
       }
     }
   }, [numDrawerOpen]);
@@ -188,9 +190,9 @@ const TransitCompleteConfirm = () => {
       setChkAccountValid(true);
     }
     if (testType === "task1") {
-      setAdjustTaskHeight("423px")
+      setAdjustTaskHeight("423px");
     } else {
-      setAdjustTaskHeight("372px")
+      setAdjustTaskHeight("372px");
     }
   }, [testType]);
 
@@ -267,8 +269,7 @@ const TransitCompleteConfirm = () => {
           <div className={$style.name}>
             김국민 <img src={iconArrow} alt="" />
           </div>
-          {
-            chkAccountValid &&
+          {chkAccountValid && (
             <>
               <p>내 통장 표시</p>
               <div className={$style.name}>
@@ -280,15 +281,17 @@ const TransitCompleteConfirm = () => {
               </div>
               <div className={$style.evaluateText}>
                 <span className={$style.imgBox}>
-                  <img src={iconSiren} alt=""/>
+                  <img src={iconSiren} alt="" />
                 </span>
                 <p>받는분이 사기의심계좌인지 조회할 수 있어요</p>
               </div>
             </>
-          }
+          )}
         </div>
         <div className={$style.bottomBtn}>
-          <Button onClick={showDrawer} disabled={!chkAccountValid}>이체</Button>
+          <Button onClick={showDrawer} disabled={!chkAccountValid}>
+            이체
+          </Button>
         </div>
       </div>
       <TransitCompleteModal drawerProps={drawerProps} />
@@ -350,8 +353,7 @@ const TransitCompleteConfirm = () => {
         open={bankBSOpen}
         handleOpen={handleBankBSOpen}
         onClickBankSH={onClickBankSH}
-      >
-      </BankBottomSheet>
+      ></BankBottomSheet>
     </>
   );
 };

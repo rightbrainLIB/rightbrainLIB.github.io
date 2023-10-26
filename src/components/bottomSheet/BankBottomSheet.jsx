@@ -19,9 +19,9 @@ import CI_TOSS from "@imgs/ci/CI_토스뱅크_24.svg";
 import CI_KYUNGNAM from "@imgs/ci/CI_경남_24.svg";
 import CI_DAEGOO from "@imgs/ci/CI_대구_24.svg";
 import BottomSheetCloseIcon from "@components/icons/BottomSheetCloseIcon.jsx";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const BankBottomSheet = ({ bankValue, accountValue, accountInput, bankInputInput, open, handleOpen, setBankValue, keypadOpen, onClickBankSH }) => {
+const BankBottomSheet = ({ bankValue, accountValue, open, handleOpen, setBankValue, keypadOpen, onClickBankSH }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
