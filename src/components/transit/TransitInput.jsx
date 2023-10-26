@@ -102,7 +102,6 @@ const TransitInput = () => {
       navigate('/transferInput');
     }
   }, [navigate, accountValue]);
-
   const afterOpenChangeKeyboard = useCallback((val) => {
     if (val) {
       accountNumRef.current.input.placeholder = '';
@@ -143,7 +142,7 @@ const TransitInput = () => {
         }
       />
       <Input
-        // ref={bankInputRef}
+      // ref={bankInputRef}
         value={bankValue}
         placeholder={"은행/증권사"}
         inputMode="none"
