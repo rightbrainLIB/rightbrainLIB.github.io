@@ -121,7 +121,7 @@ const TransitInput = () => {
   useEffect(() => {
     setNumDrawerOpen(true);
   }, []);
-
+  
   return (
     <div className={$style.userTransit}>
       <div className={$style.transitTitle}>
@@ -254,6 +254,7 @@ const TransitInput = () => {
         setBankValue={(val) => clickBankValue(val)}
         keypadOpen={() => setNumDrawerOpen(true)}
         open={bankBSOpen}
+        accountValue={accountValue}
         handleOpen={handleBankBSOpen}
         onClickBankSH={() => ''}
       />

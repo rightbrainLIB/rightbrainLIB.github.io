@@ -21,18 +21,14 @@ import CI_DAEGOO from "@imgs/ci/CI_대구_24.svg";
 import BottomSheetCloseIcon from "@components/icons/BottomSheetCloseIcon.jsx";
 import {useDispatch, useSelector} from "react-redux";
 
-const BankBottomSheet = ({ bankValue, open, handleOpen, setBankValue, keypadOpen, onClickBankSH }) => {
+const BankBottomSheet = ({ bankValue,accountValue, open, handleOpen, setBankValue, keypadOpen, onClickBankSH }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const testType = useSelector(state => state.transit.testType)
-  const accountNum = useSelector(state => state.transit.accountNum);
-
   const onCloseBankBottomSheet = useCallback(() => {
     handleOpen(false);
   }, [open, handleOpen]);
-
   const onClickBank = useCallback((e) => {
     // setBankValue(e.currentTarget.childNodes[1].innerText);
     setBankValue("신한");
@@ -40,7 +36,7 @@ const BankBottomSheet = ({ bankValue, open, handleOpen, setBankValue, keypadOpen
     if (typeof onClickBank === 'function') {
       onClickBankSH()
     }
-    if (!accountNum) {
+    if (!accountValue) {
       navigate('/accountTransfer');
       keypadOpen();
     }
@@ -58,7 +54,7 @@ const BankBottomSheet = ({ bankValue, open, handleOpen, setBankValue, keypadOpen
       if (!bankValue) return;
       navigate('/transferInput');
     }
-    if (!accountNum) {
+    if (!accountValue) {
       navigate('/accountTransfer');
     }
   }, [navigate, location.pathname, bankValue]);
