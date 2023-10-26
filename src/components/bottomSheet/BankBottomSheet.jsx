@@ -21,12 +21,13 @@ import CI_DAEGOO from "@imgs/ci/CI_대구_24.svg";
 import BottomSheetCloseIcon from "@components/icons/BottomSheetCloseIcon.jsx";
 import {useDispatch, useSelector} from "react-redux";
 
-const BankBottomSheet = ({ bankValue, open, handleOpen, setBankValue, onClickBankSH }) => {
+const BankBottomSheet = ({ bankValue, open, handleOpen, setBankValue, keypadOpen, onClickBankSH }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
   const testType = useSelector(state => state.transit.testType)
+  const accountNum = useSelector(state => state.transit.accountNum);
 
   const onCloseBankBottomSheet = useCallback(() => {
     handleOpen(false);
@@ -38,6 +39,10 @@ const BankBottomSheet = ({ bankValue, open, handleOpen, setBankValue, onClickBan
     handleOpen(false);
     if (typeof onClickBank === 'function') {
       onClickBankSH()
+    }
+    if (!accountNum) {
+      navigate('/accountTransfer');
+      keypadOpen();
     }
   }, [navigate, bankValue, onClickBankSH]);
 
@@ -52,6 +57,9 @@ const BankBottomSheet = ({ bankValue, open, handleOpen, setBankValue, onClickBan
       }
       if (!bankValue) return;
       navigate('/transferInput');
+    }
+    if (!accountNum) {
+      navigate('/accountTransfer');
     }
   }, [navigate, location.pathname, bankValue]);
 

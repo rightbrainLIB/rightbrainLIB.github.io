@@ -5,12 +5,16 @@ import {Button} from "antd";
 import HeaderBack from "./icons/HeaderBack.jsx";
 import HeaderHome from "./icons/HeaderHome.jsx";
 import HeaderMenu from "./icons/HeaderMenu.jsx";
+import {useDispatch} from "react-redux";
+import { setAccountNum } from "@slices/transit.js";
 
 const KBSecondHeader = () => {
   const navigate = useNavigate ();
+  const dispatch = useDispatch();
 
   const onClickBack = useCallback(() => {
     navigate(-1);
+    dispatch(setAccountNum(''));
   }, []);
 
   return (

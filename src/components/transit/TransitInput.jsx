@@ -64,6 +64,9 @@ const TransitInput = () => {
     dispatch(setAccountNum(accountValue));
     setNumDrawerOpen(false);
     if (bankValue === '') setBankBSOpen(true);
+    if (bankValue !== '') {
+      navigate('/transferInput');
+    }
     if (accountNumRef.current) {
       accountNumRef.current.blur();
     }
@@ -249,6 +252,7 @@ const TransitInput = () => {
       <BankBottomSheet
         bankValue={bankValue}
         setBankValue={(val) => clickBankValue(val)}
+        keypadOpen={() => setNumDrawerOpen(true)}
         open={bankBSOpen}
         handleOpen={handleBankBSOpen}
         onClickBankSH={() => ''}
