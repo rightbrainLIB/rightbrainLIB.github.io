@@ -267,25 +267,25 @@ const TransitCompleteConfirm = () => {
           <div className={$style.name}>
             김국민 <img src={iconArrow} alt="" />
           </div>
-          <p>내 통장 표시</p>
-          <div className={$style.name}>
-            {
-              chkAccountValid &&
-              <>
-                이지영
-              </>
-            }
-            <img src={iconArrow} alt="" />
-          </div>
-          <div className={$style.desc}>
-            <img src={textAdd} alt="" />
-          </div>
-          <div className={$style.evaluateText}>
-            <span className={$style.imgBox}>
-              <img src={iconSiren} alt=""/>
-            </span>
-            <p>받는분이 사기의심계좌인지 조회할 수 있어요</p>
-          </div>
+          {/*<p>내 통장 표시</p>*/}
+          {/*<div className={$style.name}>*/}
+          {/*  {*/}
+          {/*    chkAccountValid &&*/}
+          {/*    <>*/}
+          {/*      이지영*/}
+          {/*    </>*/}
+          {/*  }*/}
+          {/*  <img src={iconArrow} alt="" />*/}
+          {/*</div>*/}
+          {/*<div className={$style.desc}>*/}
+          {/*  <img src={textAdd} alt="" />*/}
+          {/*</div>*/}
+          {/*<div className={$style.evaluateText}>*/}
+          {/*  <span className={$style.imgBox}>*/}
+          {/*    <img src={iconSiren} alt=""/>*/}
+          {/*  </span>*/}
+          {/*  <p>받는분이 사기의심계좌인지 조회할 수 있어요</p>*/}
+          {/*</div>*/}
         </div>
         <div className={$style.bottomBtn}>
           <Button onClick={showDrawer} disabled={!chkAccountValid}>이체</Button>
