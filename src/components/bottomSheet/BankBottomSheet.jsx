@@ -19,9 +19,18 @@ import CI_TOSS from "@imgs/ci/CI_토스뱅크_24.svg";
 import CI_KYUNGNAM from "@imgs/ci/CI_경남_24.svg";
 import CI_DAEGOO from "@imgs/ci/CI_대구_24.svg";
 import BottomSheetCloseIcon from "@components/icons/BottomSheetCloseIcon.jsx";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-const BankBottomSheet = ({ bankValue,accountValue, open, handleOpen, setBankValue, keypadOpen, onClickBankSH }) => {
+const BankBottomSheet = ({
+  bankValue,
+  accountValue,
+  open,
+  handleOpen,
+  setBankValue,
+  keypadOpen,
+  onClickBankSH,
+  testType,
+}) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,35 +38,46 @@ const BankBottomSheet = ({ bankValue,accountValue, open, handleOpen, setBankValu
   const onCloseBankBottomSheet = useCallback(() => {
     handleOpen(false);
   }, [open, handleOpen]);
-  const onClickBank = useCallback((e) => {
-    // setBankValue(e.currentTarget.childNodes[1].innerText);
-    setBankValue("신한");
-    handleOpen(false);
-    if (typeof onClickBank === 'function') {
-      onClickBankSH()
-    }
-    if (!accountValue) {
-      navigate('/accountTransfer');
-      keypadOpen();
-    }
-  }, [navigate, bankValue, onClickBankSH]);
+  const onClickBank = useCallback(
+    (e) => {
+      // setBankValue(e.currentTarget.childNodes[1].innerText);
+      setBankValue("신한");
+      handleOpen(false);
+      if (typeof onClickBank === "function") {
+        onClickBankSH();
+      }
+      if (testType === "task3" && !accountValue) {
+        return;
+      } else {
+        navigate("/accountTransfer");
+        keypadOpen();
+      }
+    },
+    [navigate, bankValue, onClickBankSH]
+  );
 
   // const onClickBack = useCallback(() => {
   //   navigate(-1);
   // }, []);
 
-  const afterOpenChangeBankBS = useCallback( val => {
-    if (!val) {
-      if (location.pathname === '/transitCompleteConfirm') {
-        return;
+  const afterOpenChangeBankBS = useCallback(
+    (val) => {
+      if (!val) {
+        if (location.pathname === "/transitCompleteConfirm") {
+          return;
+        }
+        if (!bankValue) return;
+        navigate("/transferInput");
       }
-      if (!bankValue) return;
-      navigate('/transferInput');
-    }
-    if (!accountValue) {
-      navigate('/accountTransfer');
-    }
-  }, [navigate, location.pathname, bankValue]);
+      if (testType === "task3" && !accountValue) {
+        return;
+      } else {
+        navigate("/accountTransfer");
+        keypadOpen();
+      }
+    },
+    [navigate, location.pathname, bankValue]
+  );
 
   return (
     <Drawer
